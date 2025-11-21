@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://biiatvl64b2y1"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_5ap7x"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_lr4sv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76wec"]
+atlas = ExtResource("1_5ap7x")
+region = Rect2(64, 32, 32, 32)
+
+[resource]
+resource_name = "Garden"
+script = ExtResource("2_lr4sv")
+key = "Garden"
+icon = SubResource("AtlasTexture_76wec")
+color_1 = Color(0.70980394, 1, 0.7411765, 1)
+color_2 = Color(0.12941177, 0.6784314, 0.0627451, 1)

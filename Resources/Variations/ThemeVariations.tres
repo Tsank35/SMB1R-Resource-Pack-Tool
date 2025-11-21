@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="VariationCategory" load_steps=24 format=3 uid="uid://ubj4tkpcf21g"]
+
+[ext_resource type="Script" uid="uid://dqnrdbi1868qg" path="res://Scripts/Resources/VariationCategory.gd" id="1_8lyok"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_c0q12"]
+[ext_resource type="Resource" uid="uid://drq2ttbuc25aa" path="res://Resources/Variations/Themes/Default.tres" id="3_u1bee"]
+[ext_resource type="Resource" uid="uid://dlio0y27pdgib" path="res://Resources/Variations/Themes/Overworld.tres" id="4_prg3a"]
+[ext_resource type="Resource" uid="uid://cnu04y3vgptpx" path="res://Resources/Variations/Themes/Underground.tres" id="5_wajf3"]
+[ext_resource type="Resource" uid="uid://beimyesobdvtl" path="res://Resources/Variations/Themes/Desert.tres" id="6_3sfsd"]
+[ext_resource type="Resource" uid="uid://cghsktjgmtvra" path="res://Resources/Variations/Themes/Snow.tres" id="7_8l31x"]
+[ext_resource type="Resource" uid="uid://gwqg0a00ilbw" path="res://Resources/Variations/Themes/Jungle.tres" id="8_m7dmh"]
+[ext_resource type="Resource" uid="uid://biypn7eo8myi1" path="res://Resources/Variations/Themes/Beach.tres" id="9_0n342"]
+[ext_resource type="Resource" uid="uid://biiatvl64b2y1" path="res://Resources/Variations/Themes/Garden.tres" id="10_36vnr"]
+[ext_resource type="Resource" uid="uid://cuf5f37awymmv" path="res://Resources/Variations/Themes/Mountain.tres" id="11_apk0q"]
+[ext_resource type="Resource" uid="uid://dg214ww26m7o" path="res://Resources/Variations/Themes/Skyland.tres" id="12_om4rp"]
+[ext_resource type="Resource" uid="uid://dxqtaa88flry5" path="res://Resources/Variations/Themes/Autumn.tres" id="13_hbivk"]
+[ext_resource type="Resource" uid="uid://3e6nvln3wurv" path="res://Resources/Variations/Themes/Pipeland.tres" id="14_s8hwl"]
+[ext_resource type="Resource" uid="uid://b1gn66bclddiy" path="res://Resources/Variations/Themes/Space.tres" id="15_l6tlx"]
+[ext_resource type="Resource" uid="uid://due7hh1y83cbc" path="res://Resources/Variations/Themes/Underwater.tres" id="16_qv7b6"]
+[ext_resource type="Resource" uid="uid://b85oyl2fbs7o1" path="res://Resources/Variations/Themes/Volcano.tres" id="17_fjmjx"]
+[ext_resource type="Resource" uid="uid://d0sk7w3hw3du1" path="res://Resources/Variations/Themes/GhostHouse.tres" id="18_rh5nj"]
+[ext_resource type="Resource" uid="uid://cchan2wfco86j" path="res://Resources/Variations/Themes/Castle.tres" id="19_bl5qs"]
+[ext_resource type="Resource" uid="uid://jecwjomkstb3" path="res://Resources/Variations/Themes/CastleWater.tres" id="20_d6o76"]
+[ext_resource type="Resource" uid="uid://cnsi10gdv7fhf" path="res://Resources/Variations/Themes/Airship.tres" id="21_uo37a"]
+[ext_resource type="Resource" uid="uid://diuyb8bo3a6ix" path="res://Resources/Variations/Themes/Bonus.tres" id="22_e264q"]
+[ext_resource type="Resource" uid="uid://cv6wxf4n1473n" path="res://Resources/Variations/OtherVariation.tres" id="23_prg3a"]
+
+[resource]
+resource_name = "Theme"
+script = ExtResource("1_8lyok")
+variations = Array[ExtResource("2_c0q12")]([ExtResource("3_u1bee"), ExtResource("4_prg3a"), ExtResource("5_wajf3"), ExtResource("6_3sfsd"), ExtResource("7_8l31x"), ExtResource("8_m7dmh"), ExtResource("9_0n342"), ExtResource("10_36vnr"), ExtResource("11_apk0q"), ExtResource("12_om4rp"), ExtResource("13_hbivk"), ExtResource("14_s8hwl"), ExtResource("15_l6tlx"), ExtResource("16_qv7b6"), ExtResource("17_fjmjx"), ExtResource("18_rh5nj"), ExtResource("19_bl5qs"), ExtResource("20_d6o76"), ExtResource("21_uo37a"), ExtResource("22_e264q"), ExtResource("23_prg3a")])
+metadata/_custom_type_script = "uid://dqnrdbi1868qg"

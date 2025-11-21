@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://bsrleba4i23yd"]
+
+[ext_resource type="Texture2D" uid="uid://c5oailalf82k" path="res://Assets/Variations/Campaigns.png" id="1_325qc"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_bfywt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_325qc"]
+atlas = ExtResource("1_325qc")
+region = Rect2(136, 0, 68, 68)
+
+[resource]
+resource_name = "Super Mario Bros. Special"
+script = ExtResource("2_bfywt")
+key = "SMBS"
+icon = SubResource("AtlasTexture_325qc")
+color_1 = Color(1, 0.54901963, 0.7411765, 1)
+color_2 = Color(0.96862745, 0.22352941, 0.0627451, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

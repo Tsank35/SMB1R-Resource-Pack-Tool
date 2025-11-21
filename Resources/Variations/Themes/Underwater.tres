@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://due7hh1y83cbc"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_miby8"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_sosy5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3lcx"]
+atlas = ExtResource("1_miby8")
+region = Rect2(96, 64, 32, 32)
+
+[resource]
+resource_name = "Underwater"
+script = ExtResource("2_sosy5")
+key = "Underwater"
+icon = SubResource("AtlasTexture_d3lcx")
+color_2 = Color(0.19607843, 0.20392157, 0.8627451, 1)
+color_3 = Color(0.12941177, 0.12941177, 0.64705884, 1)

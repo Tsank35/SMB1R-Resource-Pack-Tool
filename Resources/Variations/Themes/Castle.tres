@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://cchan2wfco86j"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_yigmk"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_8icqa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kalyl"]
+atlas = ExtResource("1_yigmk")
+region = Rect2(32, 96, 32, 32)
+
+[resource]
+resource_name = "Castle"
+script = ExtResource("2_8icqa")
+key = "Castle"
+icon = SubResource("AtlasTexture_kalyl")
+color_2 = Color(0.7372549, 0.7372549, 0.7372549, 1)
+color_3 = Color(0.4745098, 0.4745098, 0.4745098, 1)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://b1gn66bclddiy"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_7lm32"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_nyld8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlmxk"]
+atlas = ExtResource("1_7lm32")
+region = Rect2(64, 64, 32, 32)
+
+[resource]
+resource_name = "Space"
+script = ExtResource("2_nyld8")
+key = "Space"
+icon = SubResource("AtlasTexture_qlmxk")
+color_1 = Color(0.65882355, 0.6392157, 0.8509804, 1)
+color_2 = Color(0.34509805, 0.37254903, 0.5019608, 1)

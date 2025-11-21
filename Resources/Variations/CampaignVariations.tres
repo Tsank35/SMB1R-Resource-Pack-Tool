@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="VariationCategory" load_steps=8 format=3 uid="uid://bjdvxdwlp0ndy"]
+
+[ext_resource type="Script" uid="uid://dqnrdbi1868qg" path="res://Scripts/Resources/VariationCategory.gd" id="1_ywqej"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_0heom"]
+[ext_resource type="Resource" uid="uid://b1m1bmdfognce" path="res://Resources/Variations/Campaigns/SMB1.tres" id="3_waesy"]
+[ext_resource type="Resource" uid="uid://dhsushv56rp2r" path="res://Resources/Variations/Campaigns/SMBLL.tres" id="4_gseck"]
+[ext_resource type="Resource" uid="uid://bsrleba4i23yd" path="res://Resources/Variations/Campaigns/SMBS.tres" id="5_yp3hl"]
+[ext_resource type="Resource" uid="uid://co11udf3weaam" path="res://Resources/Variations/Campaigns/SMBANN.tres" id="6_4cpqb"]
+[ext_resource type="Resource" uid="uid://cv6wxf4n1473n" path="res://Resources/Variations/OtherVariation.tres" id="7_gseck"]
+
+[resource]
+resource_name = "Campaign"
+script = ExtResource("1_ywqej")
+variations = Array[ExtResource("2_0heom")]([ExtResource("3_waesy"), ExtResource("4_gseck"), ExtResource("5_yp3hl"), ExtResource("6_4cpqb"), ExtResource("7_gseck")])
+metadata/_custom_type_script = "uid://dqnrdbi1868qg"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VariationCategory" load_steps=6 format=3 uid="uid://cduaxpqv5dsso"]
+
+[ext_resource type="Script" uid="uid://dqnrdbi1868qg" path="res://Scripts/Resources/VariationCategory.gd" id="1_y3a3w"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_4esqt"]
+[ext_resource type="Resource" uid="uid://c8rnocnyagtg1" path="res://Resources/Variations/Times/Day.tres" id="3_4dhjc"]
+[ext_resource type="Resource" uid="uid://bjb8b2mtkvpvj" path="res://Resources/Variations/Times/Night.tres" id="4_ov6nn"]
+[ext_resource type="Resource" uid="uid://cv6wxf4n1473n" path="res://Resources/Variations/OtherVariation.tres" id="5_ov6nn"]
+
+[resource]
+resource_name = "Time"
+script = ExtResource("1_y3a3w")
+variations = Array[ExtResource("2_4esqt")]([ExtResource("3_4dhjc"), ExtResource("4_ov6nn"), ExtResource("5_ov6nn")])
+metadata/_custom_type_script = "uid://dqnrdbi1868qg"

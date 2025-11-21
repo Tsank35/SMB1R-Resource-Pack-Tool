@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://dw6mus1sx56je"]
+
+[ext_resource type="Texture2D" uid="uid://frucsi83ykay" path="res://Assets/Variations/Rooms.png" id="1_11lvm"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_bu5n1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11lvm"]
+atlas = ExtResource("1_11lvm")
+region = Rect2(128, 0, 32, 32)
+
+[resource]
+resource_name = "Title Screen"
+script = ExtResource("2_bu5n1")
+key = "TitleScreen"
+icon = SubResource("AtlasTexture_11lvm")
+color_1 = Color(0.7294118, 0.38039216, 0.06666667, 1)
+color_2 = Color(1, 0.6666667, 0.2784314, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

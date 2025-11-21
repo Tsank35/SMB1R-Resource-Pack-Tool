@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="VariationCategory" load_steps=9 format=3 uid="uid://c7s3vwpeu4fkr"]
+
+[ext_resource type="Script" uid="uid://dqnrdbi1868qg" path="res://Scripts/Resources/VariationCategory.gd" id="1_yim7u"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_dmvgk"]
+[ext_resource type="Resource" uid="uid://devurwlq16etw" path="res://Resources/Variations/Rooms/MainRoom.tres" id="3_2ks8t"]
+[ext_resource type="Resource" uid="uid://bo3sl16ynf2r4" path="res://Resources/Variations/Rooms/BonusRoom.tres" id="4_7sbid"]
+[ext_resource type="Resource" uid="uid://dhtpn75wchibk" path="res://Resources/Variations/Rooms/CoinHeaven.tres" id="5_v04he"]
+[ext_resource type="Resource" uid="uid://dlsgy2nqiqs1i" path="res://Resources/Variations/Rooms/PipeCutscene.tres" id="6_bw7w0"]
+[ext_resource type="Resource" uid="uid://dw6mus1sx56je" path="res://Resources/Variations/Rooms/TitleScreen.tres" id="7_pxir6"]
+[ext_resource type="Resource" uid="uid://cv6wxf4n1473n" path="res://Resources/Variations/OtherVariation.tres" id="8_7sbid"]
+
+[resource]
+resource_name = "Room"
+script = ExtResource("1_yim7u")
+variations = Array[ExtResource("2_dmvgk")]([ExtResource("3_2ks8t"), ExtResource("4_7sbid"), ExtResource("5_v04he"), ExtResource("6_bw7w0"), ExtResource("7_pxir6"), ExtResource("8_7sbid")])
+metadata/_custom_type_script = "uid://dqnrdbi1868qg"

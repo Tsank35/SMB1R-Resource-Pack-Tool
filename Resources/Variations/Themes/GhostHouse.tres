@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://d0sk7w3hw3du1"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_m4wpj"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_vnr0k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdly0"]
+atlas = ExtResource("1_m4wpj")
+region = Rect2(0, 96, 32, 32)
+
+[resource]
+resource_name = "Ghost House"
+script = ExtResource("2_vnr0k")
+key = "GhostHouse"
+icon = SubResource("AtlasTexture_cdly0")
+color_1 = Color(0.08627451, 0.34901962, 0.4, 1)
+color_2 = Color(0.039215688, 0.17254902, 0.19607843, 1)
+color_3 = Color(0, 0, 0, 1)

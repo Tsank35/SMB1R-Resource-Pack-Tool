@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://bxsf21ftygpj"]
+
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="1_k2e65"]
+[ext_resource type="Texture2D" uid="uid://d3iwawm455rf1" path="res://Assets/Variations/GameModes.png" id="1_kfuxr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b43us"]
+atlas = ExtResource("1_kfuxr")
+region = Rect2(96, 32, 32, 32)
+
+[resource]
+resource_name = "Disco"
+script = ExtResource("1_k2e65")
+key = "GameMode:Disco"
+icon = SubResource("AtlasTexture_b43us")
+color_1 = Color(1, 0.6117647, 0.95686275, 1)
+color_2 = Color(0.627451, 0.1254902, 0.9411765, 1)
+color_3 = Color(0.28627452, 0, 0.2784314, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

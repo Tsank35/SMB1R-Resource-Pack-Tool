@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://dlsgy2nqiqs1i"]
+
+[ext_resource type="Texture2D" uid="uid://frucsi83ykay" path="res://Assets/Variations/Rooms.png" id="1_dw01j"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_mcogq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw01j"]
+atlas = ExtResource("1_dw01j")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+resource_name = "Pipe Cutscene"
+script = ExtResource("2_mcogq")
+key = "PipeCutscene"
+icon = SubResource("AtlasTexture_dw01j")
+color_1 = Color(0.70980394, 0.87058824, 0.19215687, 1)
+color_2 = Color(0.12941177, 0.6784314, 0.0627451, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

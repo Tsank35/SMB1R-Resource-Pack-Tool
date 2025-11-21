@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://s3liu46abfuo"]
+
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="1_0yp2e"]
+[ext_resource type="Texture2D" uid="uid://d3iwawm455rf1" path="res://Assets/Variations/GameModes.png" id="1_5sxap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lgev"]
+atlas = ExtResource("1_5sxap")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+resource_name = "Marathon"
+script = ExtResource("1_0yp2e")
+key = "GameMode:Marathon"
+icon = SubResource("AtlasTexture_6lgev")
+color_2 = Color(1, 0.69803923, 0.34901962, 1)
+color_3 = Color(0.7294118, 0.38039216, 0.06666667, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://dx2kh7246finx"]
+
+[ext_resource type="Texture2D" uid="uid://c4fwwav3k5258" path="res://Assets/Variations/Worlds.png" id="1_c2v1o"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_85lw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twbmj"]
+atlas = ExtResource("1_c2v1o")
+region = Rect2(0, 64, 32, 32)
+
+[resource]
+resource_name = "World A"
+script = ExtResource("2_85lw4")
+key = "World10"
+icon = SubResource("AtlasTexture_twbmj")
+color_1 = Color(1, 0.74509805, 0.43137255, 1)
+color_2 = Color(0.78039217, 0.39215687, 0.24313726, 1)

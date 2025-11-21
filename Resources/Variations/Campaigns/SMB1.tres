@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://b1m1bmdfognce"]
+
+[ext_resource type="Texture2D" uid="uid://c5oailalf82k" path="res://Assets/Variations/Campaigns.png" id="1_gy6t6"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="1_lg6ji"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjwyi"]
+atlas = ExtResource("1_gy6t6")
+region = Rect2(0, 0, 68, 68)
+
+[resource]
+resource_name = "Super Mario Bros."
+script = ExtResource("1_lg6ji")
+key = "SMB1"
+icon = SubResource("AtlasTexture_tjwyi")
+color_1 = Color(1, 0.6666667, 0.2784314, 1)
+color_2 = Color(0.7294118, 0.38039216, 0.06666667, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

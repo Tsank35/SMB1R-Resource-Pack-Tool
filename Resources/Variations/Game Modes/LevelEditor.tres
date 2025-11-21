@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://bxij6i8jvwok4"]
+
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="1_lnyhn"]
+[ext_resource type="Texture2D" uid="uid://d3iwawm455rf1" path="res://Assets/Variations/GameModes.png" id="1_onxwn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh5j3"]
+atlas = ExtResource("1_onxwn")
+region = Rect2(32, 32, 32, 32)
+
+[resource]
+resource_name = "Level Editor"
+script = ExtResource("1_lnyhn")
+key = "GameMode:LevelEditor"
+icon = SubResource("AtlasTexture_wh5j3")
+color_1 = Color(0.36862746, 0.36862746, 1, 1)
+color_2 = Color(0.05490196, 0.10980392, 0.6431373, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

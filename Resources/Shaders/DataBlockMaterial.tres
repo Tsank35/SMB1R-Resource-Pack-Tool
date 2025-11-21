@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bmcl8wgs3jn6v"]
+
+[ext_resource type="Shader" uid="uid://cnfghx52865jy" path="res://Resources/Shaders/DataBlockShader.gdshader" id="1_cusnq"]
+
+[resource]
+shader = ExtResource("1_cusnq")
+shader_parameter/color1 = Color(1, 1, 1, 1)
+shader_parameter/color2 = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/color3 = Color(0, 0, 0, 1)

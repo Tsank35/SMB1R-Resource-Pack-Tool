@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://bo3sl16ynf2r4"]
+
+[ext_resource type="Texture2D" uid="uid://frucsi83ykay" path="res://Assets/Variations/Rooms.png" id="1_868j6"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_lg6cd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_868j6"]
+atlas = ExtResource("1_868j6")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+resource_name = "Bonus Room"
+script = ExtResource("2_lg6cd")
+key = "BonusRoom"
+icon = SubResource("AtlasTexture_868j6")
+color_1 = Color(0.59607846, 0.7137255, 0.6784314, 1)
+color_2 = Color(0.08627451, 0.34901962, 0.4, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

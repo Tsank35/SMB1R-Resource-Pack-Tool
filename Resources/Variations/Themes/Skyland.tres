@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://dg214ww26m7o"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_5lv6g"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_wx3fl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnnvx"]
+atlas = ExtResource("1_5lv6g")
+region = Rect2(128, 32, 32, 32)
+
+[resource]
+resource_name = "Skyland"
+script = ExtResource("2_wx3fl")
+key = "Skyland"
+icon = SubResource("AtlasTexture_fnnvx")
+color_2 = Color(0.16078432, 0.80784315, 1, 1)
+color_3 = Color(0.25882354, 0.25882354, 1, 1)

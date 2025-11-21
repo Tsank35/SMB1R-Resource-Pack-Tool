@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=2 format=3 uid="uid://cgylh6i8bjt7c"]
+
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="1_fqvqq"]
+
+[resource]
+resource_name = "Other"
+script = ExtResource("1_fqvqq")
+key = "Level"
+is_custom = true
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

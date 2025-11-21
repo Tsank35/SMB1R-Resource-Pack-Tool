@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://djgq3bc1vi4mb"]
+
+[ext_resource type="Texture2D" uid="uid://blmplel24s4bo" path="res://Assets/Variations/Levels.png" id="1_aqw7u"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_4timu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqw7u"]
+atlas = ExtResource("1_aqw7u")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+resource_name = "Level 4"
+script = ExtResource("2_4timu")
+key = "Level4"
+icon = SubResource("AtlasTexture_aqw7u")
+color_2 = Color(0.7372549, 0.7372549, 0.7372549, 1)
+color_3 = Color(0.4745098, 0.4745098, 0.4745098, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

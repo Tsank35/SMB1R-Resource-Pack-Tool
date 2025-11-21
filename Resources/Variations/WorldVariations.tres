@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="VariationCategory" load_steps=18 format=3 uid="uid://fmvwnm122tbc"]
+
+[ext_resource type="Script" uid="uid://dqnrdbi1868qg" path="res://Scripts/Resources/VariationCategory.gd" id="1_co2qx"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_ogal7"]
+[ext_resource type="Resource" uid="uid://bncoexdl0crog" path="res://Resources/Variations/Worlds/World1.tres" id="3_q4woe"]
+[ext_resource type="Resource" uid="uid://q3tkw4kunt2l" path="res://Resources/Variations/Worlds/World2.tres" id="4_q324x"]
+[ext_resource type="Resource" uid="uid://dan3ufgyivqqx" path="res://Resources/Variations/Worlds/World3.tres" id="5_hii24"]
+[ext_resource type="Resource" uid="uid://r8jh37iukhoq" path="res://Resources/Variations/Worlds/World4.tres" id="6_hpvdc"]
+[ext_resource type="Resource" uid="uid://ci7h07gxje77i" path="res://Resources/Variations/Worlds/World5.tres" id="7_ng61o"]
+[ext_resource type="Resource" uid="uid://deeh67aw87nhx" path="res://Resources/Variations/Worlds/World6.tres" id="8_3le3k"]
+[ext_resource type="Resource" uid="uid://dxy01rqt8wcuo" path="res://Resources/Variations/Worlds/World7.tres" id="9_tm242"]
+[ext_resource type="Resource" uid="uid://bm7p7tj33c363" path="res://Resources/Variations/Worlds/World8.tres" id="10_y581u"]
+[ext_resource type="Resource" uid="uid://2gs4a4luj5cd" path="res://Resources/Variations/Worlds/World9.tres" id="11_fg83s"]
+[ext_resource type="Resource" uid="uid://dx2kh7246finx" path="res://Resources/Variations/Worlds/WorldA.tres" id="12_8bved"]
+[ext_resource type="Resource" uid="uid://055m5auoru1i" path="res://Resources/Variations/Worlds/WorldB.tres" id="13_i3orb"]
+[ext_resource type="Resource" uid="uid://cue0keyeuylxj" path="res://Resources/Variations/Worlds/WorldC.tres" id="14_jd8us"]
+[ext_resource type="Resource" uid="uid://pk5tytjy3m7v" path="res://Resources/Variations/Worlds/WorldD.tres" id="15_h607a"]
+[ext_resource type="Resource" uid="uid://dbh2fptw77vg2" path="res://Resources/Variations/Worlds/MinusWorld.tres" id="16_q324x"]
+[ext_resource type="Resource" uid="uid://cipcas1se7niu" path="res://Resources/Variations/Worlds/OtherWorld.tres" id="17_hii24"]
+
+[resource]
+resource_name = "World"
+script = ExtResource("1_co2qx")
+variations = Array[ExtResource("2_ogal7")]([ExtResource("3_q4woe"), ExtResource("4_q324x"), ExtResource("5_hii24"), ExtResource("6_hpvdc"), ExtResource("7_ng61o"), ExtResource("8_3le3k"), ExtResource("9_tm242"), ExtResource("10_y581u"), ExtResource("11_fg83s"), ExtResource("12_8bved"), ExtResource("13_i3orb"), ExtResource("14_jd8us"), ExtResource("15_h607a"), ExtResource("16_q324x"), ExtResource("17_hii24")])
+metadata/_custom_type_script = "uid://dqnrdbi1868qg"

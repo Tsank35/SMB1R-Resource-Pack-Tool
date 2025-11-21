@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="VariationCategory" load_steps=13 format=3 uid="uid://batdf4ls7tsjb"]
+
+[ext_resource type="Script" uid="uid://dqnrdbi1868qg" path="res://Scripts/Resources/VariationCategory.gd" id="1_iryd2"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_2ull6"]
+[ext_resource type="Resource" uid="uid://bwbvffnrxgd8b" path="res://Resources/Variations/Game Modes/DefaultGameMode.tres" id="3_2pufq"]
+[ext_resource type="Resource" uid="uid://dc3njakrsykw0" path="res://Resources/Variations/Game Modes/Campaign.tres" id="4_m7l44"]
+[ext_resource type="Resource" uid="uid://csavslwex22g2" path="res://Resources/Variations/Game Modes/YouvsBoo.tres" id="5_8da6r"]
+[ext_resource type="Resource" uid="uid://s3liu46abfuo" path="res://Resources/Variations/Game Modes/Marathon.tres" id="6_7ge6a"]
+[ext_resource type="Resource" uid="uid://d0s4wymt8kx3g" path="res://Resources/Variations/Game Modes/MarathonPractice.tres" id="7_u1mw8"]
+[ext_resource type="Resource" uid="uid://evyucol25ffa" path="res://Resources/Variations/Game Modes/ChallengeHunt.tres" id="8_q5xwd"]
+[ext_resource type="Resource" uid="uid://bxij6i8jvwok4" path="res://Resources/Variations/Game Modes/LevelEditor.tres" id="9_541p4"]
+[ext_resource type="Resource" uid="uid://73iv2snrr0nn" path="res://Resources/Variations/Game Modes/CustomLevel.tres" id="10_ve7i4"]
+[ext_resource type="Resource" uid="uid://bxsf21ftygpj" path="res://Resources/Variations/Game Modes/Disco.tres" id="11_2udl1"]
+[ext_resource type="Resource" uid="uid://dv6qd6m4klmuo" path="res://Resources/Variations/Game Modes/OtherGameMode.tres" id="12_m7l44"]
+
+[resource]
+resource_name = "Game Mode"
+script = ExtResource("1_iryd2")
+variations = Array[ExtResource("2_2ull6")]([ExtResource("3_2pufq"), ExtResource("4_m7l44"), ExtResource("5_8da6r"), ExtResource("6_7ge6a"), ExtResource("7_u1mw8"), ExtResource("8_q5xwd"), ExtResource("9_541p4"), ExtResource("10_ve7i4"), ExtResource("11_2udl1"), ExtResource("12_m7l44")])
+metadata/_custom_type_script = "uid://dqnrdbi1868qg"

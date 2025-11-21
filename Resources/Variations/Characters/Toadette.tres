@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://pnhfjlyfh20d"]
+
+[ext_resource type="Texture2D" uid="uid://b1sqtwu4t5pty" path="res://Assets/Variations/Characters.png" id="1_sfamb"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_qvl83"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfamb"]
+atlas = ExtResource("1_sfamb")
+region = Rect2(256, 0, 64, 64)
+
+[resource]
+resource_name = "Toadette"
+script = ExtResource("2_qvl83")
+key = "Character:Toadette"
+icon = SubResource("AtlasTexture_sfamb")
+color_2 = Color(1, 0.3137255, 0.78431374, 1)
+color_3 = Color(1, 0.7176471, 0.38431373, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

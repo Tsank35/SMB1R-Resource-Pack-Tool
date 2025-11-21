@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="VariationCategory" load_steps=8 format=3 uid="uid://tcs5qf80ianx"]
+
+[ext_resource type="Script" uid="uid://dqnrdbi1868qg" path="res://Scripts/Resources/VariationCategory.gd" id="1_wvtj7"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_vh5ql"]
+[ext_resource type="Resource" uid="uid://cedj2dcpdbh8b" path="res://Resources/Variations/Race Boos/WhiteBoo.tres" id="3_exyf1"]
+[ext_resource type="Resource" uid="uid://c7keusr74f6u6" path="res://Resources/Variations/Race Boos/GreenBoo.tres" id="4_iixom"]
+[ext_resource type="Resource" uid="uid://doffcmlff1jms" path="res://Resources/Variations/Race Boos/RedBoo.tres" id="5_xgbbv"]
+[ext_resource type="Resource" uid="uid://c2gn2q4nmqo04" path="res://Resources/Variations/Race Boos/BlackBoo.tres" id="6_5by5a"]
+[ext_resource type="Resource" uid="uid://s8fs5smrchg8" path="res://Resources/Variations/Race Boos/GoldenBoo.tres" id="7_s1fsk"]
+
+[resource]
+resource_name = "Race Boo"
+script = ExtResource("1_wvtj7")
+variations = Array[ExtResource("2_vh5ql")]([ExtResource("3_exyf1"), ExtResource("4_iixom"), ExtResource("5_xgbbv"), ExtResource("6_5by5a"), ExtResource("7_s1fsk")])
+metadata/_custom_type_script = "uid://dqnrdbi1868qg"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://dlio0y27pdgib"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_mbm4g"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_8c6n8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mglrw"]
+atlas = ExtResource("1_mbm4g")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+resource_name = "Overworld"
+script = ExtResource("2_8c6n8")
+key = "Overworld"
+icon = SubResource("AtlasTexture_mglrw")
+color_1 = Color(1, 0.8509804, 0.69803923, 1)
+color_2 = Color(0.7294118, 0.38039216, 0.06666667, 1)

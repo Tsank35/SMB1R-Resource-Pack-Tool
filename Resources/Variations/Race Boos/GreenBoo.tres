@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://c7keusr74f6u6"]
+
+[ext_resource type="Texture2D" uid="uid://tiasm6bgqfag" path="res://Assets/Variations/RaceBoos.png" id="1_cwjof"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_uhh63"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwjof"]
+atlas = ExtResource("1_cwjof")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+resource_name = "Green Boo"
+script = ExtResource("2_uhh63")
+key = "RaceBoo:1"
+icon = SubResource("AtlasTexture_cwjof")
+color_1 = Color(0.70980394, 1, 0.7411765, 1)
+color_2 = Color(0.12941177, 0.6784314, 0.0627451, 1)
+color_3 = Color(0.21960784, 0.40784314, 0, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

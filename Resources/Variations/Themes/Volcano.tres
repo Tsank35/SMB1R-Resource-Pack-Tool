@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://b85oyl2fbs7o1"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_dcevl"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_6b21s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qitqq"]
+atlas = ExtResource("1_dcevl")
+region = Rect2(128, 64, 32, 32)
+
+[resource]
+resource_name = "Volcano"
+script = ExtResource("2_6b21s")
+key = "Volcano"
+icon = SubResource("AtlasTexture_qitqq")
+color_1 = Color(1, 0.5529412, 0, 1)
+color_2 = Color(0.4862745, 0.11372549, 0.03137255, 1)

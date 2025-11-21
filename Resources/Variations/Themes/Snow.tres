@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://cghsktjgmtvra"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_yssdy"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_ld3xl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4viqj"]
+atlas = ExtResource("1_yssdy")
+region = Rect2(128, 0, 32, 32)
+
+[resource]
+resource_name = "Snow"
+script = ExtResource("2_ld3xl")
+key = "Snow"
+icon = SubResource("AtlasTexture_4viqj")
+color_2 = Color(0.7372549, 0.7372549, 0.9019608, 1)
+color_3 = Color(0.29803923, 0.29803923, 0.47058824, 1)

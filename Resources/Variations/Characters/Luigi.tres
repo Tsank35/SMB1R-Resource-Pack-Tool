@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://dye1ms2kv025s"]
+
+[ext_resource type="Texture2D" uid="uid://b1sqtwu4t5pty" path="res://Assets/Variations/Characters.png" id="1_8iqyy"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_urynn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iqyy"]
+atlas = ExtResource("1_8iqyy")
+region = Rect2(128, 0, 64, 64)
+
+[resource]
+resource_name = "Luigi"
+script = ExtResource("2_urynn")
+key = "Character:Luigi"
+icon = SubResource("AtlasTexture_8iqyy")
+color_1 = Color(1, 0.7176471, 0.38431373, 1)
+color_2 = Color(0.101960786, 0.5686275, 0.18039216, 1)
+color_3 = Color(0.54901963, 0.4509804, 0.09411765, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

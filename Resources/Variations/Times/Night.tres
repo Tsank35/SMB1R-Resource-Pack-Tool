@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://bjb8b2mtkvpvj"]
+
+[ext_resource type="Texture2D" uid="uid://1rd2enue5vef" path="res://Assets/Variations/Time.png" id="1_ma150"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_ma150"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma150"]
+atlas = ExtResource("1_ma150")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+resource_name = "Night"
+script = ExtResource("2_ma150")
+key = "Night"
+icon = SubResource("AtlasTexture_ma150")
+color_1 = Color(0.57254905, 0.69803923, 0.6745098, 1)
+color_2 = Color(0, 0, 0, 1)
+color_3 = Color(0.039215688, 0.17254902, 0.19607843, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

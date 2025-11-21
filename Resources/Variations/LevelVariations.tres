@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="VariationCategory" load_steps=8 format=3 uid="uid://janwecouter3"]
+
+[ext_resource type="Script" uid="uid://dqnrdbi1868qg" path="res://Scripts/Resources/VariationCategory.gd" id="1_tspbt"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_at6cq"]
+[ext_resource type="Resource" uid="uid://b8vj6afn70sxv" path="res://Resources/Variations/Levels/Level1.tres" id="3_ert3n"]
+[ext_resource type="Resource" uid="uid://bai1cen4cqiqm" path="res://Resources/Variations/Levels/Level2.tres" id="4_del7k"]
+[ext_resource type="Resource" uid="uid://btf51islkgk5l" path="res://Resources/Variations/Levels/Level3.tres" id="5_bb6my"]
+[ext_resource type="Resource" uid="uid://djgq3bc1vi4mb" path="res://Resources/Variations/Levels/Level4.tres" id="6_10i0l"]
+[ext_resource type="Resource" uid="uid://cgylh6i8bjt7c" path="res://Resources/Variations/Levels/OtherLevel.tres" id="7_del7k"]
+
+[resource]
+resource_name = "Level"
+script = ExtResource("1_tspbt")
+variations = Array[ExtResource("2_at6cq")]([ExtResource("3_ert3n"), ExtResource("4_del7k"), ExtResource("5_bb6my"), ExtResource("6_10i0l"), ExtResource("7_del7k")])
+metadata/_custom_type_script = "uid://dqnrdbi1868qg"

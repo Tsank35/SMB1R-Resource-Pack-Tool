@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://c8rnocnyagtg1"]
+
+[ext_resource type="Texture2D" uid="uid://1rd2enue5vef" path="res://Assets/Variations/Time.png" id="1_b3ebs"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_b3ebs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhvls"]
+atlas = ExtResource("1_b3ebs")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+resource_name = "Day"
+script = ExtResource("2_b3ebs")
+key = "Day"
+icon = SubResource("AtlasTexture_bhvls")
+color_1 = Color(0.9098039, 0.92156863, 1, 1)
+color_2 = Color(0.4627451, 0.5254902, 1, 1)
+color_3 = Color(0.36078432, 0.40392157, 0.7372549, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

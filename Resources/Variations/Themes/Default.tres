@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://drq2ttbuc25aa"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_ad0ag"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_420r2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycx43"]
+atlas = ExtResource("1_ad0ag")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+resource_name = "Default"
+script = ExtResource("2_420r2")
+key = "default"
+icon = SubResource("AtlasTexture_ycx43")
+color_1 = Color(0.88235295, 0.88235295, 0.95686275, 1)
+color_2 = Color(0.2901961, 0.2901961, 0.31764707, 1)
+color_3 = Color(0.14509805, 0.14509805, 0.1764706, 1)

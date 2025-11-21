@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://dc3njakrsykw0"]
+
+[ext_resource type="Texture2D" uid="uid://d3iwawm455rf1" path="res://Assets/Variations/GameModes.png" id="1_h6m07"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="1_l44j0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbnl5"]
+atlas = ExtResource("1_h6m07")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+resource_name = "Campaign"
+script = ExtResource("1_l44j0")
+key = "GameMode:Campaign"
+icon = SubResource("AtlasTexture_gbnl5")
+color_1 = Color(0.70980394, 0.87058824, 0.19215687, 1)
+color_2 = Color(0.12941177, 0.6784314, 0.0627451, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

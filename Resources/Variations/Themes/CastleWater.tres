@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://jecwjomkstb3"]
+
+[ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_1oycv"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_oq86y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0h1s"]
+atlas = ExtResource("1_1oycv")
+region = Rect2(64, 96, 32, 32)
+
+[resource]
+resource_name = "Castle Water"
+script = ExtResource("2_oq86y")
+key = "CastleWater"
+icon = SubResource("AtlasTexture_n0h1s")
+color_1 = Color(0.4862745, 0.6627451, 0.81960785, 1)
+color_2 = Color(0.078431375, 0.078431375, 0.29803923, 1)
+color_3 = Color(0.05490196, 0.05490196, 0.20784314, 1)

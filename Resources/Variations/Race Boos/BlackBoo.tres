@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://c2gn2q4nmqo04"]
+
+[ext_resource type="Texture2D" uid="uid://tiasm6bgqfag" path="res://Assets/Variations/RaceBoos.png" id="1_77k4b"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_d0ss5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77k4b"]
+atlas = ExtResource("1_77k4b")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+resource_name = "Black Boo"
+script = ExtResource("2_d0ss5")
+key = "RaceBoo:3"
+icon = SubResource("AtlasTexture_77k4b")
+color_1 = Color(1, 0.8509804, 0.69803923, 1)
+color_2 = Color(0.12156863, 0.12156863, 0.12156863, 1)
+color_3 = Color(0.7764706, 0.4117647, 0.11372549, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"
