@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://6ca5yax3iiro"]
+
+[ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="1_8r8uv"]
+[ext_resource type="Texture2D" uid="uid://bpfdc5bd4d3us" path="res://Assets/Buttons/PreviewAnimation.png" id="3_4bglg"]
+[ext_resource type="Script" uid="uid://bysaciltmvcke" path="res://Scripts/Components/Sprite/AnimationBlock.gd" id="3_qeelm"]
+[ext_resource type="Texture2D" uid="uid://3tukvou8ndyv" path="res://Assets/Buttons/Add.png" id="4_1ly3x"]
+[ext_resource type="PackedScene" uid="uid://coa5jjimu3uqn" path="res://Scenes/Components/Buttons/MoveButton.tscn" id="4_3egul"]
+[ext_resource type="Texture2D" uid="uid://cq5e67shvthl6" path="res://Assets/Buttons/CheckboxOff.png" id="4_uxmnk"]
+[ext_resource type="Texture2D" uid="uid://kstmgtse2qu8" path="res://Assets/Buttons/CheckboxOn.png" id="5_1ly3x"]
+[ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="5_4bglg"]
+[ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="6_4bglg"]
+
+[node name="AnimationBlock" node_paths=PackedStringArray("name_input", "speed_input", "loop_button", "frame_container") instance=ExtResource("1_8r8uv")]
+script = ExtResource("3_qeelm")
+name_input = NodePath("VBox/Header/Name")
+speed_input = NodePath("VBox/Properties/SpeedInput")
+loop_button = NodePath("VBox/Properties/LoopButton")
+frame_container = NodePath("VBox/Contents/VBox")
+data_type = 3
+
+[node name="Name" type="LineEdit" parent="VBox/Header" index="0"]
+layout_mode = 2
+expand_to_text_length = true
+
+[node name="Spacer" type="Control" parent="VBox/Header" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PreviewAnimationButton" type="TextureButton" parent="VBox/Header" index="2"]
+layout_mode = 2
+tooltip_text = "Preview Animation"
+focus_mode = 0
+texture_normal = ExtResource("3_4bglg")
+
+[node name="MoveUpButton" parent="VBox/Header" index="3" node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_3egul")]
+layout_mode = 2
+node_to_move = NodePath("../../..")
+index_limit = 1
+
+[node name="MoveDownButton" parent="VBox/Header" index="4" node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_3egul")]
+layout_mode = 2
+tooltip_text = "Move Down"
+texture_normal = ExtResource("5_4bglg")
+node_to_move = NodePath("../../..")
+direction = 1
+
+[node name="DeleteButton" parent="VBox/Header" index="7" instance=ExtResource("6_4bglg")]
+layout_mode = 2
+
+[node name="Properties" type="HBoxContainer" parent="VBox" index="1"]
+layout_mode = 2
+
+[node name="SpeedLabel" type="Label" parent="VBox/Properties" index="0"]
+layout_mode = 2
+text = "Speed:"
+
+[node name="SpeedInput" type="SpinBox" parent="VBox/Properties" index="1"]
+layout_mode = 2
+value = 5.0
+allow_greater = true
+suffix = "FPS"
+
+[node name="LoopLabel" type="Label" parent="VBox/Properties" index="2"]
+layout_mode = 2
+text = "Loop?"
+
+[node name="LoopButton" type="TextureButton" parent="VBox/Properties" index="3"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("4_uxmnk")
+texture_pressed = ExtResource("5_1ly3x")
+
+[node name="VBox" type="VBoxContainer" parent="VBox/Contents" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AddButton" type="TextureButton" parent="VBox/Contents/VBox" index="0"]
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Add Frame"
+focus_mode = 0
+texture_normal = ExtResource("4_1ly3x")
+
+[connection signal="pressed" from="VBox/Header/PreviewAnimationButton" to="." method="preview_animation"]
+[connection signal="deletion_confirmed" from="VBox/Header/DeleteButton" to="." method="queue_free"]
+[connection signal="pressed" from="VBox/Contents/VBox/AddButton" to="." method="add_frame"]

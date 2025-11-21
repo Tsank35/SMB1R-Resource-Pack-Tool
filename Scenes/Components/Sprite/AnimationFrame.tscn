@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvkwmx0u03mfr"]
+
+[ext_resource type="Script" uid="uid://yrp40mh80588" path="res://Scripts/Components/Sprite/AnimationFrame.gd" id="1_3c3tv"]
+[ext_resource type="PackedScene" uid="uid://miqn20i6iknf" path="res://Scenes/Components/Buttons/ImageButton.tscn" id="1_rdunq"]
+[ext_resource type="Texture2D" uid="uid://iea1ax2k23oo" path="res://Assets/Buttons/SetRect.png" id="2_ato4x"]
+[ext_resource type="PackedScene" uid="uid://coa5jjimu3uqn" path="res://Scenes/Components/Buttons/MoveButton.tscn" id="4_y6sug"]
+[ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="5_3ogt5"]
+[ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="6_kamsd"]
+
+[node name="AnimationFrame" type="VBoxContainer" node_paths=PackedStringArray("image", "spin_boxes")]
+offset_right = 236.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+script = ExtResource("1_3c3tv")
+image = NodePath("HBox/ImageButton")
+spin_boxes = [NodePath("HBox/Grid/X"), NodePath("HBox/Grid/Y"), NodePath("HBox/Grid/W"), NodePath("HBox/Grid/H")]
+
+[node name="Separator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ImageButton" parent="HBox" instance=ExtResource("1_rdunq")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Grid" type="GridContainer" parent="HBox"]
+layout_mode = 2
+columns = 2
+
+[node name="X" type="SpinBox" parent="HBox/Grid"]
+layout_mode = 2
+allow_greater = true
+update_on_text_changed = true
+prefix = "X"
+
+[node name="Y" type="SpinBox" parent="HBox/Grid"]
+layout_mode = 2
+allow_greater = true
+update_on_text_changed = true
+prefix = "Y"
+
+[node name="W" type="SpinBox" parent="HBox/Grid"]
+layout_mode = 2
+allow_greater = true
+update_on_text_changed = true
+prefix = "W"
+
+[node name="H" type="SpinBox" parent="HBox/Grid"]
+layout_mode = 2
+allow_greater = true
+update_on_text_changed = true
+prefix = "H"
+
+[node name="SetRectButton" type="TextureButton" parent="HBox"]
+layout_mode = 2
+size_flags_vertical = 0
+tooltip_text = "Set Rect"
+focus_mode = 0
+texture_normal = ExtResource("2_ato4x")
+
+[node name="Spacer" type="Control" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoveUpButton" parent="HBox" node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_y6sug")]
+layout_mode = 2
+size_flags_vertical = 0
+node_to_move = NodePath("../..")
+index_limit = 1
+
+[node name="MoveDownButton" parent="HBox" node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_y6sug")]
+layout_mode = 2
+size_flags_vertical = 0
+tooltip_text = "Move Down"
+texture_normal = ExtResource("5_3ogt5")
+node_to_move = NodePath("../..")
+direction = 1
+
+[node name="DeleteButton" parent="HBox" instance=ExtResource("6_kamsd")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[connection signal="value_changed" from="HBox/Grid/X" to="." method="set_x"]
+[connection signal="value_changed" from="HBox/Grid/Y" to="." method="set_y"]
+[connection signal="value_changed" from="HBox/Grid/W" to="." method="set_width"]
+[connection signal="value_changed" from="HBox/Grid/H" to="." method="set_height"]
+[connection signal="pressed" from="HBox/SetRectButton" to="." method="set_rect_from_image"]
+[connection signal="deletion_confirmed" from="HBox/DeleteButton" to="." method="queue_free"]

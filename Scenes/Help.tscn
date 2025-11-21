@@ -1,0 +1,202 @@
+[gd_scene load_steps=3 format=3 uid="uid://ubnukqk5anyv"]
+
+[ext_resource type="Script" uid="uid://iih08mlfmcgk" path="res://Scripts/Help.gd" id="1_loy5b"]
+[ext_resource type="Texture2D" uid="uid://rs185k32m6dt" path="res://Assets/Buttons/Delete.png" id="2_kukc8"]
+
+[node name="Help" type="ScrollContainer" node_paths=PackedStringArray("menu", "page_container", "close_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_loy5b")
+menu = NodePath("Menu")
+page_container = NodePath("Pages")
+close_button = NodePath("CloseButton")
+
+[node name="Menu" type="ItemList" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+auto_height = true
+item_count = 6
+item_0/text = "Pack Setup"
+item_1/text = "Editor Buttons"
+item_2/text = "Variations"
+item_3/text = "Properties"
+item_4/text = "Animations"
+item_5/text = "Config"
+
+[node name="Pages" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_top = 16
+
+[node name="PackSetup" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "To start making a pack, first create a folder in your SMB1R/resource_packs folder. If you don't know where that is, try navigating to the resource pack menu in the SMB1R game itself, then selecting \"OPEN FOLDER\". If you are making a large-scale resource pack, it is recommended that you also select \"CREATE NEW RESOURCE PACK\" in order to generate a folder with all the assets ready for you. They should be located in a newly generated folder named \"new_pack\".
+
+[center][img]res://Assets/Help/ResourcePackSettings.png[/img][/center]
+
+Next, you'll have to select your base pack folder. Though not required, it is recommended as the editor will configure itself to default to the proper folders when browsing through your pack files. Make sure you're located in the Pack Menu by clicking on the tab at the top of the screen. Click the Set Pack Folder [img]res://Assets/Buttons/Folder.png[/img]button in the top-right and a file window will show up. Select the base folder of your resource pack, and its data will automatically be loaded in. Make sure you select the base folder with ALL of your assets inside. Not the Sprites folder, not the Audio folder, but the parent folder containing both.
+
+From there, you can modify the general properties of your pack such as name, author, description, version, and icon. Once done, click the Save [img]res://Assets/Buttons/Save.png[/img]button and your pack_info.json file will be saved. Now the basics of your pack are done. Click on one of the other tabs to get started on another area of your pack."
+fit_content = true
+scroll_active = false
+
+[node name="EditorButtons" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "The editor uses many buttons. Here are some of the most common ones.
+
+These buttons are commonly found in lists.
+
+[img]res://Assets/Buttons/Add.png[/img]This button will add a new item to a list.
+
+[img]res://Assets/Buttons/Delete.png[/img]This button deletes an item. You'll have to press it twice to delete the item.
+
+[img]res://Assets/Buttons/Up.png[/img] [img]res://Assets/Buttons/Down.png[/img]These buttons move around items.
+
+
+These buttons let you manage files.
+
+[img]res://Assets/Buttons/File.png[/img]This button lets you import a file. Once pressed, a screen will open giving you two different ways to import your file.
+
+[center][img]res://Assets/Help/FileImport.png[/img][/center]
+
+You can either drag the file onto the window or click \"Browse...\" to open a file dialog to search for the file. Once selected, click \"Import\" to import your file. Sometimes, you may click \"Copy to Folder\" to copy the file to another folder. This is usually in cases where the file must be apart of your pack folder.
+
+[img]res://Assets/Buttons/NewFile.png[/img]This button creates a new file.
+
+[img]res://Assets/Buttons/PreviewJSON.png[/img]This button allows you to view the JSON data that the editor will generate upon saving.
+
+[img]res://Assets/Buttons/Save.png[/img]This button saves your work to the appropriate file. You can also save by pressing Ctrl+S. Make sure to save regularly!
+
+
+This is a data block. It can store many different types of information.
+
+[center][img]res://Assets/Help/DataBlock.png[/img][/center]
+
+The three buttons on the top-right can be found in most data blocks.
+[img]res://Assets/Buttons/Collapse.png[/img]This button collapses the block. Press it again to uncollapse.
+
+[img]res://Assets/Buttons/Copy.png[/img] [img]res://Assets/Buttons/Paste.png[/img]These are the Copy and Paste buttons. Use them to duplicate data between blocks. You can only paste data to blocks of similar data types.
+
+[img]res://Assets/Buttons/CollapseAll.png[/img] [img]res://Assets/Buttons/UncollapseAll.png[/img] These buttons can be found in lists of data blocks. Press them to collapse or uncollapse every block at once."
+fit_content = true
+scroll_active = false
+
+[node name="Variations" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Variations are one of the most important concepts to understand when making a resource pack. SMB1R runs on a powerful variation system that loads in different assets depending on preset conditions. They can change textures or music tracks depending on level theme, campaign, world number, and much more.
+
+In order to set up variations within the editor, you must first select a .json file. Either create a new one by clicking the New File [img]res://Assets/Buttons/NewFile.png[/img]button or load a pre-existing one by clicking the Import File [img]res://Assets/Buttons/File.png[/img]button.
+
+Depending on the menu you're located in, you may see a few other components. To edit variations you must navigate to the blue block labeled \"Variations\". Variations are how you determine what asset is used and when. Even if there's only a single asset, it will be defined here.
+
+[center][img]res://Assets/Help/VariationBlock.png[/img][/center]
+
+With an empty block, you'll have four different components to choose from.
+Select a component to create one inside the block. To remove the component, click the Delete [img]res://Assets/Buttons/Delete.png[/img]button twice.
+
+A variation branch will create a list of variations for the game to choose from. First, use the dropdown in the top-left to set the variation category. Each variation is a single possible value in a variable, so by selecting the category, you decide which variable is judged. Then, click the Add Variation [img]res://Assets/Buttons/Add.png[/img]button to add a single variation block within your branch or click the Add All Variations [img]res://Assets/Buttons/AddAll.png[/img]button to generate blocks for all variations in the selected category. It will automatically skip over variations already defined in the branch. The dropdown menu on the top-left of each block will allow you to select the variation in use. The variation at the top will be marked with this icon. [img region=0,0,8,8]res://Assets/Icons/DefaultVariation.png[/img]This means it is the default variation and any variations not specified will fall back to this one. No need to define every single variation! These blocks will allow you to define another component just like the base block. You can add multiple variation branches inside of each other to account for different combinations of variations. You can also define a miscellaneous variation by selecting the \"Other\" variation at the bottom of most categories. This will usually never be necessary, but in case the tool doesn't get updated for future versions of SMB1R with more variations, it's there. Please note that the names of variations in the editor aren't the same as they are in the file. To know which variations are valid, check the SMB1R GitHub wiki.
+[url]https://github.com/JHDev2006/Super-Mario-Bros.-Remastered-Public/wiki/Variation-Keys[/url]
+
+[center][img]res://Assets/Help/VariationBranch.png[/img][/center]
+
+A source is what defines the asset you'll use. If you only need one possible asset, select \"Add Source\" in the base block. Click the Import File [img]res://Assets/Buttons/File.png[/img]button to select your asset. This can vary from images to sound files depending on the case. This file MUST be located in the same folder as the .json file or in a subfolder. If you wish to copy the file to the folder, click \"Copy to Folder\" before importing. This is mandatory if the file is not already in a proper folder. If you're importing an image, you can crop out a specific region of the image to use. To do this, uncheck the \"Use Full Image?\" checkbox. Four number fields will open up, allowing you to define the boundaries of your region. X and Y determine the position of the top-left corner, while W and H determine the size. You can also click the \"Set Rect\" [img]res://Assets/Buttons/SetRect.png[/img]button to open a window where you can select the region from the image itself. Drag your mouse over the region you want, then click \"Apply\" in the bottom-right corner to copy the values to the editor.
+
+[center][img]res://Assets/Help/VariationSource.png[/img][/center]
+
+A link allows you to reference an asset from another block. This way you don't have to define identical sources in multiple blocks. It can't be used in the base block as there are no other blocks to reference. Note that you can only reference assets from the same branch.
+
+[center][img]res://Assets/Help/VariationLink.png[/img][/center]
+
+Finally, a random branch allows you to randomize your assets. It functions similar to the variation branch, but each block is not defined by a variation and must have a source. The text fields in the top-left of each block allow you to define custom keywords to help you identify your blocks, especially when collapsed. Note that these are not saved and are for the editor only.
+
+[center][img]res://Assets/Help/RandomBranch.png[/img][/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Properties" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Properties are additional values you can attach to in-game objects. Each object contains variables that can be modified through resource packs. To edit a property, navigate to the yellow block labeled \"Properties\".
+
+[center][img]res://Assets/Help/PropertyBlock.png[/img][/center]
+
+Click the Add Property [img]res://Assets/Buttons/Add.png[/img]button to add a new property. Enter its name in the text field on the left, then determine the type of value in the dropdown on the right.
+
+There are four property types: Boolean, Number, Text, and Vector.
+Booleans can only have two possible values: True and False.
+Vectors are two number values stored in single variable. These are usually used to determine things like direction, position, and size.
+
+It's also possible to define properties inside of a variation source. There will be another property block inside. Use this if you wish to define properties unique to a specific source. This is not mandatory. Any properties that aren't specified in a source will fall back to the ones specified in the base property block.
+
+BIG DISCLAIMER:
+Properties are normally meant to be used for the purpose of altering the way a sprite is displayed. Almost any variable in an object's code can be modified. It is highly recommended you only modify the properties listed in the base .json files. Do not modify any other properties unless you know what you are doing. If you want to know what other properties can be modified, you'll need some knowledge on the game's source code."
+fit_content = true
+scroll_active = false
+
+[node name="Animations" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Animations are how you make your sprite move. To edit animations, navigate to the red block labeled \"Animations\".
+
+[center][img]res://Assets/Help/AnimationBlock.png[/img][/center]
+
+First, make sure you have your variation source set up. See the \"Variations\" help page for more info. You'll need at least one source set up for your animations. Next, click the Add Animation [img]res://Assets/Buttons/Add.png[/img]button to add an animation. Use the text field on the top-left to name your animation. For sprites with only one animation, this would normally be set to \"default\". (Case-sensitive!) Refer to the base .json files to see which animations each sprite has. Then, click the Add Frame [img]res://Assets/Buttons/Add.png[/img]button inside the animation block to add your frames. If you're familiar with how to set up the region of an image source, the same applies here. Click the Set Rect [img]res://Assets/Buttons/SetRect.png[/img]button to draw your region over the image. Set the speed of the animation and whether or not it loops using the controls just below the animation's name, then click the Preview Animation [img]res://Assets/Buttons/PreviewAnimation.png[/img]button to see the animation in action. If your sprite doesn't loop, or you just want to reset from the start of the animation, click the \"Replay\" button in the bottom-right.
+
+[center][img]res://Assets/Help/ReferenceSource.png[/img][/center]
+
+Once you've seen your animation, you can change the reference source at the top of the menu to see the animations for all of your sources. Please note that all sources must have their frames placed in the same position or else you may get unexpected results. If you want to define unique animations for each source, there is an \"Animations\" block located in each sprite source. It is divided into two different segments, animation overrides and new animations.
+
+Animation overrides are for replacing pre-defined animations. Use this if you want to replace an animation that is defined in the default animation block. New animations are for defining new animations not defined in the base block. This can also work if you want unique animations for every source, as you can define them here and leave the base animation block blank. Defining a new animation with the same name as an animation defined in the base block will NOT work. It must be placed in the \"Animation Overrides\" block.
+
+For Aseprite users, you can press the Import Aseprite Data [img]res://Assets/Buttons/Aseprite.png[/img]button to import data from a .json file exported from Aseprite. Both hash and array formats are compatible. Once you import the file, a window will pop up giving you a couple options. 
+
+[center][img]res://Assets/Help/AsepriteConfig.png[/img][/center]
+
+First, you must define the duration of a single frame. This should normally be the duration of your shortest frame. Each longer frame will be duplicated to match the length. However, if the frame's duration does not divide evenly into the duration you set, it'll be rounded to the nearest integer and you may end up with slightly shorter or longer frames. Then, you can also determine whether or not each tag is separated into its own animation. Click OK, and the animations will be generated based on the data you imported. The animation's speed will automatically be set, but you will have to manually disable looping if you don't want your animation to loop."
+fit_content = true
+scroll_active = false
+
+[node name="Config" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Config (short for Configuration) is a collection of options you can add to your pack that allow the player to customize the pack to their liking. This effectively creates new variations that the player can set at any time. To create your own config options, first navigate to the Config tab. Click the Add Option [img]res://Assets/Buttons/Add.png[/img]button to add a new option. Set the name of the option in the text field on the top-left, then click the Add Value [img]res://Assets/Buttons/Add.png[/img]button inside the block to set all the possible values for your option. The value at the top will always be the default. Click the Save [img]res://Assets/Buttons/Save.png[/img]button to save the config file. You must have your pack folder set in order to save it.
+
+[center][img]res://Assets/Help/ConfigBlock.png[/img][/center]
+
+Once saved, your new options will appear as variations in your variation blocks. Select the category corresponding to your option, then set the variations for each value. Please note that links currently aren't compatible with config variations. If you ever need to update your config while editing, make sure to click Save [img]res://Assets/Buttons/Save.png[/img]to transfer your changes to the editor.
+
+Finally, in order to set your config in-game, navigate to your pack in the Resource Packs menu. If config is found, an orange arrow will appear to the right of your pack.
+
+[center][img]res://Assets/Help/PackConfig.png[/img][/center]
+
+Press right, and a menu will open up where you can change the config.
+
+[center][img]res://Assets/Help/ConfigMenu.png[/img][/center]"
+fit_content = true
+scroll_active = false
+
+[node name="CloseButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+tooltip_text = "Close"
+focus_mode = 0
+texture_normal = ExtResource("2_kukc8")
+
+[connection signal="item_selected" from="Menu" to="." method="select_page"]
+[connection signal="meta_clicked" from="Pages/Variations" to="." method="meta_clicked"]
+[connection signal="pressed" from="CloseButton" to="." method="close_page"]

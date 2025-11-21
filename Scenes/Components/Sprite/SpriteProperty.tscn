@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://dil0yi6elmq0j"]
+
+[ext_resource type="Script" uid="uid://cyis1rwptpgoj" path="res://Scripts/Components/Sprite/SpriteProperty.gd" id="1_d3bes"]
+[ext_resource type="Texture2D" uid="uid://cq5e67shvthl6" path="res://Assets/Buttons/CheckboxOff.png" id="1_fybrf"]
+[ext_resource type="Texture2D" uid="uid://kstmgtse2qu8" path="res://Assets/Buttons/CheckboxOn.png" id="2_d3bes"]
+[ext_resource type="Script" uid="uid://crfo1a3tynisp" path="res://Scripts/Components/LinearOptionButton.gd" id="3_ckvaw"]
+[ext_resource type="PackedScene" uid="uid://coa5jjimu3uqn" path="res://Scenes/Components/Buttons/MoveButton.tscn" id="5_bw51l"]
+[ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="5_ckvaw"]
+[ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="6_81hct"]
+
+[node name="SpriteProperty" type="HBoxContainer" node_paths=PackedStringArray("name_input", "boolean_input", "number_input", "text_input", "vector_container", "vector_input", "type_dropdown")]
+offset_right = 64.0
+offset_bottom = 16.0
+script = ExtResource("1_d3bes")
+name_input = NodePath("Name")
+boolean_input = NodePath("BooleanValue")
+number_input = NodePath("NumberValue")
+text_input = NodePath("TextValue")
+vector_container = NodePath("VectorValue")
+vector_input = [NodePath("VectorValue/X"), NodePath("VectorValue/Y")]
+type_dropdown = NodePath("Type")
+
+[node name="Name" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+expand_to_text_length = true
+
+[node name="BooleanValue" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("1_fybrf")
+texture_pressed = ExtResource("2_d3bes")
+
+[node name="NumberValue" type="SpinBox" parent="."]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+step = 0.01
+allow_greater = true
+allow_lesser = true
+custom_arrow_step = 1.0
+
+[node name="TextValue" type="LineEdit" parent="."]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+expand_to_text_length = true
+
+[node name="VectorValue" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="X" type="SpinBox" parent="VectorValue"]
+layout_mode = 2
+step = 0.01
+allow_greater = true
+allow_lesser = true
+prefix = "X"
+custom_arrow_step = 1.0
+
+[node name="Y" type="SpinBox" parent="VectorValue"]
+layout_mode = 2
+step = 0.01
+allow_greater = true
+allow_lesser = true
+prefix = "Y"
+custom_arrow_step = 1.0
+
+[node name="Spacer" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Type" type="OptionButton" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+selected = 0
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "Boolean"
+popup/item_0/id = 0
+popup/item_1/text = "Number"
+popup/item_1/id = 1
+popup/item_2/text = "Text"
+popup/item_2/id = 2
+popup/item_3/text = "Vector"
+popup/item_3/id = 3
+script = ExtResource("3_ckvaw")
+metadata/_custom_type_script = "uid://crfo1a3tynisp"
+
+[node name="MoveUpButton" parent="." node_paths=PackedStringArray("node_to_move") instance=ExtResource("5_bw51l")]
+layout_mode = 2
+node_to_move = NodePath("..")
+index_limit = 1
+
+[node name="MoveDownButton" parent="." node_paths=PackedStringArray("node_to_move") instance=ExtResource("5_bw51l")]
+layout_mode = 2
+tooltip_text = "Move Down"
+texture_normal = ExtResource("6_81hct")
+node_to_move = NodePath("..")
+direction = 1
+
+[node name="DeleteButton" parent="." instance=ExtResource("5_ckvaw")]
+layout_mode = 2
+
+[connection signal="item_selected" from="Type" to="." method="select_type"]
+[connection signal="deletion_confirmed" from="DeleteButton" to="." method="queue_free"]

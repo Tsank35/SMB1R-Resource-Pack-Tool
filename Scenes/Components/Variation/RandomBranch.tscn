@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://7tc1q1e0e8lo"]
+
+[ext_resource type="Script" uid="uid://h1d4ej5b4yg7" path="res://Scripts/Components/Variation/RandomBranch.gd" id="1_cgoew"]
+[ext_resource type="Texture2D" uid="uid://3tukvou8ndyv" path="res://Assets/Buttons/Add.png" id="2_07cdx"]
+[ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="3_qj0xu"]
+[ext_resource type="PackedScene" uid="uid://d4jboj6lp36xy" path="res://Scenes/Components/Buttons/CollapseAllButton.tscn" id="3_ulf5n"]
+[ext_resource type="Texture2D" uid="uid://cd8utxr0le47f" path="res://Assets/Buttons/UncollapseAll.png" id="4_5ydet"]
+
+[node name="RandomBranch" type="BoxContainer"]
+offset_right = 16.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+vertical = true
+script = ExtResource("1_cgoew")
+metadata/_custom_type_script = "uid://dmlsrv8d7btqa"
+
+[node name="Header" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Header"]
+layout_mode = 2
+text = "Random Branch"
+
+[node name="Spacer" type="Control" parent="Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddButton" type="TextureButton" parent="Header"]
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Add Choice"
+focus_mode = 0
+texture_normal = ExtResource("2_07cdx")
+
+[node name="CollapseAllButton" parent="Header" node_paths=PackedStringArray("parent") instance=ExtResource("3_ulf5n")]
+layout_mode = 2
+parent = NodePath("../..")
+
+[node name="UncollapseAllButton" parent="Header" node_paths=PackedStringArray("parent") instance=ExtResource("3_ulf5n")]
+layout_mode = 2
+tooltip_text = "Uncollapse All"
+texture_normal = ExtResource("4_5ydet")
+collapse_all = false
+parent = NodePath("../..")
+
+[node name="DeleteButton" parent="Header" instance=ExtResource("3_qj0xu")]
+layout_mode = 2
+
+[connection signal="pressed" from="Header/AddButton" to="." method="add_choice"]
+[connection signal="deletion_confirmed" from="Header/DeleteButton" to="." method="queue_free"]

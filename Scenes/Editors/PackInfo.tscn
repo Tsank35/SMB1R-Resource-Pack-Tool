@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdbwmwvlrke4w"]
+
+[ext_resource type="Script" uid="uid://bph8xj1kk1lub" path="res://Scripts/Editors/PackInfo.gd" id="1_gfnla"]
+[ext_resource type="Texture2D" uid="uid://bbs0umv1kw0wq" path="res://Assets/Buttons/Folder.png" id="1_yqage"]
+[ext_resource type="StyleBox" uid="uid://b2fi5usjk1sng" path="res://Resources/Style Boxes/BlockPanel.tres" id="2_853f1"]
+[ext_resource type="Theme" uid="uid://bur662d0xy38t" path="res://Resources/StandardTheme.tres" id="3_7ge3a"]
+[ext_resource type="Texture2D" uid="uid://bhb8xiop0pwco" path="res://Assets/Buttons/Save.png" id="3_fbwte"]
+
+[node name="Pack" type="VBoxContainer" node_paths=PackedStringArray("directory_display", "name_input", "author_input", "description_input", "version_input", "file_dialog")]
+offset_right = 152.0
+offset_bottom = 152.0
+theme_override_constants/separation = 0
+script = ExtResource("1_gfnla")
+directory_display = NodePath("Folder/Directory")
+name_input = NodePath("Panel/VBox/Name/LineEdit")
+author_input = NodePath("Panel/VBox/Author/LineEdit")
+description_input = NodePath("Panel/VBox/Description")
+version_input = NodePath("Panel/VBox/Version/LineEdit")
+file_dialog = NodePath("FileDialog")
+
+[node name="Folder" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Folder"]
+layout_mode = 2
+text = "Directory:"
+
+[node name="Directory" type="LineEdit" parent="Folder"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+editable = false
+
+[node name="FolderButton" type="TextureButton" parent="Folder"]
+layout_mode = 2
+tooltip_text = "Set Pack Folder"
+focus_mode = 0
+texture_normal = ExtResource("1_yqage")
+
+[node name="SaveButton" type="TextureButton" parent="Folder"]
+layout_mode = 2
+tooltip_text = "Save"
+focus_mode = 0
+texture_normal = ExtResource("3_fbwte")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_853f1")
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="Name" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/Name"]
+layout_mode = 2
+text = "Name:"
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBox/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "New Pack"
+
+[node name="Author" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/Author"]
+layout_mode = 2
+text = "Author:"
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBox/Author"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Me, until you change it"
+
+[node name="DescriptionLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Description:"
+
+[node name="Description" type="TextEdit" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Template, give me a description!"
+wrap_mode = 1
+
+[node name="Version" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/Version"]
+layout_mode = 2
+text = "Version:"
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBox/Version"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1.0"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+oversampling_override = 1.0
+title = "Open a Directory"
+size = Vector2i(800, 600)
+force_native = true
+theme = ExtResource("3_7ge3a")
+file_mode = 2
+display_mode = 1
+access = 2
+
+[connection signal="pressed" from="Folder/FolderButton" to="FileDialog" method="popup_centered"]
+[connection signal="pressed" from="Folder/SaveButton" to="." method="save"]
+[connection signal="close_requested" from="FileDialog" to="FileDialog" method="hide"]
+[connection signal="dir_selected" from="FileDialog" to="." method="set_pack_dir"]

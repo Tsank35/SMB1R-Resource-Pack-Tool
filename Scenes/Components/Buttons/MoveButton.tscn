@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://coa5jjimu3uqn"]
+
+[ext_resource type="Texture2D" uid="uid://dd2k3l7nb7ssr" path="res://Assets/Buttons/Up.png" id="1_pdjan"]
+[ext_resource type="Script" uid="uid://cq5rqt52u1ocw" path="res://Scripts/Components/Buttons/MoveButton.gd" id="2_g6isc"]
+
+[node name="MoveButton" type="TextureButton"]
+offset_right = 16.0
+offset_bottom = 16.0
+tooltip_text = "Move Up"
+focus_mode = 0
+texture_normal = ExtResource("1_pdjan")
+script = ExtResource("2_g6isc")
+
+[connection signal="pressed" from="." to="." method="on_pressed"]

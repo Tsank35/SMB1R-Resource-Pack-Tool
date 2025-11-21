@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt1rm762l3yt7"]
+
+[ext_resource type="StyleBox" uid="uid://b2fi5usjk1sng" path="res://Resources/Style Boxes/BlockPanel.tres" id="1_4s8hc"]
+[ext_resource type="Material" uid="uid://bmcl8wgs3jn6v" path="res://Resources/Shaders/DataBlockMaterial.tres" id="1_y821p"]
+[ext_resource type="PackedScene" uid="uid://c7wkrdkmhb6e" path="res://Scenes/Components/Buttons/CollapseButton.tscn" id="2_4dpki"]
+[ext_resource type="Script" uid="uid://bqy0mudvj11dy" path="res://Scripts/Components/DataBlock.gd" id="2_y821p"]
+[ext_resource type="StyleBox" uid="uid://cjs1leqrl52ok" path="res://Resources/Style Boxes/BlockPanelInner.tres" id="3_y821p"]
+[ext_resource type="Texture2D" uid="uid://uqg65xfodqx7" path="res://Assets/Buttons/Copy.png" id="4_u3tku"]
+[ext_resource type="Texture2D" uid="uid://vv0m1lqfcy1s" path="res://Assets/Buttons/Paste.png" id="5_xojep"]
+
+[node name="DataBlock" type="PanelContainer" node_paths=PackedStringArray("collapse_button", "content_container")]
+material = ExtResource("1_y821p")
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_styles/panel = ExtResource("1_4s8hc")
+script = ExtResource("2_y821p")
+collapse_button = NodePath("VBox/Header/CollapseButton")
+content_container = NodePath("VBox/Contents")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="CopyButton" type="TextureButton" parent="VBox/Header"]
+layout_mode = 2
+size_flags_vertical = 0
+tooltip_text = "Copy"
+focus_mode = 0
+texture_normal = ExtResource("4_u3tku")
+
+[node name="PasteButton" type="TextureButton" parent="VBox/Header"]
+layout_mode = 2
+size_flags_vertical = 0
+tooltip_text = "Paste"
+focus_mode = 0
+texture_normal = ExtResource("5_xojep")
+
+[node name="CollapseButton" parent="VBox/Header" node_paths=PackedStringArray("nodes_to_hide") instance=ExtResource("2_4dpki")]
+layout_mode = 2
+size_flags_vertical = 0
+nodes_to_hide = [NodePath("../../Contents")]
+
+[node name="Contents" type="PanelContainer" parent="VBox"]
+material = ExtResource("1_y821p")
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_y821p")
+
+[connection signal="pressed" from="VBox/Header/CopyButton" to="." method="copy"]
+[connection signal="pressed" from="VBox/Header/PasteButton" to="." method="paste"]

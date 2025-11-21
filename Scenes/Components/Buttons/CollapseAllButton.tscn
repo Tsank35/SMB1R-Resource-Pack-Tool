@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4jboj6lp36xy"]
+
+[ext_resource type="Texture2D" uid="uid://chnefcl8nwiyr" path="res://Assets/Buttons/CollapseAll.png" id="1_w5fg3"]
+[ext_resource type="Script" uid="uid://b4ntbjwho6qy5" path="res://Scripts/Components/Buttons/CollapseAllButton.gd" id="2_rb8aw"]
+
+[node name="CollapseAllButton" type="TextureButton"]
+offset_right = 16.0
+offset_bottom = 16.0
+tooltip_text = "Collapse All"
+focus_mode = 0
+texture_normal = ExtResource("1_w5fg3")
+script = ExtResource("2_rb8aw")
+
+[connection signal="pressed" from="." to="." method="on_pressed"]

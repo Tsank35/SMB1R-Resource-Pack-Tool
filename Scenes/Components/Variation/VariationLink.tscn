@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8r5xdvmcn84v"]
+
+[ext_resource type="Script" uid="uid://conqoqlt6jw27" path="res://Scripts/Components/Variation/VariationLink.gd" id="1_obhoe"]
+[ext_resource type="Script" uid="uid://crfo1a3tynisp" path="res://Scripts/Components/LinearOptionButton.gd" id="2_obhoe"]
+[ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="3_obhoe"]
+
+[node name="VariationLink" type="BoxContainer" node_paths=PackedStringArray("dropdown")]
+offset_right = 48.0
+offset_bottom = 16.0
+script = ExtResource("1_obhoe")
+dropdown = NodePath("Dropdown")
+metadata/_custom_type_script = "uid://dmlsrv8d7btqa"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Link:"
+
+[node name="Dropdown" type="OptionButton" parent="."]
+layout_mode = 2
+focus_mode = 0
+fit_to_longest_item = false
+script = ExtResource("2_obhoe")
+metadata/_custom_type_script = "uid://crfo1a3tynisp"
+
+[node name="Spacer" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" parent="." instance=ExtResource("3_obhoe")]
+layout_mode = 2
+
+[connection signal="deletion_confirmed" from="DeleteButton" to="." method="queue_free"]

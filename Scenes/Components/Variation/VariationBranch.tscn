@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxyiw2i002uvt"]
+
+[ext_resource type="Script" uid="uid://q7dq6mcj7dfp" path="res://Scripts/Components/Variation/VariationBranch.gd" id="1_r065y"]
+[ext_resource type="Script" uid="uid://crfo1a3tynisp" path="res://Scripts/Components/LinearOptionButton.gd" id="2_p2vfu"]
+[ext_resource type="PackedScene" uid="uid://d4jboj6lp36xy" path="res://Scenes/Components/Buttons/CollapseAllButton.tscn" id="5_vkwii"]
+[ext_resource type="Texture2D" uid="uid://3tukvou8ndyv" path="res://Assets/Buttons/Add.png" id="6_b5gus"]
+[ext_resource type="Texture2D" uid="uid://cd8utxr0le47f" path="res://Assets/Buttons/UncollapseAll.png" id="6_pqudl"]
+[ext_resource type="Texture2D" uid="uid://buwfftr8llw8i" path="res://Assets/Buttons/AddAll.png" id="7_hlfey"]
+[ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="11_moxur"]
+
+[node name="VariationBranch" type="BoxContainer" node_paths=PackedStringArray("category_dropdown")]
+offset_right = 200.0
+offset_bottom = 16.0
+theme_override_constants/separation = 0
+vertical = true
+script = ExtResource("1_r065y")
+category_dropdown = NodePath("HBox/Category")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Category" type="OptionButton" parent="HBox"]
+layout_mode = 2
+focus_mode = 0
+fit_to_longest_item = false
+script = ExtResource("2_p2vfu")
+metadata/_custom_type_script = "uid://crfo1a3tynisp"
+
+[node name="Spacer" type="Control" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddButton" type="TextureButton" parent="HBox"]
+layout_mode = 2
+tooltip_text = "New Variation"
+focus_mode = 0
+texture_normal = ExtResource("6_b5gus")
+
+[node name="AddAllButton" type="TextureButton" parent="HBox"]
+layout_mode = 2
+tooltip_text = "Add All Variations"
+focus_mode = 0
+texture_normal = ExtResource("7_hlfey")
+
+[node name="CollapseAllButton" parent="HBox" node_paths=PackedStringArray("parent") instance=ExtResource("5_vkwii")]
+layout_mode = 2
+parent = NodePath("../..")
+
+[node name="UncollapseAllButton" parent="HBox" node_paths=PackedStringArray("parent") instance=ExtResource("5_vkwii")]
+layout_mode = 2
+tooltip_text = "Uncollapse All"
+texture_normal = ExtResource("6_pqudl")
+collapse_all = false
+parent = NodePath("../..")
+
+[node name="DeleteButton" parent="HBox" instance=ExtResource("11_moxur")]
+layout_mode = 2
+
+[connection signal="item_selected" from="HBox/Category" to="." method="select_category"]
+[connection signal="pressed" from="HBox/AddButton" to="." method="add_variation"]
+[connection signal="pressed" from="HBox/AddAllButton" to="." method="add_all_variations"]
+[connection signal="deletion_confirmed" from="HBox/DeleteButton" to="." method="queue_free"]

@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=3 uid="uid://clhgboyuyfhvo"]
+
+[ext_resource type="Theme" uid="uid://bur662d0xy38t" path="res://Resources/StandardTheme.tres" id="1_0os24"]
+[ext_resource type="Script" uid="uid://dsm7il85ohav8" path="res://Scripts/Autoload/ImageWindow.gd" id="2_74x11"]
+[ext_resource type="Texture2D" uid="uid://drp5b73iei02p" path="res://Assets/Transparency.png" id="2_khm1g"]
+[ext_resource type="PackedScene" uid="uid://b42j4o7s0n523" path="res://Scenes/Components/Image/SelectionRect.tscn" id="4_8xdgy"]
+[ext_resource type="StyleBox" uid="uid://d2hu4c6ffas2n" path="res://Resources/Style Boxes/TransparentStyleBox.tres" id="5_q5n3e"]
+[ext_resource type="StyleBox" uid="uid://4ix8p652lucv" path="res://Resources/Style Boxes/OutlineStyleBox.tres" id="6_4e5qy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5n3e"]
+
+[sub_resource type="Theme" id="Theme_4e5qy"]
+LineEdit/styles/normal = ExtResource("5_q5n3e")
+
+[node name="ImageWindow" type="Window" node_paths=PackedStringArray("image", "transparency", "selection", "animation", "camera", "rect_hud", "rect_size", "grid_size", "animation_hud")]
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+title = "Image"
+size = Vector2i(800, 600)
+visible = false
+force_native = true
+content_scale_factor = 2.0
+theme = ExtResource("1_0os24")
+script = ExtResource("2_74x11")
+image = NodePath("Image")
+transparency = NodePath("Transparency")
+selection = NodePath("SelectionRect")
+animation = NodePath("Animation")
+camera = NodePath("Camera")
+rect_hud = NodePath("RectHUD")
+rect_size = NodePath("RectHUD/RectSize")
+grid_size = [NodePath("RectHUD/Grid/X"), NodePath("RectHUD/Grid/Y")]
+animation_hud = NodePath("AnimationHUD")
+
+[node name="Transparency" type="TextureRect" parent="."]
+mouse_filter = 2
+texture = ExtResource("2_khm1g")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Image" type="TextureRect" parent="."]
+clip_contents = true
+mouse_filter = 0
+stretch_mode = 2
+
+[node name="SelectionRect" parent="." node_paths=PackedStringArray("drag_area") instance=ExtResource("4_8xdgy")]
+visible = false
+drag_area = NodePath("../Image")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q5n3e")
+
+[node name="Camera" type="Camera2D" parent="."]
+limit_enabled = false
+
+[node name="RectHUD" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="RectSize" type="Label" parent="RectHUD"]
+offset_right = 40.0
+offset_bottom = 16.0
+theme_override_styles/normal = ExtResource("5_q5n3e")
+text = "X: 0, Y: 0
+W: 0, H: 0"
+
+[node name="Grid" type="VBoxContainer" parent="RectHUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="RectHUD/Grid"]
+layout_mode = 2
+text = "Grid"
+
+[node name="X" type="SpinBox" parent="RectHUD/Grid"]
+layout_mode = 2
+theme = SubResource("Theme_4e5qy")
+min_value = 1.0
+value = 8.0
+prefix = "X"
+
+[node name="Y" type="SpinBox" parent="RectHUD/Grid"]
+layout_mode = 2
+theme = SubResource("Theme_4e5qy")
+min_value = 1.0
+value = 8.0
+prefix = "Y"
+
+[node name="ApplyButton" type="Button" parent="RectHUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = ExtResource("5_q5n3e")
+text = "Apply"
+
+[node name="AnimationHUD" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Replay" type="Button" parent="AnimationHUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = ExtResource("5_q5n3e")
+theme_override_styles/hover = ExtResource("6_4e5qy")
+text = "Replay"
+
+[connection signal="close_requested" from="." to="." method="close"]
+[connection signal="value_changed" from="RectHUD/Grid/X" to="." method="set_grid_width"]
+[connection signal="value_changed" from="RectHUD/Grid/Y" to="." method="set_grid_height"]
+[connection signal="pressed" from="RectHUD/ApplyButton" to="." method="apply_rect"]
+[connection signal="pressed" from="AnimationHUD/Replay" to="." method="replay_animation"]
