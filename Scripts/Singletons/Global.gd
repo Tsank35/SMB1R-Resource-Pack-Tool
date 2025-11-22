@@ -50,16 +50,6 @@ signal reference_changed
 @warning_ignore("unused_signal")
 signal sources_changed
 
-var screenshotted := false
-func _process(_delta) -> void:
-	if Input.is_key_label_pressed(KEY_TAB):
-		if not screenshotted:
-			var img: Image = get_viewport().get_texture().get_image()
-			img.save_png("C:/Users/Tsank/Downloads/screenshot.png")
-			screenshotted = true
-	elif screenshotted:
-		screenshotted = false
-
 func remove_directory(path: String, dir: String) -> String:
 	if path.begins_with(dir + "/"):
 		return path.substr((dir + "/").length())
