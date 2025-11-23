@@ -46,5 +46,5 @@ func get_json(remove_redundant := true) -> Dictionary:
 		return {"link": block.get_variation_key()}
 	return {}
 
-func apply_json(json: Dictionary, _apply_exact := false) -> void:
+func apply_json(json: Dictionary) -> void:
 	select_key.call_deferred(Global.get_value_of_type(json, "link", TYPE_STRING, self))

@@ -25,5 +25,5 @@ func custom_label_changed() -> void:
 func get_json(remove_redundant := true) -> Dictionary:
 	return {"choice": source.get_json(remove_redundant)}
 
-func apply_json(json: Dictionary, apply_exact := false) -> void:
-	source.apply_json(json, apply_exact)
+func apply_json(json: Dictionary) -> void:
+	source.apply_json(json)

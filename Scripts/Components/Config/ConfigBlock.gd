@@ -33,7 +33,7 @@ func get_json(_remove_redundant := true) -> Dictionary:
 		return {}
 	return {name_input.text: values}
 
-func apply_json(json: Dictionary, _apply_exact := false) -> void:
+func apply_json(json: Dictionary) -> void:
 	clear()
 	var values = json.values()[0]
 	if values is Array:

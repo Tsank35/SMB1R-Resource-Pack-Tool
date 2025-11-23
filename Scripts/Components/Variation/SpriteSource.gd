@@ -133,7 +133,7 @@ func get_json(remove_redundant := true) -> Dictionary:
 	json.merge(new_animations.get_json(remove_redundant))
 	return json
 
-func apply_json(json: Dictionary, apply_exact := false) -> void:
+func apply_json(json: Dictionary) -> void:
 	if json.has("source"):
 		path = Global.get_value_of_type(json, "source", TYPE_STRING, self)
 	else:
@@ -141,14 +141,11 @@ func apply_json(json: Dictionary, apply_exact := false) -> void:
 	
 	if json.has("rect"):
 		rect = Global.get_rect_from_array(Global.get_value_of_type(json, "rect", TYPE_ARRAY, self, TYPE_INT))
-		if is_rect_full() and not apply_exact:
-			MessageLog.log_warning("Skipped rect, for it stretches over the entire image.", self)
-		else:
-			use_full_image = false
-			use_full_image_button.set_pressed_no_signal(false)
-			update_spin_boxes()
+		use_full_image = false
+		use_full_image_button.set_pressed_no_signal(false)
+		update_spin_boxes()
 	
-	property_block.apply_json(Global.get_value_of_type(json, "properties", TYPE_DICTIONARY, self), apply_exact)
-	animation_overrides.apply_json(Global.get_value_of_type(json, "animation_overrides", TYPE_DICTIONARY, self), apply_exact)
-	new_animations.apply_json(Global.get_value_of_type(json, "animations", TYPE_DICTIONARY, self), apply_exact)
+	property_block.apply_json(Global.get_value_of_type(json, "properties", TYPE_DICTIONARY, self))
+	animation_overrides.apply_json(Global.get_value_of_type(json, "animation_overrides", TYPE_DICTIONARY, self))
+	new_animations.apply_json(Global.get_value_of_type(json, "animations", TYPE_DICTIONARY, self))
 	animation_block.set_collapsed(not json.has("animation_overrides") and not json.has("animations"))

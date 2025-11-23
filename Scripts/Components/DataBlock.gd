@@ -53,7 +53,7 @@ func copy() -> void:
 func paste() -> void:
 	if Global.clipboard:
 		if Global.clipboard_type == data_type:
-			apply_json(Global.clipboard, true)
+			apply_json(Global.clipboard)
 			MessageLog.log_message("Pasted data.")
 		else:
 			MessageLog.log_error("Invalid data.")
@@ -71,5 +71,5 @@ func get_json(remove_redundant := true) -> Dictionary:
 	return {}
 
 @warning_ignore("unused_parameter")
-func apply_json(json: Dictionary, apply_exact := false) -> void:
+func apply_json(json: Dictionary) -> void:
 	pass

@@ -17,14 +17,14 @@ func _ready() -> void:
 	update_categories()
 	Global.config_changed.connect(update_categories)
 
-func add_variation(key := "", json := {}, apply_exact := false) -> void:
+func add_variation(key := "", json := {}) -> void:
 	var block: VariationBlock = Global.instantiate(VARIATION_BLOCK)
 	block.variation_branch = self
 	add_child(block)
 	if key:
 		block.set_variation_key(key)
 	if json:
-		block.apply_json(json, apply_exact)
+		block.apply_json(json)
 	children_changed.emit()
 	block.tree_exited.connect(children_changed.emit)
 
@@ -88,22 +88,11 @@ func get_json(remove_redundant := true) -> Dictionary:
 		return {category.key: json}
 	return json
 
-func apply_json(json: Dictionary, apply_exact := false) -> void:
+func apply_json(json: Dictionary) -> void:
 	var first_key = json.keys()[0]
 	if first_key is not String:
 		MessageLog.type_error(TYPE_STRING, typeof(first_key), self)
 		return
-	
-	if json.size() == 1:
-		if not first_key.begins_with("config:") and not apply_exact:
-			variation_block.clear_component()
-			var value = json.values()[0]
-			if value is Dictionary:
-				variation_block.apply_json(json.values()[0])
-				MessageLog.log_warning("Found lone key: " + first_key + ". Only its contents were added.", self)
-			else:
-				MessageLog.type_error(TYPE_DICTIONARY, typeof(value), self)
-			return
 	
 	category = null
 	for c: VariationCategory in Global.get_variation_categories():
@@ -112,7 +101,7 @@ func apply_json(json: Dictionary, apply_exact := false) -> void:
 		if c is ConfigVariationCategory:
 			if first_key == c.key:
 				apply_config = true
-				apply_json(json.get(first_key), apply_exact)
+				apply_json(json.get(first_key))
 				return
 		if c.has_key(first_key):
 			category = c
@@ -129,7 +118,7 @@ func apply_json(json: Dictionary, apply_exact := false) -> void:
 	
 	for key in json.keys():
 		if key is String:
-			add_variation(key, json[key], apply_exact)
+			add_variation(key, json[key])
 		else:
 			MessageLog.type_error(TYPE_STRING, typeof(key), self)
 	apply_config = false

@@ -86,7 +86,7 @@ func update_variations() -> void:
 			MessageLog.log_error("Invalid variation: " + variation.resource_name, self)
 		select_variation(0)
 
-func add_component(index: int, json := {}, apply_exact := false) -> void:
+func add_component(index: int, json := {}) -> void:
 	if COMPONENTS[index] is Array:
 		component = Global.instantiate(COMPONENTS[index][Global.asset_type])
 	else:
@@ -94,7 +94,7 @@ func add_component(index: int, json := {}, apply_exact := false) -> void:
 	component.variation_block = self
 	content_container.add_child(component)
 	if json:
-		component.apply_json(json, apply_exact)
+		component.apply_json(json)
 	component.tree_exited.connect(clear_component)
 	
 	component_menu.hide()
@@ -153,18 +153,18 @@ func get_json(remove_redundant := true) -> Dictionary:
 		return {}
 	return {get_variation_key(): json}
 
-func apply_json(json: Dictionary, apply_exact := false) -> void:
+func apply_json(json: Dictionary) -> void:
 	clear_component()
 	if not json:
 		return
 	if json.has("source"):
-		add_component(ComponentType.SOURCE, json, apply_exact)
+		add_component(ComponentType.SOURCE, json)
 	elif json.has("link"):
-		add_component(ComponentType.LINK, json, apply_exact)
+		add_component(ComponentType.LINK, json)
 	elif json.has("choices"):
-		add_component(ComponentType.RANDOM, json, apply_exact)
+		add_component(ComponentType.RANDOM, json)
 	else:
-		add_component(0, json, apply_exact)
+		add_component(ComponentType.VARIATION_BRANCH, json)
 
 func copy() -> void:
 	if component is SpriteSource:

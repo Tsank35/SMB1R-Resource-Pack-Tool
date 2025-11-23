@@ -67,7 +67,7 @@ func get_json(_remove_redundant := true) -> Dictionary:
 	}
 	return {get_animation_name(): json}
 
-func apply_json(json: Dictionary, _apply_exact := false) -> void:
+func apply_json(json: Dictionary) -> void:
 	clear_frames()
 	
 	var frames: Array = Global.get_value_of_type(json, "frames", TYPE_ARRAY, self, TYPE_ARRAY)

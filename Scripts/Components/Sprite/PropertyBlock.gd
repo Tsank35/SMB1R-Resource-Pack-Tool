@@ -47,7 +47,7 @@ func get_json(remove_redundant := true) -> Dictionary:
 		return {}
 	return {"properties": json}
 
-func apply_json(json: Dictionary, _apply_exact := false) -> void:
+func apply_json(json: Dictionary) -> void:
 	clear()
 	for key in json.keys():
 		if key is String:

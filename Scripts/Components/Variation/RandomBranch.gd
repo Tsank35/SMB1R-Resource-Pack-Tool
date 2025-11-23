@@ -2,14 +2,14 @@ class_name RandomBranch extends VariationComponent
 
 const RANDOM_CHOICE := "res://Scenes/Components/Variation/RandomChoice.tscn"
 
-func add_choice(json := {}, apply_exact := false) -> void:
+func add_choice(json := {}) -> void:
 	var choice: RandomChoice = Global.instantiate(RANDOM_CHOICE)
 	choice.random_branch = self
 	add_child(choice)
 	
 	var label := ""
 	if json:
-		choice.apply_json(json, apply_exact)
+		choice.apply_json(json)
 		if json.has("label") and json.label is String:
 			label = json.label
 	if not label:
@@ -36,7 +36,7 @@ func get_json(remove_redundant := true) -> Dictionary:
 			return choices[0]
 	return {"choices": choices}
 
-func apply_json(json: Dictionary, apply_exact := false) -> void:
+func apply_json(json: Dictionary) -> void:
 	var choices: Array = Global.get_value_of_type(json, "choices", TYPE_ARRAY, self, TYPE_DICTIONARY)
 	for choice in choices:
-		add_choice(choice, apply_exact)
+		add_choice(choice)

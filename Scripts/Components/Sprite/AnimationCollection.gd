@@ -13,14 +13,14 @@ func _ready() -> void:
 	if is_empty():
 		set_collapsed(true)
 
-func add_animation(anim_name := "", json := {}, apply_exact := false) -> void:
+func add_animation(anim_name := "", json := {}) -> void:
 	var animation: AnimationBlock = Global.instantiate(ANIMATION_BLOCK)
 	animation.collection = self
 	animation_container.add_child(animation)
 	if anim_name:
 		animation.set_animation_name(anim_name)
 	if json:
-		animation.apply_json(json, apply_exact)
+		animation.apply_json(json)
 
 func clear() -> void:
 	for animation: AnimationBlock in get_animations():
@@ -139,11 +139,11 @@ func get_json(remove_redundant := true) -> Dictionary:
 		return {"animation_overrides": json}
 	return {"animations": json}
 
-func apply_json(json: Dictionary, apply_exact := false) -> void:
+func apply_json(json: Dictionary) -> void:
 	clear()
 	for key in json.keys():
 		if key is String:
-			add_animation(key, Global.get_value_of_type(json, key, TYPE_DICTIONARY), apply_exact)
+			add_animation(key, Global.get_value_of_type(json, key, TYPE_DICTIONARY))
 		else:
 			MessageLog.type_error(TYPE_STRING, typeof(key), self)
 	set_collapsed(is_empty())
