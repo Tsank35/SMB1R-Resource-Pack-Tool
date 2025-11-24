@@ -73,6 +73,6 @@ item_2/text = "Add Link"
 item_3/text = "Add Random Branch"
 
 [connection signal="item_selected" from="VBox/Header/Variations" to="." method="select_variation"]
-[connection signal="text_changed" from="VBox/Header/CustomVariation" to="." method="custom_variation_changed"]
+[connection signal="text_changed" from="VBox/Header/CustomVariation" to="." method="custom_variation_changed" unbinds=1]
 [connection signal="deletion_confirmed" from="VBox/Header/DeleteButton" to="." method="queue_free"]
 [connection signal="item_selected" from="VBox/Contents/ComponentMenu" to="." method="add_component"]

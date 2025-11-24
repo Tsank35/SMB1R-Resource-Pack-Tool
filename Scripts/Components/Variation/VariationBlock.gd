@@ -39,6 +39,7 @@ func _ready() -> void:
 func set_variation(value: Variation) -> void:
 	variation = value
 	icon.texture = variation.icon
+	variation_dropdown.tooltip_text = get_variation_key()
 	custom_variation_input.visible = variation.is_custom
 	color_1 = variation.color_1
 	color_2 = variation.color_2
@@ -108,6 +109,7 @@ func clear_component() -> void:
 	component_menu.show()
 
 func custom_variation_changed() -> void:
+	variation_dropdown.tooltip_text = get_variation_key()
 	variation_branch.children_changed.emit()
 	if component and component.is_in_group("Sources"):
 		Global.sources_changed.emit()
