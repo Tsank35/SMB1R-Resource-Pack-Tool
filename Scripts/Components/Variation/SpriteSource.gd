@@ -31,6 +31,7 @@ func _ready() -> void:
 		animation_block.set_collapsed(true)
 	if random_choice:
 		$HBox/DeleteButton.queue_free()
+	rect.move_child(rect.get_node("Label"), 0)
 
 func set_path(value: String) -> void:
 	path = value
