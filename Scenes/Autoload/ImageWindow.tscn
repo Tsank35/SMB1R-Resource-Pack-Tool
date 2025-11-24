@@ -81,6 +81,7 @@ layout_mode = 2
 theme = SubResource("Theme_4e5qy")
 min_value = 1.0
 value = 8.0
+update_on_text_changed = true
 prefix = "X"
 
 [node name="Y" type="SpinBox" parent="RectHUD/Grid"]
@@ -88,6 +89,7 @@ layout_mode = 2
 theme = SubResource("Theme_4e5qy")
 min_value = 1.0
 value = 8.0
+update_on_text_changed = true
 prefix = "Y"
 
 [node name="ApplyButton" type="Button" parent="RectHUD"]
