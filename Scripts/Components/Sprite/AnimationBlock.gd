@@ -38,13 +38,7 @@ func preview_animation() -> void:
 	if source:
 		var texture: Texture2D
 		if source.texture:
-			if source.use_full_image:
-				texture = source.texture
-			else:
-				var atlas := AtlasTexture.new()
-				atlas.region = source.rect.rect
-				atlas.atlas = source.texture
-				texture = atlas
+			texture = source.get_cropped_texture()
 		ImageWindow.open(texture, ImageWindow.ImageMode.ANIMATION, get_json().values()[0])
 	else:
 		MessageLog.log_error("No reference found.")

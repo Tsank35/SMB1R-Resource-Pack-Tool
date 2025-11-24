@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="9_1egxa"]
 [ext_resource type="PackedScene" uid="uid://3hacvk0x7d07" path="res://Scenes/Components/Sprite/AnimationCollection.tscn" id="10_1egxa"]
 
-[node name="SpriteSource" type="BoxContainer" node_paths=PackedStringArray("source_label", "image_button", "use_full_image_button", "rect", "spin_boxes", "property_block", "animation_block", "animation_overrides", "new_animations") groups=["Sources"]]
+[node name="SpriteSource" type="BoxContainer" node_paths=PackedStringArray("source_label", "image_button", "use_full_image_button", "rect", "property_block", "animation_block", "animation_overrides", "new_animations") groups=["Sources"]]
 offset_right = 160.0
 offset_bottom = 32.0
 theme_override_constants/separation = 0
@@ -21,7 +21,6 @@ source_label = NodePath("HBox/Settings/Source/Label")
 image_button = NodePath("HBox/ImageButton")
 use_full_image_button = NodePath("HBox/Settings/UseFullImage/CheckBox")
 rect = NodePath("HBox/Settings/Rect")
-spin_boxes = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
 property_block = NodePath("PropertyBlock")
 animation_block = NodePath("Animations")
 animation_overrides = NodePath("Animations/VBox/Contents/VBox/AnimationOverrides")
@@ -50,6 +49,11 @@ restrict_to_base_directory = true
 [node name="Rect" parent="HBox/Settings" instance=ExtResource("3_1egxa")]
 visible = false
 layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/Settings/Rect"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Rect:"
 
 [node name="UseFullImage" type="HBoxContainer" parent="HBox/Settings"]
 layout_mode = 2
@@ -130,6 +134,7 @@ text = "New Animations"
 [connection signal="toggled" from="HBox/Settings/UseFullImage/CheckBox" to="." method="set_use_full_image"]
 [connection signal="deletion_confirmed" from="HBox/DeleteButton" to="." method="queue_free"]
 
+[editable path="HBox/Settings/Rect"]
 [editable path="Animations"]
 [editable path="Animations/VBox/Contents/VBox/AnimationOverrides"]
 [editable path="Animations/VBox/Contents/VBox/NewAnimations"]

@@ -21,7 +21,6 @@ var random_choice: RandomChoice
 @export var image_button: ImageButton
 @export var use_full_image_button: TextureButton
 @export var rect: SpriteRect
-@export var spin_boxes: Array[SpinBox] = []
 @export var property_block: PropertyBlock
 @export var animation_block: DataBlock
 @export var animation_overrides: AnimationCollection
