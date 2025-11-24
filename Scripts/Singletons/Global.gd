@@ -111,22 +111,6 @@ func type_name(type: Variant.Type) -> String:
 			return "text"
 	return type_string(type)
 
-func get_rect_from_array(array: Array) -> Rect2:
-	var rect := Rect2()
-	var check := func(i: int) -> bool:
-		if array.size() <= i:
-			return false
-		return array[i] is int or array[i] is float
-	if check.call(0):
-		rect.position.x = array[0]
-	if check.call(1):
-		rect.position.y = array[1]
-	if check.call(2):
-		rect.size.x = array[2]
-	if check.call(3):
-		rect.size.y = array[3]
-	return rect
-
 func get_variation_categories() -> Array[VariationCategory]:
 	var categories: Array[VariationCategory] = []
 	for path: String in VARIATION_CATEGORIES:

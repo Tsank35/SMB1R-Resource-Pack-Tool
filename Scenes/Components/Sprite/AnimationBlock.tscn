@@ -73,7 +73,6 @@ texture_pressed = ExtResource("5_1ly3x")
 
 [node name="VBox" type="VBoxContainer" parent="VBox/Contents" index="0"]
 layout_mode = 2
-theme_override_constants/separation = 0
 
 [node name="AddButton" type="TextureButton" parent="VBox/Contents/VBox" index="0"]
 layout_mode = 2

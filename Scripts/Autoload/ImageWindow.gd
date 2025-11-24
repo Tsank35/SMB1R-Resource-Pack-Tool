@@ -47,7 +47,7 @@ func open(texture: Texture2D, use_mode: ImageMode, data := {}, connect_callable 
 		for frame: Array in data.frames:
 			var atlas := AtlasTexture.new()
 			atlas.atlas = texture
-			atlas.region = Global.get_rect_from_array(frame)
+			atlas.region = Rect2(frame[0], frame[1], frame[2], frame[3])
 			animation.sprite_frames.add_frame("default", atlas)
 			if atlas.region.size.x > largest.x:
 				largest.x = atlas.region.size.x

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dput4llyjsa6i" path="res://Scripts/Components/Variation/SpriteSource.gd" id="1_mfdij"]
 [ext_resource type="PackedScene" uid="uid://b5mjo87bv1veq" path="res://Scenes/Components/Buttons/FileButton.tscn" id="2_fi56a"]
-[ext_resource type="Texture2D" uid="uid://iea1ax2k23oo" path="res://Assets/Buttons/SetRect.png" id="3_fi56a"]
+[ext_resource type="PackedScene" uid="uid://bruv5nnnpj34c" path="res://Scenes/Components/Sprite/SpriteRect.tscn" id="3_1egxa"]
 [ext_resource type="Texture2D" uid="uid://cq5e67shvthl6" path="res://Assets/Buttons/CheckboxOff.png" id="4_1egxa"]
 [ext_resource type="Texture2D" uid="uid://kstmgtse2qu8" path="res://Assets/Buttons/CheckboxOn.png" id="5_sfck0"]
 [ext_resource type="PackedScene" uid="uid://miqn20i6iknf" path="res://Scenes/Components/Buttons/ImageButton.tscn" id="6_bjfho"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="9_1egxa"]
 [ext_resource type="PackedScene" uid="uid://3hacvk0x7d07" path="res://Scenes/Components/Sprite/AnimationCollection.tscn" id="10_1egxa"]
 
-[node name="SpriteSource" type="BoxContainer" node_paths=PackedStringArray("source_label", "image_button", "use_full_image_button", "rect_container", "spin_boxes", "property_block", "animation_block", "animation_overrides", "new_animations") groups=["Sources"]]
+[node name="SpriteSource" type="BoxContainer" node_paths=PackedStringArray("source_label", "image_button", "use_full_image_button", "rect", "spin_boxes", "property_block", "animation_block", "animation_overrides", "new_animations") groups=["Sources"]]
 offset_right = 160.0
 offset_bottom = 32.0
 theme_override_constants/separation = 0
@@ -20,8 +20,8 @@ script = ExtResource("1_mfdij")
 source_label = NodePath("HBox/Settings/Source/Label")
 image_button = NodePath("HBox/ImageButton")
 use_full_image_button = NodePath("HBox/Settings/UseFullImage/CheckBox")
-rect_container = NodePath("HBox/Settings/Rect")
-spin_boxes = [NodePath("HBox/Settings/Rect/Grid/X"), NodePath("HBox/Settings/Rect/Grid/Y"), NodePath("HBox/Settings/Rect/Grid/W"), NodePath("HBox/Settings/Rect/Grid/H")]
+rect = NodePath("HBox/Settings/Rect")
+spin_boxes = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
 property_block = NodePath("PropertyBlock")
 animation_block = NodePath("Animations")
 animation_overrides = NodePath("Animations/VBox/Contents/VBox/AnimationOverrides")
@@ -47,51 +47,9 @@ formats = PackedStringArray("bmp", "dds", "htx", "exr", "hdr", "jpg", "jpeg", "p
 prepend_base_dir = 2
 restrict_to_base_directory = true
 
-[node name="Rect" type="HBoxContainer" parent="HBox/Settings"]
+[node name="Rect" parent="HBox/Settings" instance=ExtResource("3_1egxa")]
 visible = false
 layout_mode = 2
-
-[node name="VBox" type="VBoxContainer" parent="HBox/Settings/Rect"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBox/Settings/Rect/VBox"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "Rect:"
-
-[node name="SetRect" type="TextureButton" parent="HBox/Settings/Rect/VBox"]
-layout_mode = 2
-size_flags_horizontal = 8
-tooltip_text = "Set Rect"
-texture_normal = ExtResource("3_fi56a")
-
-[node name="Grid" type="GridContainer" parent="HBox/Settings/Rect"]
-layout_mode = 2
-columns = 2
-
-[node name="X" type="SpinBox" parent="HBox/Settings/Rect/Grid"]
-layout_mode = 2
-editable = false
-update_on_text_changed = true
-prefix = "X"
-
-[node name="Y" type="SpinBox" parent="HBox/Settings/Rect/Grid"]
-layout_mode = 2
-editable = false
-update_on_text_changed = true
-prefix = "Y"
-
-[node name="W" type="SpinBox" parent="HBox/Settings/Rect/Grid"]
-layout_mode = 2
-editable = false
-update_on_text_changed = true
-prefix = "W"
-
-[node name="H" type="SpinBox" parent="HBox/Settings/Rect/Grid"]
-layout_mode = 2
-editable = false
-update_on_text_changed = true
-prefix = "H"
 
 [node name="UseFullImage" type="HBoxContainer" parent="HBox/Settings"]
 layout_mode = 2
@@ -168,11 +126,7 @@ color_3 = Color(0.21960784, 0.40784314, 0, 1)
 text = "New Animations"
 
 [connection signal="file_selected" from="HBox/Settings/Source/FileButton" to="." method="select_file"]
-[connection signal="pressed" from="HBox/Settings/Rect/VBox/SetRect" to="." method="set_rect_from_image"]
-[connection signal="value_changed" from="HBox/Settings/Rect/Grid/X" to="." method="set_rect_x"]
-[connection signal="value_changed" from="HBox/Settings/Rect/Grid/Y" to="." method="set_rect_y"]
-[connection signal="value_changed" from="HBox/Settings/Rect/Grid/W" to="." method="set_rect_width"]
-[connection signal="value_changed" from="HBox/Settings/Rect/Grid/H" to="." method="set_rect_height"]
+[connection signal="rect_changed" from="HBox/Settings/Rect" to="." method="update_image"]
 [connection signal="toggled" from="HBox/Settings/UseFullImage/CheckBox" to="." method="set_use_full_image"]
 [connection signal="deletion_confirmed" from="HBox/DeleteButton" to="." method="queue_free"]
 

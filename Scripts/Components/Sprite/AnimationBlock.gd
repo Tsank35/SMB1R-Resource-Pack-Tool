@@ -15,7 +15,7 @@ func add_frame(rect := []) -> void:
 	frame.source = collection.source
 	frame_container.add_child(frame)
 	if rect:
-		frame.set_rect_array(rect)
+		frame.set_rect_from_array(rect)
 
 func clear_frames() -> void:
 	for frame: AnimationFrame in get_frames():
@@ -42,7 +42,7 @@ func preview_animation() -> void:
 				texture = source.texture
 			else:
 				var atlas := AtlasTexture.new()
-				atlas.region = source.rect
+				atlas.region = source.rect.rect
 				atlas.atlas = source.texture
 				texture = atlas
 		ImageWindow.open(texture, ImageWindow.ImageMode.ANIMATION, get_json().values()[0])
@@ -58,8 +58,7 @@ func get_animation_name() -> String:
 func get_json(_remove_redundant := true) -> Dictionary:
 	var frames := []
 	for frame: AnimationFrame in get_frames():
-		var rect := frame.rect
-		frames.append([rect.position.x, rect.position.y, rect.size.x, rect.size.y])
+		frames.append(frame.get_rect_array())
 	var json := {
 		"frames": frames,
 		"speed": speed_input.value,
@@ -72,21 +71,7 @@ func apply_json(json: Dictionary) -> void:
 	
 	var frames: Array = Global.get_value_of_type(json, "frames", TYPE_ARRAY, self, TYPE_ARRAY)
 	for frame in frames:
-		var valid := true
-		if frame.size() != 4:
-			if frame.size() < 4:
-				MessageLog.log_error("Not enough frame dimensions given.", self)
-			else:
-				MessageLog.log_error("Too many frame dimensions given.", self)
-			valid = false
-		if valid:
-			for i in frame:
-				if i is not int and i is not float:
-					MessageLog.log_error("Expected a number array, but found a " + Global.type_name(typeof(i)) + " value instead.", self)
-					valid = false
-					break
-		if valid:
-			add_frame(frame)
+		add_frame(frame)
 	if not json.has("frames"):
 		MessageLog.log_error("No frames found.", self)
 	

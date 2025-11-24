@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://bruv5nnnpj34c"]
+
+[ext_resource type="Script" uid="uid://blcpm1r1etj3g" path="res://Scripts/Components/Sprite/SpriteRect.gd" id="1_l5q00"]
+[ext_resource type="Texture2D" uid="uid://iea1ax2k23oo" path="res://Assets/Buttons/SetRect.png" id="2_m56t7"]
+[ext_resource type="Texture2D" uid="uid://uqg65xfodqx7" path="res://Assets/Buttons/Copy.png" id="3_te4vp"]
+[ext_resource type="Texture2D" uid="uid://vv0m1lqfcy1s" path="res://Assets/Buttons/Paste.png" id="4_ddjv3"]
+
+[node name="SpriteRect" type="HBoxContainer" node_paths=PackedStringArray("spin_boxes")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_l5q00")
+spin_boxes = [NodePath("SpinBoxes/X"), NodePath("SpinBoxes/Y"), NodePath("SpinBoxes/W"), NodePath("SpinBoxes/H")]
+
+[node name="SpinBoxes" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+
+[node name="X" type="SpinBox" parent="SpinBoxes"]
+layout_mode = 2
+update_on_text_changed = true
+prefix = "X"
+
+[node name="Y" type="SpinBox" parent="SpinBoxes"]
+layout_mode = 2
+update_on_text_changed = true
+prefix = "Y"
+
+[node name="W" type="SpinBox" parent="SpinBoxes"]
+layout_mode = 2
+update_on_text_changed = true
+prefix = "W"
+
+[node name="H" type="SpinBox" parent="SpinBoxes"]
+layout_mode = 2
+update_on_text_changed = true
+prefix = "H"
+
+[node name="SetRect" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+tooltip_text = "Set Rect"
+focus_mode = 0
+texture_normal = ExtResource("2_m56t7")
+
+[node name="Copy" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+tooltip_text = "Copy"
+focus_mode = 0
+texture_normal = ExtResource("3_te4vp")
+
+[node name="Paste" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+tooltip_text = "Paste"
+focus_mode = 0
+texture_normal = ExtResource("4_ddjv3")
+
+[connection signal="value_changed" from="SpinBoxes/X" to="." method="set_rect_x"]
+[connection signal="value_changed" from="SpinBoxes/Y" to="." method="set_rect_y"]
+[connection signal="value_changed" from="SpinBoxes/W" to="." method="set_rect_width"]
+[connection signal="value_changed" from="SpinBoxes/H" to="." method="set_rect_height"]
+[connection signal="pressed" from="SetRect" to="." method="set_rect_from_image"]
+[connection signal="pressed" from="Copy" to="." method="copy"]
+[connection signal="pressed" from="Paste" to="." method="paste"]
