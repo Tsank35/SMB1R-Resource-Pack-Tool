@@ -6,7 +6,8 @@ enum DataType {
 	PROPERTY,
 	ANIMATION,
 	ANIMATION_COLLECTION,
-	CONFIG
+	CONFIG,
+	RECT
 }
 
 @export var data_type := DataType.VARIATION
