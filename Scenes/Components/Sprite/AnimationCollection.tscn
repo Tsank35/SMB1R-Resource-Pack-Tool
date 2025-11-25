@@ -58,5 +58,5 @@ texture_normal = ExtResource("5_nchm3")
 collapse_all = false
 parent = NodePath("../..")
 
-[connection signal="aseprite_selected" from="VBox/Header/AsepriteButton" to="." method="import_aseprite"]
+[connection signal="aseprite_imported" from="VBox/Header/AsepriteButton" to="." method="apply_json"]
 [connection signal="pressed" from="VBox/Contents/VBox/Header/AddButton" to="." method="add_animation"]

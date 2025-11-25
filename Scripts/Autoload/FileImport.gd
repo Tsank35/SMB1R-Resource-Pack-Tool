@@ -14,18 +14,20 @@ var connected_callable := Callable()
 @export var import_button: Button
 @export var copy_button: Button
 @export var file_dialog: FileDialog
-@export var aseprite_config: ConfirmationDialog
-@export var frame_duration_input: SpinBox
-@export var separate_tags_buttton: CheckBox
+@export var aseprite_import: AsepriteImport
 
-signal file_selected(path: String, data: Dictionary)
+signal file_selected(path: String)
+signal aseprite_imported(data: Dictionary)
 
 func _ready() -> void:
 	get_parent().move_child.call_deferred(self, get_parent().get_child_count() - 1)
 
 func open(connect_signal: Callable) -> void:
 	connected_callable = connect_signal
-	file_selected.connect(connected_callable)
+	if aseprite:
+		aseprite_imported.connect(connected_callable)
+	else:
+		file_selected.connect(connected_callable)
 	format_label.text = "Valid formats: "
 	var first := true
 	for format: String in formats:
@@ -45,7 +47,10 @@ func close() -> void:
 	get_window().files_dropped.disconnect(drop_files)
 	hide()
 	if connected_callable:
-		file_selected.disconnect(connected_callable)
+		if aseprite:
+			aseprite_imported.disconnect(connected_callable)
+		else:
+			file_selected.disconnect(connected_callable)
 		connected_callable = Callable()
 
 func set_file(value: String) -> void:
@@ -87,9 +92,9 @@ func browse() -> void:
 
 func import() -> void:
 	if aseprite:
-		aseprite_config.popup_centered()
+		aseprite_import.open(file)
 	else:
-		file_selected.emit(file, {})
+		file_selected.emit(file)
 		close()
 
 func copy_to_folder() -> void:
@@ -100,9 +105,6 @@ func copy_to_folder() -> void:
 	copy_file.close()
 	file = copy_path
 
-func confirm_aseprite_import() -> void:
-	file_selected.emit(file, {
-		"speed": frame_duration_input.value,
-		"separate_tags": separate_tags_buttton.button_pressed
-	})
+func import_aseprite(data: Dictionary) -> void:
+	aseprite_imported.emit(data)
 	close()

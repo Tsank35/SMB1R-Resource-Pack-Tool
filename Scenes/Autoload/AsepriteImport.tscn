@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://b135o1m10elta"]
+
+[ext_resource type="Theme" uid="uid://bur662d0xy38t" path="res://Resources/StandardTheme.tres" id="1_c8x6y"]
+[ext_resource type="Script" uid="uid://cne1af3io0tyx" path="res://Scripts/Autoload/AsepriteImport.gd" id="2_vyy4t"]
+[ext_resource type="Theme" uid="uid://bq5g28lvby5wq" path="res://Resources/SMB1RTheme.tres" id="3_oqjgo"]
+[ext_resource type="PackedScene" uid="uid://dm0mvbc43mm2g" path="res://Scenes/Components/AsepriteTag.tscn" id="4_0gv2n"]
+
+[node name="AsepriteImport" type="Window" node_paths=PackedStringArray("root_block")]
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+title = "Configure Aseprite Import"
+position = Vector2i(0, 36)
+size = Vector2i(1280, 720)
+visible = false
+force_native = true
+content_scale_factor = 2.0
+theme = ExtResource("1_c8x6y")
+script = ExtResource("2_vyy4t")
+root_block = NodePath("ScrollContainer/AsepriteTag")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_oqjgo")
+
+[node name="AsepriteTag" parent="ScrollContainer" instance=ExtResource("4_0gv2n")]
+layout_mode = 2
+size_flags_horizontal = 3
+is_root = true
+color_1 = Color(0.627451, 0.91764706, 1, 1)
+color_2 = Color(0.3137255, 0.3137255, 1, 1)
+color_3 = Color(0.039215688, 0.105882354, 0.5411765, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ImportButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "Import"
+
+[connection signal="close_requested" from="." to="." method="close"]
+[connection signal="pressed" from="CanvasLayer/ImportButton" to="." method="import"]

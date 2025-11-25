@@ -13,7 +13,7 @@ enum PrependBaseDir {
 @export var aseprite := false
 
 signal file_selected(path: String)
-signal aseprite_selected(path: String, speed: float, seperate_tags: bool)
+signal aseprite_imported(data: Dictionary)
 
 func on_pressed() -> void:
 	var dir := ""
@@ -28,10 +28,13 @@ func on_pressed() -> void:
 	FileImport.base_directory = dir
 	FileImport.restrict_to_base = restrict_to_base_directory
 	FileImport.aseprite = aseprite
-	FileImport.open(select_file)
-
-func select_file(path: String, data := {}) -> void:
 	if aseprite:
-		aseprite_selected.emit(path, data.speed, data.separate_tags)
+		FileImport.open(import_aseprite)
 	else:
-		file_selected.emit(path)
+		FileImport.open(select_file)
+
+func select_file(path: String) -> void:
+	file_selected.emit(path)
+
+func import_aseprite(data: Dictionary) -> void:
+	aseprite_imported.emit(data)

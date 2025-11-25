@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbqwat6ricc47"]
+[gd_scene load_steps=4 format=3 uid="uid://cbqwat6ricc47"]
 
 [ext_resource type="Script" uid="uid://buhvgpvquk3jf" path="res://Scripts/Autoload/FileImport.gd" id="1_6jyv6"]
 [ext_resource type="Theme" uid="uid://bur662d0xy38t" path="res://Resources/StandardTheme.tres" id="2_60a3w"]
+[ext_resource type="PackedScene" uid="uid://b135o1m10elta" path="res://Scenes/Autoload/AsepriteImport.tscn" id="3_twdx5"]
 
-[node name="FileImport" type="ColorRect" node_paths=PackedStringArray("selected_file_label", "format_label", "warning", "import_button", "copy_button", "file_dialog", "aseprite_config", "frame_duration_input", "separate_tags_buttton")]
+[node name="FileImport" type="ColorRect" node_paths=PackedStringArray("selected_file_label", "format_label", "warning", "import_button", "copy_button", "file_dialog", "aseprite_import")]
 visible = false
 z_index = 100
 anchors_preset = 15
@@ -20,9 +21,7 @@ warning = NodePath("VBox/Warning")
 import_button = NodePath("VBox/Buttons/ImportButton")
 copy_button = NodePath("VBox/Buttons/CopyButton")
 file_dialog = NodePath("FileDialog")
-aseprite_config = NodePath("AsepriteConfig")
-frame_duration_input = NodePath("AsepriteConfig/VBox/FrameDuration/SpinBox")
-separate_tags_buttton = NodePath("AsepriteConfig/VBox/SeparateTags/CheckBox")
+aseprite_import = NodePath("AsepriteImport")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -99,54 +98,7 @@ file_mode = 0
 display_mode = 1
 access = 2
 
-[node name="AsepriteConfig" type="ConfirmationDialog" parent="."]
-oversampling_override = 1.0
-title = "Configure Aseprite Import"
-size = Vector2i(400, 150)
-force_native = true
-theme = ExtResource("2_60a3w")
-
-[node name="VBox" type="VBoxContainer" parent="AsepriteConfig"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = -8.0
-offset_bottom = -49.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="FrameDuration" type="HBoxContainer" parent="AsepriteConfig/VBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Label" type="Label" parent="AsepriteConfig/VBox/FrameDuration"]
-layout_mode = 2
-text = "Duration of a single frame: "
-
-[node name="SpinBox" type="SpinBox" parent="AsepriteConfig/VBox/FrameDuration"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-step = 0.01
-value = 100.0
-allow_greater = true
-update_on_text_changed = true
-suffix = "ms"
-custom_arrow_step = 1.0
-
-[node name="SeparateTags" type="HBoxContainer" parent="AsepriteConfig/VBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Label" type="Label" parent="AsepriteConfig/VBox/SeparateTags"]
-layout_mode = 2
-text = "Make a new animation for each tag"
-
-[node name="CheckBox" type="CheckBox" parent="AsepriteConfig/VBox/SeparateTags"]
-layout_mode = 2
-button_pressed = true
+[node name="AsepriteImport" parent="." instance=ExtResource("3_twdx5")]
 
 [connection signal="pressed" from="VBox/BrowseButton" to="." method="browse"]
 [connection signal="pressed" from="VBox/Buttons/ImportButton" to="." method="import"]
@@ -154,4 +106,4 @@ button_pressed = true
 [connection signal="pressed" from="VBox/Buttons/CopyButton" to="." method="copy_to_folder"]
 [connection signal="close_requested" from="FileDialog" to="FileDialog" method="hide"]
 [connection signal="file_selected" from="FileDialog" to="." method="select_file"]
-[connection signal="confirmed" from="AsepriteConfig" to="." method="confirm_aseprite_import"]
+[connection signal="aseprite_imported" from="AsepriteImport" to="." method="import_aseprite"]
