@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=31 format=3 uid="uid://bq5g28lvby5wq"]
+[gd_resource type="Theme" load_steps=33 format=3 uid="uid://bq5g28lvby5wq"]
 
 [ext_resource type="StyleBox" uid="uid://bpkveedli1c7o" path="res://Resources/Style Boxes/FlatStyleBox.tres" id="1_a0px3"]
 [ext_resource type="StyleBox" uid="uid://carddjnmd6blo" path="res://Resources/Style Boxes/StyleBoxEmpty.tres" id="1_p6wlf"]
@@ -7,7 +7,9 @@
 [ext_resource type="StyleBox" uid="uid://cujceshvigpf1" path="res://Resources/Style Boxes/HorizontalLine.tres" id="2_rsjtd"]
 [ext_resource type="FontFile" uid="uid://j6e14r6sw22n" path="res://Assets/Font.fnt" id="3_m64oi"]
 [ext_resource type="Texture2D" uid="uid://c757ckf3k81pr" path="res://Assets/ScrollBar.png" id="4_m64oi"]
+[ext_resource type="Texture2D" uid="uid://kstmgtse2qu8" path="res://Assets/Buttons/CheckboxOn.png" id="4_mxal0"]
 [ext_resource type="Texture2D" uid="uid://dqwqu5pj0tdg2" path="res://Assets/Icons/Cursor.png" id="4_rixsd"]
+[ext_resource type="Texture2D" uid="uid://cq5e67shvthl6" path="res://Assets/Buttons/CheckboxOff.png" id="5_jjoeq"]
 [ext_resource type="StyleBox" uid="uid://b1dqy4urfyg6f" path="res://Resources/Style Boxes/HoverStyleBox.tres" id="6_c6d6s"]
 [ext_resource type="StyleBox" uid="uid://bmkgpnt2rku6s" path="res://Resources/Style Boxes/VerticalLine.tres" id="6_jprvv"]
 [ext_resource type="Texture2D" uid="uid://e7kwx8ufu7t2" path="res://Resources/EmptyTexture.tres" id="7_206u1"]
@@ -119,6 +121,15 @@ Button/styles/disabled = ExtResource("1_a0px3")
 Button/styles/hover = ExtResource("6_c6d6s")
 Button/styles/normal = ExtResource("1_a0px3")
 Button/styles/pressed = ExtResource("2_a0px3")
+CheckBox/icons/checked = ExtResource("4_mxal0")
+CheckBox/icons/checked_disabled = ExtResource("4_mxal0")
+CheckBox/icons/unchecked = ExtResource("5_jjoeq")
+CheckBox/icons/unchecked_disabled = ExtResource("5_jjoeq")
+CheckBox/styles/disabled = ExtResource("1_p6wlf")
+CheckBox/styles/hover = ExtResource("1_p6wlf")
+CheckBox/styles/hover_pressed = ExtResource("1_p6wlf")
+CheckBox/styles/normal = ExtResource("1_p6wlf")
+CheckBox/styles/pressed = ExtResource("1_p6wlf")
 GridContainer/constants/h_separation = 8
 GridContainer/constants/v_separation = 8
 HScrollBar/icons/decrement = SubResource("AtlasTexture_206u1")
