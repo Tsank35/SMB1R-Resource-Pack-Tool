@@ -58,7 +58,7 @@ texture_normal = ExtResource("3_5uaws")
 
 [node name="SaveButton" type="TextureButton" parent="VBox/Header"]
 layout_mode = 2
-tooltip_text = "Preview JSON"
+tooltip_text = "Save"
 texture_normal = ExtResource("4_fkl04")
 
 [node name="Reference" type="HBoxContainer" parent="VBox"]
