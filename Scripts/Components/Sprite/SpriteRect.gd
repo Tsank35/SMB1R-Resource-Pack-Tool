@@ -1,4 +1,4 @@
-class_name SpriteRect extends HBoxContainer
+class_name SpriteRect extends BoxContainer
 
 var rect := Rect2(): set = set_rect
 var texture: Texture2D
