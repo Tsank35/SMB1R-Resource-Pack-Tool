@@ -19,7 +19,7 @@ var random_choice: RandomChoice
 @export_group("Nodes")
 @export var source_label: Label
 @export var image_button: ImageButton
-@export var use_full_image_button: TextureButton
+@export var full_image_checkbox: CheckBox
 @export var rect: SpriteRect
 @export var property_block: PropertyBlock
 @export var animation_block: DataBlock
@@ -110,7 +110,7 @@ func apply_json(json: Dictionary) -> void:
 		if rect_array:
 			rect.set_rect_from_array(rect_array)
 		use_full_image = false
-		use_full_image_button.set_pressed_no_signal(false)
+		full_image_checkbox.set_pressed_no_signal(false)
 	
 	property_block.apply_json(Global.get_value_of_type(json, "properties", TYPE_DICTIONARY, self))
 	animation_overrides.apply_json(Global.get_value_of_type(json, "animation_overrides", TYPE_DICTIONARY, self))

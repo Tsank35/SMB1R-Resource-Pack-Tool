@@ -15,7 +15,7 @@ var type := Type.BOOLEAN:
 
 @export_group("Nodes")
 @export var name_input: LineEdit
-@export var boolean_input: TextureButton
+@export var boolean_input: CheckBox
 @export var number_input: SpinBox
 @export var text_input: LineEdit
 @export var vector_container: BoxContainer

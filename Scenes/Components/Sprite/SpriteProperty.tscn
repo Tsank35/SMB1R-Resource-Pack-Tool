@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dil0yi6elmq0j"]
+[gd_scene load_steps=6 format=3 uid="uid://dil0yi6elmq0j"]
 
 [ext_resource type="Script" uid="uid://cyis1rwptpgoj" path="res://Scripts/Components/Sprite/SpriteProperty.gd" id="1_d3bes"]
-[ext_resource type="Texture2D" uid="uid://cq5e67shvthl6" path="res://Assets/Buttons/CheckboxOff.png" id="1_fybrf"]
-[ext_resource type="Texture2D" uid="uid://kstmgtse2qu8" path="res://Assets/Buttons/CheckboxOn.png" id="2_d3bes"]
 [ext_resource type="Script" uid="uid://crfo1a3tynisp" path="res://Scripts/Components/LinearOptionButton.gd" id="3_ckvaw"]
 [ext_resource type="PackedScene" uid="uid://coa5jjimu3uqn" path="res://Scenes/Components/Buttons/MoveButton.tscn" id="5_bw51l"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="5_ckvaw"]
@@ -25,13 +23,10 @@ layout_mode = 2
 size_flags_vertical = 0
 expand_to_text_length = true
 
-[node name="BooleanValue" type="TextureButton" parent="."]
+[node name="BooleanValue" type="CheckBox" parent="."]
 layout_mode = 2
 size_flags_vertical = 0
 focus_mode = 0
-toggle_mode = true
-texture_normal = ExtResource("1_fybrf")
-texture_pressed = ExtResource("2_d3bes")
 
 [node name="NumberValue" type="SpinBox" parent="."]
 visible = false

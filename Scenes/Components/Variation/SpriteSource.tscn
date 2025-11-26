@@ -1,17 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4uetnlm0ubxs"]
+[gd_scene load_steps=9 format=3 uid="uid://c4uetnlm0ubxs"]
 
 [ext_resource type="Script" uid="uid://dput4llyjsa6i" path="res://Scripts/Components/Variation/SpriteSource.gd" id="1_mfdij"]
 [ext_resource type="PackedScene" uid="uid://b5mjo87bv1veq" path="res://Scenes/Components/Buttons/FileButton.tscn" id="2_fi56a"]
 [ext_resource type="PackedScene" uid="uid://bruv5nnnpj34c" path="res://Scenes/Components/Sprite/SpriteRect.tscn" id="3_1egxa"]
-[ext_resource type="Texture2D" uid="uid://cq5e67shvthl6" path="res://Assets/Buttons/CheckboxOff.png" id="4_1egxa"]
-[ext_resource type="Texture2D" uid="uid://kstmgtse2qu8" path="res://Assets/Buttons/CheckboxOn.png" id="5_sfck0"]
 [ext_resource type="PackedScene" uid="uid://miqn20i6iknf" path="res://Scenes/Components/Buttons/ImageButton.tscn" id="6_bjfho"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="7_kbqxg"]
 [ext_resource type="PackedScene" uid="uid://bawy2sa4mdsob" path="res://Scenes/Components/Sprite/PropertyBlock.tscn" id="8_fi56a"]
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="9_1egxa"]
 [ext_resource type="PackedScene" uid="uid://3hacvk0x7d07" path="res://Scenes/Components/Sprite/AnimationCollection.tscn" id="10_1egxa"]
 
-[node name="SpriteSource" type="BoxContainer" node_paths=PackedStringArray("source_label", "image_button", "use_full_image_button", "rect", "property_block", "animation_block", "animation_overrides", "new_animations") groups=["Sources"]]
+[node name="SpriteSource" type="BoxContainer" node_paths=PackedStringArray("source_label", "image_button", "full_image_checkbox", "rect", "property_block", "animation_block", "animation_overrides", "new_animations") groups=["Sources"]]
 offset_right = 160.0
 offset_bottom = 32.0
 theme_override_constants/separation = 0
@@ -19,7 +17,7 @@ vertical = true
 script = ExtResource("1_mfdij")
 source_label = NodePath("HBox/Settings/Source/Label")
 image_button = NodePath("HBox/ImageButton")
-use_full_image_button = NodePath("HBox/Settings/UseFullImage/CheckBox")
+full_image_checkbox = NodePath("HBox/Settings/UseFullImage/CheckBox")
 rect = NodePath("HBox/Settings/Rect")
 property_block = NodePath("PropertyBlock")
 animation_block = NodePath("Animations")
@@ -62,13 +60,11 @@ layout_mode = 2
 layout_mode = 2
 text = "Use Full Image?"
 
-[node name="CheckBox" type="TextureButton" parent="HBox/Settings/UseFullImage"]
+[node name="CheckBox" type="CheckBox" parent="HBox/Settings/UseFullImage"]
 layout_mode = 2
 size_flags_vertical = 0
-toggle_mode = true
+focus_mode = 0
 button_pressed = true
-texture_normal = ExtResource("4_1egxa")
-texture_pressed = ExtResource("5_sfck0")
 
 [node name="ImageButton" parent="HBox" instance=ExtResource("6_bjfho")]
 layout_mode = 2

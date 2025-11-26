@@ -7,7 +7,7 @@ var collection: AnimationCollection
 @export_group("Nodes")
 @export var name_input: LineEdit
 @export var speed_input: SpinBox
-@export var loop_button: TextureButton
+@export var loop_checkbox: CheckBox
 @export var frame_container: VBoxContainer
 
 func add_frame(rect := []) -> void:
@@ -56,7 +56,7 @@ func get_json(_remove_redundant := true) -> Dictionary:
 	var json := {
 		"frames": frames,
 		"speed": speed_input.value,
-		"loop": loop_button.button_pressed
+		"loop": loop_checkbox.button_pressed
 	}
 	return {get_animation_name(): json}
 
@@ -71,6 +71,6 @@ func apply_json(json: Dictionary) -> void:
 	
 	speed_input.value = Global.get_value_of_type(json, "speed", TYPE_INT, self)
 	if json.has("loop"):
-		loop_button.button_pressed = Global.get_value_of_type(json, "loop", TYPE_BOOL, self)
+		loop_checkbox.button_pressed = Global.get_value_of_type(json, "loop", TYPE_BOOL, self)
 	else:
-		loop_button.button_pressed = true
+		loop_checkbox.button_pressed = true

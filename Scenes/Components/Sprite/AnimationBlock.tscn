@@ -1,20 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://6ca5yax3iiro"]
+[gd_scene load_steps=8 format=3 uid="uid://6ca5yax3iiro"]
 
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="1_8r8uv"]
 [ext_resource type="Texture2D" uid="uid://bpfdc5bd4d3us" path="res://Assets/Buttons/PreviewAnimation.png" id="3_4bglg"]
 [ext_resource type="Script" uid="uid://bysaciltmvcke" path="res://Scripts/Components/Sprite/AnimationBlock.gd" id="3_qeelm"]
 [ext_resource type="Texture2D" uid="uid://3tukvou8ndyv" path="res://Assets/Buttons/Add.png" id="4_1ly3x"]
 [ext_resource type="PackedScene" uid="uid://coa5jjimu3uqn" path="res://Scenes/Components/Buttons/MoveButton.tscn" id="4_3egul"]
-[ext_resource type="Texture2D" uid="uid://cq5e67shvthl6" path="res://Assets/Buttons/CheckboxOff.png" id="4_uxmnk"]
-[ext_resource type="Texture2D" uid="uid://kstmgtse2qu8" path="res://Assets/Buttons/CheckboxOn.png" id="5_1ly3x"]
 [ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="5_4bglg"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="6_4bglg"]
 
-[node name="AnimationBlock" node_paths=PackedStringArray("name_input", "speed_input", "loop_button", "frame_container") instance=ExtResource("1_8r8uv")]
+[node name="AnimationBlock" node_paths=PackedStringArray("name_input", "speed_input", "loop_checkbox", "frame_container") instance=ExtResource("1_8r8uv")]
 script = ExtResource("3_qeelm")
 name_input = NodePath("VBox/Header/Name")
 speed_input = NodePath("VBox/Properties/SpeedInput")
-loop_button = NodePath("VBox/Properties/LoopButton")
+loop_checkbox = NodePath("VBox/Properties/LoopButton")
 frame_container = NodePath("VBox/Contents/VBox")
 data_type = 3
 
@@ -64,12 +62,10 @@ suffix = "FPS"
 layout_mode = 2
 text = "Loop?"
 
-[node name="LoopButton" type="TextureButton" parent="VBox/Properties" index="3"]
+[node name="LoopButton" type="CheckBox" parent="VBox/Properties" index="3"]
 layout_mode = 2
-toggle_mode = true
+focus_mode = 0
 button_pressed = true
-texture_normal = ExtResource("4_uxmnk")
-texture_pressed = ExtResource("5_1ly3x")
 
 [node name="VBox" type="VBoxContainer" parent="VBox/Contents" index="0"]
 layout_mode = 2
