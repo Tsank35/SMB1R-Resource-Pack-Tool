@@ -91,7 +91,7 @@ func get_data(reversed := false) -> Dictionary:
 			if direction.contains("pingpong"):
 				if r > 0 and i == 0:
 					continue
-				if repeat % 2 == 0 and loop_checkbox.button_pressed:
+				if separate and repeat % 2 == 0 and loop_checkbox.button_pressed:
 					if r == repeat - 1 and i == children.size() - 1:
 						continue
 			
