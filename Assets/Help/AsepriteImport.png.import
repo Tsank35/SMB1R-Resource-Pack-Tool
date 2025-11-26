@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://evxf3jy4q6we"
-path="res://.godot/imported/AsepriteConfig.png-761fc24ee2a85a1fb1a8de1d52e17ac8.ctex"
+uid="uid://cm2a2oj64k0ib"
+path="res://.godot/imported/AsepriteImport.png-686b92601dde7bcfca0e62eb6e0cc833.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Help/AsepriteConfig.png"
-dest_files=["res://.godot/imported/AsepriteConfig.png-761fc24ee2a85a1fb1a8de1d52e17ac8.ctex"]
+source_file="res://Assets/Help/AsepriteImport.png"
+dest_files=["res://.godot/imported/AsepriteImport.png-686b92601dde7bcfca0e62eb6e0cc833.ctex"]
 
 [params]
 

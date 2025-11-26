@@ -25,13 +25,13 @@ func _ready() -> void:
 		separate_checkbox.queue_free()
 		separate_checkbox = null
 	else:
-		label.text += ", Direction: " + direction.capitalize() + ", Repeat: " + str(repeat)
+		label.text += " [Direction: " + direction.capitalize() + ", Repeat: " + str(repeat) + "]"
 		separate = parent_tag.is_root
 	duration_input.get_line_edit().expand_to_text_length = true
 
 func add_frame(index: int, data: Dictionary) -> void:
 	var frame := Label.new()
-	frame.text = "Frame " + str(index + 1) + ", Rect: " + Stringifier.stringify(data.rect) + ", Duration: " + Stringifier.stringify(data.duration) + " ms"
+	frame.text = "Frame " + str(index + 1) + " [Rect: " + Stringifier.stringify(data.rect) + ", Duration: " + Stringifier.stringify(data.duration) + " ms]"
 	frame.set_meta("data", data)
 	if data.duration < duration_input.value or duration_input.value == 0:
 		duration_input.set_value_no_signal(data.duration)
@@ -85,8 +85,9 @@ func get_data(reversed := false) -> Dictionary:
 			if direction.contains("pingpong"):
 				if r > 0 and i == 0:
 					continue
-				if loop_checkbox.button_pressed and r == repeat - 1 and i == children.size() - 1:
-					continue
+				if repeat % 2 == 0 and loop_checkbox.button_pressed:
+					if r == repeat - 1 and i == children.size() - 1:
+						continue
 			
 			var child: Node
 			if is_reversed:
