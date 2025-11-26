@@ -28,6 +28,11 @@ func _ready() -> void:
 		label.text += " [Direction: " + direction.capitalize() + ", Repeat: " + str(repeat) + "]"
 		separate = parent_tag.is_root
 	duration_input.get_line_edit().expand_to_text_length = true
+	default_duration.call_deferred()
+
+func default_duration() -> void:
+	if duration_input.value == 0:
+		duration_input.value = 100
 
 func add_frame(index: int, data: Dictionary) -> void:
 	var frame := Label.new()
