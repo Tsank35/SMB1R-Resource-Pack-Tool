@@ -28,18 +28,18 @@ func _ready() -> void:
 		label.text += " [Direction: " + direction.capitalize() + ", Repeat: " + str(repeat) + "]"
 		separate = parent_tag.is_root
 	duration_input.get_line_edit().expand_to_text_length = true
-	default_duration.call_deferred()
 
-func default_duration() -> void:
-	if duration_input.value == 0:
-		duration_input.value = 100
+func update_duration(compare: float) -> void:
+	if compare < duration_input.value or duration_input.value == 0:
+		duration_input.value = compare
+	if parent_tag:
+		parent_tag.update_duration(compare)
 
 func add_frame(index: int, data: Dictionary) -> void:
 	var frame := Label.new()
 	frame.text = "Frame " + str(index + 1) + " [Rect: " + Stringifier.stringify(data.rect) + ", Duration: " + Stringifier.stringify(data.duration) + " ms]"
 	frame.set_meta("data", data)
-	if data.duration < duration_input.value or duration_input.value == 0:
-		duration_input.set_value_no_signal(data.duration)
+	update_duration(data.duration)
 	container.add_child(frame)
 
 func add_tag(_tag_name: String, data: Dictionary) -> AsepriteTag:
@@ -59,6 +59,7 @@ func move_to(tag: AsepriteTag) -> void:
 
 func clear() -> void:
 	duration_input.value = 0
+	loop_checkbox.button_pressed = true
 	for child: Node in container.get_children():
 		child.queue_free()
 

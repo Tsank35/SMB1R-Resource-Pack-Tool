@@ -116,7 +116,6 @@ func open(path: String) -> void:
 			current.add_frame(i, frames[i])
 		
 		scroll_container.scroll_vertical = 0
-		root_block.default_duration()
 		popup_centered()
 	else:
 		MessageLog.log_error("No frame data found.")
