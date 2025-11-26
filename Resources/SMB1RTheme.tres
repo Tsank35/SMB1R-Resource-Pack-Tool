@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=33 format=3 uid="uid://bq5g28lvby5wq"]
+[gd_resource type="Theme" load_steps=34 format=3 uid="uid://bq5g28lvby5wq"]
 
 [ext_resource type="StyleBox" uid="uid://bpkveedli1c7o" path="res://Resources/Style Boxes/FlatStyleBox.tres" id="1_a0px3"]
 [ext_resource type="StyleBox" uid="uid://carddjnmd6blo" path="res://Resources/Style Boxes/StyleBoxEmpty.tres" id="1_p6wlf"]
@@ -15,6 +15,18 @@
 [ext_resource type="Texture2D" uid="uid://e7kwx8ufu7t2" path="res://Resources/EmptyTexture.tres" id="7_206u1"]
 [ext_resource type="Texture2D" uid="uid://d1x0egvssgnid" path="res://Assets/MenuBG.png" id="11_pulsg"]
 [ext_resource type="Texture2D" uid="uid://cnrp40ynohmhd" path="res://Assets/Icons/SpinBoxArrows.png" id="12_pvwyu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxal0"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_206u1"]
 atlas = ExtResource("4_m64oi")
@@ -120,7 +132,7 @@ Button/constants/icon_max_width = 32
 Button/styles/disabled = ExtResource("1_a0px3")
 Button/styles/hover = ExtResource("6_c6d6s")
 Button/styles/normal = ExtResource("1_a0px3")
-Button/styles/pressed = ExtResource("2_a0px3")
+Button/styles/pressed = SubResource("StyleBoxFlat_mxal0")
 CheckBox/icons/checked = ExtResource("4_mxal0")
 CheckBox/icons/checked_disabled = ExtResource("4_mxal0")
 CheckBox/icons/unchecked = ExtResource("5_jjoeq")
