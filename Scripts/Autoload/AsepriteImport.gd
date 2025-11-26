@@ -1,6 +1,7 @@
 class_name AsepriteImport extends Window
 
 @export var root_block: AsepriteTag
+@export var scroll_container: ScrollContainer
 
 signal aseprite_imported(data: Dictionary)
 

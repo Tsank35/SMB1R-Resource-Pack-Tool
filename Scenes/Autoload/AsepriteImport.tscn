@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://bq5g28lvby5wq" path="res://Resources/SMB1RTheme.tres" id="3_oqjgo"]
 [ext_resource type="PackedScene" uid="uid://dm0mvbc43mm2g" path="res://Scenes/Components/AsepriteTag.tscn" id="4_0gv2n"]
 
-[node name="AsepriteImport" type="Window" node_paths=PackedStringArray("root_block")]
+[node name="AsepriteImport" type="Window" node_paths=PackedStringArray("root_block", "scroll_container")]
 canvas_item_default_texture_filter = 0
 oversampling_override = 1.0
 title = "Configure Aseprite Import"
@@ -17,6 +17,7 @@ content_scale_factor = 2.0
 theme = ExtResource("1_c8x6y")
 script = ExtResource("2_vyy4t")
 root_block = NodePath("ScrollContainer/AsepriteTag")
+scroll_container = NodePath("ScrollContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchors_preset = 15
