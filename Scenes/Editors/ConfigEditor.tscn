@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://j6xwryggn6rv" path="res://Assets/Buttons/PreviewJSON.png" id="3_srj1l"]
 [ext_resource type="Texture2D" uid="uid://bhb8xiop0pwco" path="res://Assets/Buttons/Save.png" id="4_xt60c"]
 
-[node name="ConfigEditor" type="ScrollContainer" node_paths=PackedStringArray("option_container")]
+[node name="Config" type="ScrollContainer" node_paths=PackedStringArray("option_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

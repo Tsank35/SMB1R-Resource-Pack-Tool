@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://3hacvk0x7d07" path="res://Scenes/Components/Sprite/AnimationCollection.tscn" id="7_p56fl"]
 [ext_resource type="Theme" uid="uid://bur662d0xy38t" path="res://Resources/StandardTheme.tres" id="10_6a63b"]
 
-[node name="SpriteEditor" type="ScrollContainer" node_paths=PackedStringArray("path_display", "reference_dropdown", "property_block", "animation_collection", "root_variation", "file_dialog")]
+[node name="Sprites" type="ScrollContainer" node_paths=PackedStringArray("path_display", "reference_dropdown", "property_block", "animation_collection", "root_variation", "file_dialog")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
