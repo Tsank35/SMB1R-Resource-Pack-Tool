@@ -102,7 +102,7 @@ static func get_component(component_type: ComponentType, asset := AssetType.SPRI
 		ComponentType.SOURCE:
 			match asset:
 				AssetType.SPRITE:
-					path = "res://Scenes/Components/Variation/SpriteSource.tscn"
+					path = "res://Scenes/Components/Sprite/SpriteSource.tscn"
 		ComponentType.LINK:
 			path = "res://Scenes/Components/Variation/VariationLink.tscn"
 		ComponentType.RANDOM:
