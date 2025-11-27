@@ -15,12 +15,15 @@ const VARIATION_CATEGORIES := [
 var directory := "":
 	set(value):
 		directory = value
-		asset_path = ""
 		changing_directories = true
 		directory_changed.emit()
 		changing_directories = false
 var config: Array[ConfigVariationCategory] = []
-var asset_path := ""
+
+var sprite_path := ""
+var music_path := ""
+var sound_path := ""
+
 var reference_source: VariationComponent:
 	set(value):
 		reference_source = value
@@ -32,6 +35,7 @@ var reference_source: VariationComponent:
 			reference_source = get_tree().get_first_node_in_group("Sources")
 			emit_reference_signal = true
 		return reference_source
+
 var clipboard := {}
 var clipboard_type := DataBlock.DataType.VARIATION
 

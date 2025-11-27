@@ -14,13 +14,10 @@ func _ready() -> void:
 	Global.sources_changed.connect(queue_reference_update)
 
 func directory_changed() -> void:
-	property_block.clear()
-	animation_collection.clear()
-	root_variation.clear_component()
-	path_display.text = ""
+	path_display.text = Global.remove_directory(Global.sprite_path,  Global.directory.path_join("Sprites"))
 
 func select_file(path: String, apply := true) -> void:
-	Global.asset_path = path
+	Global.sprite_path = path
 	path_display.text = Global.remove_directory(path,  Global.directory.path_join("Sprites"))
 	if apply:
 		var json := Global.read_json(path)
@@ -41,11 +38,11 @@ func preview_json() -> void:
 	JSONPreview.open(get_json())
 
 func save() -> void:
-	if not Global.asset_path:
+	if not Global.sprite_path:
 		MessageLog.log_error("No file set. Import a file or a create a new one.")
 		return
-	Global.write_json(Global.asset_path, get_json())
-	MessageLog.log_message("Saved " + Global.asset_path.get_file() + ".")
+	Global.write_json(Global.sprite_path, get_json())
+	MessageLog.log_message("Saved " + Global.sprite_path.get_file() + ".")
 
 func _process(_delta) -> void:
 	if not visible:

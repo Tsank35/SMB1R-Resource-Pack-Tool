@@ -37,7 +37,7 @@ func set_path(value: String) -> void:
 	path = value
 	source_label.text = "Source: " + path
 	if path:
-		var full_path := Global.asset_path.get_base_dir().path_join(path)
+		var full_path := Global.sprite_path.get_base_dir().path_join(path)
 		if FileAccess.file_exists(full_path):
 			texture = ImageTexture.create_from_image(Image.load_from_file(full_path))
 		else:
@@ -65,7 +65,7 @@ func get_cropped_texture() -> Texture2D:
 	return atlas
 
 func select_file(file_path: String) -> void:
-	path = Global.remove_directory(file_path, Global.asset_path.get_base_dir())
+	path = Global.remove_directory(file_path, Global.sprite_path.get_base_dir())
 
 func set_use_full_image(toggled_on: bool) -> void:
 	use_full_image = toggled_on
