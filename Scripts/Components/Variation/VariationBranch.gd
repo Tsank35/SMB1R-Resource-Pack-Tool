@@ -20,6 +20,7 @@ func _ready() -> void:
 func add_variation(key := "", json := {}) -> void:
 	var block: VariationBlock = Global.instantiate(VARIATION_BLOCK)
 	block.variation_branch = self
+	block.asset_type = variation_block.asset_type
 	add_child(block)
 	if key:
 		block.set_variation_key(key)

@@ -1,14 +1,5 @@
 class_name VariationBlock extends DataBlock
 
-const COMPONENTS := [
-	"res://Scenes/Components/Variation/VariationBranch.tscn",
-	[
-		"res://Scenes/Components/Variation/SpriteSource.tscn",
-		"res://Scenes/Components/Variation/AudioSource.tscn"
-	],
-	"res://Scenes/Components/Variation/VariationLink.tscn",
-	"res://Scenes/Components/Variation/RandomBranch.tscn"
-]
 const DEFAULT_ICON := "res://Assets/Icons/DefaultVariation.png"
 
 enum ComponentType {
@@ -17,8 +8,13 @@ enum ComponentType {
 	LINK,
 	RANDOM
 }
+enum AssetType {
+	SPRITE,
+	AUDIO
+}
 
 @export var is_root := false
+@export var asset_type := AssetType.SPRITE
 
 var variation: Variation: set = set_variation
 var component: VariationComponent
@@ -88,10 +84,7 @@ func update_variations() -> void:
 		select_variation(0)
 
 func add_component(index: int, json := {}) -> void:
-	if COMPONENTS[index] is Array:
-		component = Global.instantiate(COMPONENTS[index][Global.asset_type])
-	else:
-		component = Global.instantiate(COMPONENTS[index])
+	component = get_component(index, asset_type)
 	component.variation_block = self
 	content_container.add_child(component)
 	if json:
@@ -100,6 +93,21 @@ func add_component(index: int, json := {}) -> void:
 	
 	component_menu.hide()
 	component_menu.deselect(index)
+
+static func get_component(component_type: ComponentType, asset := AssetType.SPRITE) -> VariationComponent:
+	var path := ""
+	match component_type:
+		ComponentType.VARIATION_BRANCH:
+			path = "res://Scenes/Components/Variation/VariationBranch.tscn"
+		ComponentType.SOURCE:
+			match asset:
+				AssetType.SPRITE:
+					path = "res://Scenes/Components/Variation/SpriteSource.tscn"
+		ComponentType.LINK:
+			path = "res://Scenes/Components/Variation/VariationLink.tscn"
+		ComponentType.RANDOM:
+			path = "res://Scenes/Components/Variation/RandomBranch.tscn"
+	return Global.instantiate(path)
 
 func clear_component() -> void:
 	if is_instance_valid(component):

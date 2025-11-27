@@ -12,11 +12,6 @@ const VARIATION_CATEGORIES := [
 	"res://Resources/Variations/RaceBooVariations.tres"
 ]
 
-enum AssetType {
-	SPRITE,
-	AUDIO
-}
-
 var directory := "":
 	set(value):
 		directory = value
@@ -26,7 +21,6 @@ var directory := "":
 		changing_directories = false
 var config: Array[ConfigVariationCategory] = []
 var asset_path := ""
-var asset_type := AssetType.SPRITE
 var reference_source: VariationComponent:
 	set(value):
 		reference_source = value

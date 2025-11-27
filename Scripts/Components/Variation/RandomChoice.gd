@@ -8,7 +8,7 @@ var random_branch: RandomBranch
 
 func _ready() -> void:
 	super()
-	source = Global.instantiate(VariationBlock.COMPONENTS[VariationBlock.ComponentType.SOURCE][Global.asset_type])
+	source = VariationBlock.get_component(VariationBlock.ComponentType.SOURCE, random_branch.variation_block.asset_type)
 	source.variation_block = random_branch.variation_block
 	source.random_choice = self
 	content_container.add_child(source)
