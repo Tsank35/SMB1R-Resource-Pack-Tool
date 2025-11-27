@@ -45,6 +45,7 @@ var changing_directories := false
 var emit_reference_signal := true
 
 signal directory_changed
+@warning_ignore("unused_signal")
 signal config_changed
 signal reference_changed
 @warning_ignore("unused_signal")
