@@ -10,7 +10,8 @@ enum ComponentType {
 }
 enum AssetType {
 	SPRITE,
-	AUDIO
+	MUSIC,
+	SOUND
 }
 
 @export var is_root := false
