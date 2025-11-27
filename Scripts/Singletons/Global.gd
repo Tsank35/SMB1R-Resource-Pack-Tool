@@ -51,11 +51,6 @@ signal reference_changed
 @warning_ignore("unused_signal")
 signal sources_changed
 
-func remove_directory(path: String, dir: String) -> String:
-	if path.begins_with(dir + "/"):
-		return path.substr((dir + "/").length())
-	return path
-
 func write_json(path: String, data: Dictionary) -> void:
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	file.store_string(Stringifier.stringify(data))
@@ -76,6 +71,18 @@ func instantiate(path: String) -> Node:
 	if ResourceLoader.exists(path, "PackedScene"):
 		return load(path).instantiate()
 	return null
+
+func remove_directory(path: String, dir: String) -> String:
+	if path.begins_with(dir + "/"):
+		return path.substr((dir + "/").length())
+	return path
+
+func get_variation_categories() -> Array[VariationCategory]:
+	var categories: Array[VariationCategory] = []
+	for path: String in VARIATION_CATEGORIES:
+		categories.append(load(path))
+	categories.append_array(config)
+	return categories
 
 func get_value_of_type(json: Dictionary, key: String, type: Variant.Type, error_source = null, array_type := TYPE_NIL) -> Variant:
 	if json.has(key):
@@ -111,10 +118,3 @@ func type_name(type: Variant.Type) -> String:
 		TYPE_STRING:
 			return "text"
 	return type_string(type)
-
-func get_variation_categories() -> Array[VariationCategory]:
-	var categories: Array[VariationCategory] = []
-	for path: String in VARIATION_CATEGORIES:
-		categories.append(load(path))
-	categories.append_array(config)
-	return categories
