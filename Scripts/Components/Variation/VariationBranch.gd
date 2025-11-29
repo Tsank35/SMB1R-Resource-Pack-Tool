@@ -119,7 +119,7 @@ func apply_json(json: Dictionary) -> void:
 	
 	for key in json.keys():
 		if key is String:
-			add_variation(key, json[key])
+			add_variation(key, Global.get_value_of_type(json, key, TYPE_DICTIONARY))
 		else:
 			MessageLog.type_error(TYPE_STRING, typeof(key), self)
 	apply_config = false
