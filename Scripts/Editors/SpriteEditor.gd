@@ -7,7 +7,6 @@ var reference_update_queued := false
 @export var property_block: PropertyBlock
 @export var animation_collection: AnimationCollection
 @export var root_variation: VariationBlock
-@export var file_dialog: FileDialog
 
 func _ready() -> void:
 	Global.directory_changed.connect(directory_changed)
@@ -88,11 +87,3 @@ func queue_reference_update() -> void:
 func select_reference(index: int) -> void:
 	if index > -1:
 		Global.reference_source = reference_dropdown.get_item_metadata(index)
-
-func new_file() -> void:
-	file_dialog.current_dir = Global.directory.path_join("Sprites")
-	file_dialog.popup_centered()
-
-func create_file(path: String) -> void:
-	Global.write_json(path, {})
-	select_file(path, false)
