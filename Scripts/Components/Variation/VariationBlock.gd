@@ -43,6 +43,8 @@ func set_variation(value: Variation) -> void:
 	color_3 = variation.color_3
 	if variation_branch:
 		variation_branch.children_changed.emit()
+	if component is SpriteSource:
+		Global.sources_changed.emit()
 
 func set_variation_key(key: String) -> void:
 	for i: int in variation_dropdown.item_count:
@@ -122,7 +124,7 @@ func clear_component() -> void:
 func custom_variation_changed() -> void:
 	variation_dropdown.tooltip_text = get_variation_key()
 	variation_branch.children_changed.emit()
-	if component and component.is_in_group("Sources"):
+	if component is SpriteSource:
 		Global.sources_changed.emit()
 
 func get_block_path() -> String:

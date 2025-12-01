@@ -33,7 +33,7 @@ func is_empty() -> bool:
 
 func preview_animation() -> void:
 	var source := collection.source
-	if not source and Global.reference_source is SpriteSource:
+	if not source and Global.reference_source:
 		source = Global.reference_source
 	if source:
 		var texture: Texture2D

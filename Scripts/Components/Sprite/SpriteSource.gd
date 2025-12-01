@@ -26,6 +26,15 @@ var random_choice: RandomChoice
 @export var animation_overrides: AnimationCollection
 @export var new_animations: AnimationCollection
 
+func _enter_tree() -> void:
+	Global.sources_changed.emit()
+
+func _exit_tree() -> void:
+	remove_from_group("Sprite Sources")
+	if Global.reference_source == self:
+		Global.reference_source = null
+	Global.sources_changed.emit()
+
 func _ready() -> void:
 	if animation_overrides.is_empty() and new_animations.is_empty():
 		animation_block.set_collapsed(true)

@@ -24,7 +24,7 @@ var sprite_path := ""
 var music_path := ""
 var sound_path := ""
 
-var reference_source: VariationComponent:
+var reference_source: SpriteSource:
 	set(value):
 		reference_source = value
 		if emit_reference_signal:
@@ -32,7 +32,7 @@ var reference_source: VariationComponent:
 	get:
 		if not is_instance_valid(reference_source) or reference_source.is_queued_for_deletion():
 			emit_reference_signal = false
-			reference_source = get_tree().get_first_node_in_group("Sources")
+			reference_source = get_tree().get_first_node_in_group("Sprite Sources")
 			emit_reference_signal = true
 		return reference_source
 

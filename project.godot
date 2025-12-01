@@ -33,10 +33,6 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/scale=2.0
 
-[global_group]
-
-Sources=""
-
 [gui]
 
 theme/custom="uid://bq5g28lvby5wq"

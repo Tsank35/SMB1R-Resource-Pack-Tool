@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="9_1egxa"]
 [ext_resource type="PackedScene" uid="uid://3hacvk0x7d07" path="res://Scenes/Components/Sprite/AnimationCollection.tscn" id="10_1egxa"]
 
-[node name="SpriteSource" type="BoxContainer" node_paths=PackedStringArray("source_label", "image_button", "full_image_checkbox", "rect", "property_block", "animation_block", "animation_overrides", "new_animations") groups=["Sources"]]
+[node name="SpriteSource" type="BoxContainer" node_paths=PackedStringArray("source_label", "image_button", "full_image_checkbox", "rect", "property_block", "animation_block", "animation_overrides", "new_animations") groups=["Sprite Sources"]]
 offset_right = 160.0
 offset_bottom = 32.0
 theme_override_constants/separation = 0

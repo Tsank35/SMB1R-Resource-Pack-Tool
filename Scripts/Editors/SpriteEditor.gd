@@ -63,7 +63,7 @@ func update_references() -> void:
 		selected = reference_dropdown.get_item_metadata(reference_dropdown.selected)
 	
 	reference_dropdown.clear()
-	for node: Node in get_tree().get_nodes_in_group("Sources"):
+	for node: Node in get_tree().get_nodes_in_group("Sprite Sources"):
 		if node is SpriteSource:
 			reference_dropdown.add_item(node.get_component_path())
 			reference_dropdown.set_item_metadata(reference_dropdown.item_count - 1, node)

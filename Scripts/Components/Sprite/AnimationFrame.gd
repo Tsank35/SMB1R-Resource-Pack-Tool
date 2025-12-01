@@ -2,7 +2,7 @@ class_name AnimationFrame extends SpriteRect
 
 var source: SpriteSource:
 	get:
-		if not source and Global.reference_source is SpriteSource:
+		if not source and Global.reference_source:
 			return Global.reference_source
 		return source
 
