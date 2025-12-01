@@ -24,11 +24,16 @@ func set_path(value: String) -> void:
 		bgm_blocks[1].apply_json(Global.get_value_of_type(json, "Hurry", TYPE_DICTIONARY))
 		audio = null
 	else:
-		audio = Global.load_audio(get_full_path())
-		if audio:
-			audio.resource_name = path.get_file()
+		var full_path := get_full_path()
+		if FileAccess.file_exists(full_path):
+			audio = Global.load_audio(full_path)
+			if audio:
+				audio.resource_name = path.get_file()
+			else:
+				MessageLog.log_error("Invalid audio.", self)
 		else:
-			MessageLog.log_error("Invalid audio.", self)
+			audio = null
+			MessageLog.log_error("Audio not found: " + path, self)
 	listen_button.visible = audio != null
 	preview_bgm_button.visible = use_bgm
 
