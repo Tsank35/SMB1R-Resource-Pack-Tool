@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4h1yvxqiqrxl"]
+
+[ext_resource type="Script" uid="uid://btj0up3ecidm6" path="res://Scripts/Components/Music/MusicSource.gd" id="1_1ep5u"]
+[ext_resource type="PackedScene" uid="uid://b5mjo87bv1veq" path="res://Scenes/Components/Buttons/FileButton.tscn" id="1_hnatm"]
+[ext_resource type="PackedScene" uid="uid://50vhh6dv2dcm" path="res://Scenes/Components/Buttons/NewFileButton.tscn" id="1_rllca"]
+[ext_resource type="Texture2D" uid="uid://7bnuvbk2e54c" path="res://Assets/Buttons/Audio.png" id="4_4l86o"]
+[ext_resource type="Texture2D" uid="uid://j6xwryggn6rv" path="res://Assets/Buttons/PreviewJSON.png" id="5_mfr6o"]
+[ext_resource type="PackedScene" uid="uid://dsy1eplt5qs6j" path="res://Scenes/Components/Music/BGMBlock.tscn" id="5_x06si"]
+
+[node name="MusicSource" type="VBoxContainer" node_paths=PackedStringArray("label", "listen_button", "preview_bgm_button", "bgm_blocks") groups=["Music Sources"]]
+offset_right = 112.0
+offset_bottom = 16.0
+theme_override_constants/separation = 0
+script = ExtResource("1_1ep5u")
+label = NodePath("Source/Label")
+listen_button = NodePath("Source/ListenButton")
+preview_bgm_button = NodePath("Source/PreviewBGMButton")
+bgm_blocks = [NodePath("Normal"), NodePath("Hurry")]
+
+[node name="Source" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Source"]
+layout_mode = 2
+text = "Source:"
+
+[node name="NewFileButton" parent="Source" instance=ExtResource("1_rllca")]
+layout_mode = 2
+tooltip_text = "Create BGM File"
+formats = PackedStringArray("bgm")
+base_directory = 1
+
+[node name="FileButton" parent="Source" instance=ExtResource("1_hnatm")]
+layout_mode = 2
+formats = PackedStringArray("wav", "ogg", "mp3", "bgm")
+prepend_base_dir = 3
+restrict_to_base_directory = true
+
+[node name="ListenButton" type="TextureButton" parent="Source"]
+visible = false
+layout_mode = 2
+tooltip_text = "Listen"
+focus_mode = 0
+texture_normal = ExtResource("4_4l86o")
+
+[node name="PreviewBGMButton" type="TextureButton" parent="Source"]
+visible = false
+layout_mode = 2
+tooltip_text = "Preview BGM"
+focus_mode = 0
+texture_normal = ExtResource("5_mfr6o")
+
+[node name="Normal" parent="." node_paths=PackedStringArray("source") instance=ExtResource("5_x06si")]
+visible = false
+layout_mode = 2
+source = NodePath("..")
+
+[node name="Hurry" parent="." node_paths=PackedStringArray("source") instance=ExtResource("5_x06si")]
+visible = false
+layout_mode = 2
+source = NodePath("..")
+
+[connection signal="file_created" from="Source/NewFileButton" to="." method="select_file"]
+[connection signal="file_selected" from="Source/FileButton" to="." method="select_file"]
+[connection signal="pressed" from="Source/ListenButton" to="." method="listen"]
+[connection signal="pressed" from="Source/PreviewBGMButton" to="." method="preview_bgm"]

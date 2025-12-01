@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlmugw0bfo4v2"]
+
+[ext_resource type="Script" uid="uid://caep7ebigeywi" path="res://Scripts/Editors/MusicEditor.gd" id="1_1o2fu"]
+[ext_resource type="PackedScene" uid="uid://50vhh6dv2dcm" path="res://Scenes/Components/Buttons/NewFileButton.tscn" id="1_eswq4"]
+[ext_resource type="PackedScene" uid="uid://b5mjo87bv1veq" path="res://Scenes/Components/Buttons/FileButton.tscn" id="2_6783r"]
+[ext_resource type="PackedScene" uid="uid://0ssbg3c6wx3y" path="res://Scenes/Components/Variation/RootVariationBlock.tscn" id="4_bksug"]
+[ext_resource type="Texture2D" uid="uid://j6xwryggn6rv" path="res://Assets/Buttons/PreviewJSON.png" id="4_si3ll"]
+[ext_resource type="Texture2D" uid="uid://bhb8xiop0pwco" path="res://Assets/Buttons/Save.png" id="5_11sbm"]
+
+[node name="Music" type="ScrollContainer" node_paths=PackedStringArray("path_display", "root_variation")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1o2fu")
+path_display = NodePath("VBox/Header/Path")
+root_variation = NodePath("VBox/RootVariationBlock")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Header" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Path" type="LineEdit" parent="VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="NewFileButton" parent="VBox/Header" instance=ExtResource("1_eswq4")]
+layout_mode = 2
+formats = PackedStringArray("json")
+base_directory = 1
+
+[node name="FileButton" parent="VBox/Header" instance=ExtResource("2_6783r")]
+layout_mode = 2
+formats = PackedStringArray("json")
+prepend_base_dir = 1
+base_directory = "Audio/BGM"
+
+[node name="PreviewJSONButton" type="TextureButton" parent="VBox/Header"]
+layout_mode = 2
+tooltip_text = "Preview JSON"
+focus_mode = 0
+texture_normal = ExtResource("4_si3ll")
+
+[node name="SaveButton" type="TextureButton" parent="VBox/Header"]
+layout_mode = 2
+tooltip_text = "Save"
+focus_mode = 0
+texture_normal = ExtResource("5_11sbm")
+
+[node name="RootVariationBlock" parent="VBox" instance=ExtResource("4_bksug")]
+layout_mode = 2
+asset_type = 1
+
+[connection signal="file_created" from="VBox/Header/NewFileButton" to="." method="select_file" binds= [false]]
+[connection signal="file_selected" from="VBox/Header/FileButton" to="." method="select_file"]
+[connection signal="pressed" from="VBox/Header/PreviewJSONButton" to="." method="preview_json"]
+[connection signal="pressed" from="VBox/Header/SaveButton" to="." method="save"]

@@ -65,6 +65,16 @@ func read_json(path: String) -> Dictionary:
 			MessageLog.log_error("Error parsing " + path.get_file() + ".")
 	return {}
 
+func load_audio(path: String) -> AudioStream:
+	match path.get_extension():
+		"wav":
+			return AudioStreamWAV.load_from_file(path)
+		"ogg":
+			return AudioStreamOggVorbis.load_from_file(path)
+		"mp3":
+			return AudioStreamMP3.load_from_file(path)
+	return null
+
 func instantiate(path: String) -> Node:
 	if ResourceLoader.exists(path, "PackedScene"):
 		return load(path).instantiate()

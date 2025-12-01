@@ -3,7 +3,8 @@ class_name FileButton extends TextureButton
 enum PrependBaseDir {
 	NONE,
 	PACK,
-	SPRITE
+	SPRITE,
+	MUSIC
 }
 
 @export var formats := PackedStringArray()
@@ -22,6 +23,8 @@ func on_pressed() -> void:
 			dir = Global.directory
 		PrependBaseDir.SPRITE:
 			dir = Global.sprite_path.get_base_dir()
+		PrependBaseDir.MUSIC:
+			dir = Global.music_path.get_base_dir()
 	if base_directory:
 		dir = dir.path_join(base_directory)
 	FileImport.formats = formats

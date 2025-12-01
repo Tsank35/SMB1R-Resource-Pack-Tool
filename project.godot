@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 
 Global="*res://Scripts/Singletons/Global.gd"
 ImageWindow="*res://Scenes/Autoload/ImageWindow.tscn"
+AudioPlayer="*res://Scenes/Autoload/AudioPlayer.tscn"
 JSONPreview="*res://Scenes/Autoload/JSONPreview.tscn"
 NewFileDialog="*res://Scenes/Autoload/NewFileDialog.tscn"
 FileImport="*res://Scenes/Autoload/FileImport.tscn"
