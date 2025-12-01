@@ -92,6 +92,14 @@ func get_variation_categories() -> Array[VariationCategory]:
 	categories.append_array(config)
 	return categories
 
+func get_category_from_key(key: String) -> VariationCategory:
+	for category: VariationCategory in get_variation_categories():
+		if category is ConfigVariationCategory and key == category.key:
+			return category
+		if category.has_key(key):
+			return category
+	return null
+
 func get_value_of_type(json: Dictionary, key: String, type: Variant.Type, error_source = null, array_type := TYPE_NIL) -> Variant:
 	if json.has(key):
 		var value = json.get(key)

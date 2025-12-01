@@ -95,18 +95,9 @@ func apply_json(json: Dictionary) -> void:
 		MessageLog.type_error(TYPE_STRING, typeof(first_key), self)
 		return
 	
-	category = null
-	for c: VariationCategory in Global.get_variation_categories():
-		if apply_config and c is not ConfigVariationCategory:
-			continue
-		if c is ConfigVariationCategory:
-			if first_key == c.key:
-				apply_config = true
-				apply_json(json.get(first_key))
-				return
-		if c.has_key(first_key):
-			category = c
-			break
+	category = Global.get_category_from_key(first_key)
+	if category is ConfigVariationCategory:
+		json = json[first_key]
 	
 	if category:
 		for i: int in category_dropdown.item_count:

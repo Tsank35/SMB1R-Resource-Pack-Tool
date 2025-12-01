@@ -1,6 +1,11 @@
 class_name VariationBlock extends DataBlock
 
 const DEFAULT_ICON := "res://Assets/Icons/DefaultVariation.png"
+const VALID_KEYS := {
+	ComponentType.SOURCE: ["source", "rect", "properties", "animations", "animation_overrides"],
+	ComponentType.LINK: ["link"],
+	ComponentType.RANDOM: ["choices"]
+}
 
 enum ComponentType {
 	VARIATION_BRANCH,
@@ -87,6 +92,25 @@ func update_variations() -> void:
 		select_variation(0)
 
 func add_component(index: int, json := {}) -> void:
+	if index != ComponentType.VARIATION_BRANCH and json:
+		for key in json.keys():
+			if key is not String:
+				continue
+			if not VALID_KEYS[index].has(key):
+				var category := Global.get_category_from_key(key)
+				if not category:
+					category = Global.get_variation_categories()[0]
+					MessageLog.log_error("Couldn't find category from key: " + key + ".", self)
+				var default := {}
+				for valid_key in VALID_KEYS[index]:
+					if json.has(valid_key):
+						default.merge({valid_key: json[valid_key]})
+						json.erase(valid_key)
+				var new_json := {category.variations[0].key: default}
+				new_json.merge(json)
+				apply_json(new_json)
+				return
+	
 	component = get_component(index, asset_type)
 	component.variation_block = self
 	content_container.add_child(component)
