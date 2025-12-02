@@ -63,9 +63,7 @@ func save() -> void:
 	if not Global.directory:
 		MessageLog.log_error("No pack folder set.")
 		return
-	var json := get_json()
-	Global.write_json(Global.directory.path_join("config.json"), json)
-	MessageLog.log_message("Saved config.json.")
+	Global.write_json(Global.directory.path_join("config.json"), get_json())
 	update_config()
 
 func _process(_delta) -> void:

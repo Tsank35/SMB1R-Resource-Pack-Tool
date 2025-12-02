@@ -50,7 +50,6 @@ func save() -> void:
 		"version": version_input.text
 	}
 	Global.write_json(Global.directory.path_join("pack_info.json"), json)
-	MessageLog.log_message("Saved pack_info.json.")
 
 func _process(_delta) -> void:
 	if not visible:

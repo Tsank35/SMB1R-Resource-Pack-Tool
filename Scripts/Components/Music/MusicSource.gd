@@ -47,10 +47,8 @@ func preview_bgm() -> void:
 	JSONPreview.open(get_bgm())
 
 func save_bgm() -> void:
-	if not path:
-		return
-	Global.write_json(get_full_path(), get_bgm())
-	MessageLog.log_message("Saved " + path.get_file() + ".")
+	if use_bgm and path:
+		Global.write_json(get_full_path(), get_bgm(), false)
 
 func get_full_path() -> String:
 	return Global.music_path.get_base_dir().path_join(path)

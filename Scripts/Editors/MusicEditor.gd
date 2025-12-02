@@ -30,9 +30,7 @@ func save() -> void:
 	if not Global.music_path:
 		MessageLog.log_error("No file set. Import a file or create a new one.")
 		return
-	
 	Global.write_json(Global.music_path, get_json())
-	MessageLog.log_message("Saved " + Global.music_path.get_file() + ".")
 	
 	if not Global.music_path.get_extension() == "bgm":
 		for source: Node in get_tree().get_nodes_in_group("Music Sources"):

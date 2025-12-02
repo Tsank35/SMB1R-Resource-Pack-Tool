@@ -41,7 +41,6 @@ func save() -> void:
 		MessageLog.log_error("No file set. Import a file or a create a new one.")
 		return
 	Global.write_json(Global.sprite_path, get_json())
-	MessageLog.log_message("Saved " + Global.sprite_path.get_file() + ".")
 
 func _process(_delta) -> void:
 	if not visible:
