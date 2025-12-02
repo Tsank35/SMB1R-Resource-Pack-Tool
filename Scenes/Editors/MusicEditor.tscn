@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlmugw0bfo4v2"]
+[gd_scene load_steps=8 format=3 uid="uid://dlmugw0bfo4v2"]
 
 [ext_resource type="Script" uid="uid://caep7ebigeywi" path="res://Scripts/Editors/MusicEditor.gd" id="1_1o2fu"]
 [ext_resource type="PackedScene" uid="uid://50vhh6dv2dcm" path="res://Scenes/Components/Buttons/NewFileButton.tscn" id="1_eswq4"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://0ssbg3c6wx3y" path="res://Scenes/Components/Variation/RootVariationBlock.tscn" id="4_bksug"]
 [ext_resource type="Texture2D" uid="uid://j6xwryggn6rv" path="res://Assets/Buttons/PreviewJSON.png" id="4_si3ll"]
 [ext_resource type="Texture2D" uid="uid://bhb8xiop0pwco" path="res://Assets/Buttons/Save.png" id="5_11sbm"]
+[ext_resource type="PackedScene" uid="uid://dsy1eplt5qs6j" path="res://Scenes/Components/Music/BGMBlock.tscn" id="7_gsmg5"]
 
-[node name="Music" type="ScrollContainer" node_paths=PackedStringArray("path_display", "root_variation")]
+[node name="Music" type="ScrollContainer" node_paths=PackedStringArray("path_display", "root_variation", "bgm_blocks")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_1o2fu")
 path_display = NodePath("VBox/Header/Path")
 root_variation = NodePath("VBox/RootVariationBlock")
+bgm_blocks = [NodePath("VBox/Normal"), NodePath("VBox/Hurry")]
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -32,12 +34,12 @@ editable = false
 
 [node name="NewFileButton" parent="VBox/Header" instance=ExtResource("1_eswq4")]
 layout_mode = 2
-formats = PackedStringArray("json")
+formats = PackedStringArray("json", "bgm")
 base_directory = 1
 
 [node name="FileButton" parent="VBox/Header" instance=ExtResource("2_6783r")]
 layout_mode = 2
-formats = PackedStringArray("json")
+formats = PackedStringArray("json", "bgm")
 prepend_base_dir = 1
 base_directory = "Audio/BGM"
 
@@ -56,6 +58,14 @@ texture_normal = ExtResource("5_11sbm")
 [node name="RootVariationBlock" parent="VBox" instance=ExtResource("4_bksug")]
 layout_mode = 2
 asset_type = 1
+
+[node name="Normal" parent="VBox" instance=ExtResource("7_gsmg5")]
+visible = false
+layout_mode = 2
+
+[node name="Hurry" parent="VBox" instance=ExtResource("7_gsmg5")]
+visible = false
+layout_mode = 2
 
 [connection signal="file_created" from="VBox/Header/NewFileButton" to="." method="select_file" binds= [false]]
 [connection signal="file_selected" from="VBox/Header/FileButton" to="." method="select_file"]
