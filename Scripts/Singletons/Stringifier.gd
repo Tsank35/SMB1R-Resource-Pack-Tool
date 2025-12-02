@@ -1,7 +1,7 @@
 class_name Stringifier
 
 static func stringify(value: Variant, indent := 0) -> String:
-	if value is String:
+	if value is String or value is StringName:
 		return '"' + value + '"'
 	elif value is float:
 		if roundf(value) == value:
