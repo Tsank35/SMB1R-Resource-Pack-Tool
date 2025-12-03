@@ -1,5 +1,7 @@
 class_name NewFileButton extends TextureButton
 
+const JSON_FORMATS := ["json", "bgm"]
+
 enum BaseDirectory {
 	SPRITE,
 	MUSIC
@@ -36,6 +38,8 @@ func on_pressed() -> void:
 
 func create_file(path: String) -> void:
 	var file := FileAccess.open(path, FileAccess.WRITE)
+	if JSON_FORMATS.has(path.get_extension()):
+		file.store_string("{}")
 	file.close()
 	file_created.emit(path)
 	disconnect_signals()
