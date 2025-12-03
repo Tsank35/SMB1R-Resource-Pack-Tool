@@ -18,11 +18,14 @@ func _ready() -> void:
 func set_path(value: String) -> void:
 	path = value
 	source_label.text = "Source: " + path
-	audio = Global.load_audio(Global.music_path.get_base_dir().path_join(path))
-	if audio:
-		audio.resource_name = path.get_file()
+	if path:
+		audio = Global.load_audio(Global.music_path.get_base_dir().path_join(path))
+		if audio:
+			audio.resource_name = path.get_file()
+		else:
+			MessageLog.log_error("Invalid audio.", source)
 	else:
-		MessageLog.log_error("Invalid audio.", source)
+		audio = null
 	listen_button.visible = audio != null
 
 func select_file(file_path: String) -> void:
@@ -43,5 +46,6 @@ func apply_json(json: Dictionary) -> void:
 	if json.has("source"):
 		path = Global.get_value_of_type(json, "source", TYPE_STRING, source)
 	else:
+		path = ""
 		MessageLog.log_warning("No source given.", source)
 	loop_input.set_value_no_signal(Global.get_value_of_type(json, "loop", TYPE_INT, source))

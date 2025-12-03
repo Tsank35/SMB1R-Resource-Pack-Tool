@@ -112,6 +112,7 @@ func apply_json(json: Dictionary) -> void:
 	if json.has("source"):
 		path = Global.get_value_of_type(json, "source", TYPE_STRING, self)
 	else:
+		path = ""
 		MessageLog.log_warning("No source given.", self)
 	
 	if json.has("rect"):

@@ -17,23 +17,27 @@ var use_bgm := false:
 func set_path(value: String) -> void:
 	path = value
 	label.text = "Source: " + path
-	use_bgm = path.get_extension() == "bgm"
-	if use_bgm:
-		var json := Global.read_json(get_full_path())
-		bgm_blocks[0].apply_json(Global.get_value_of_type(json, "Normal", TYPE_DICTIONARY))
-		bgm_blocks[1].apply_json(Global.get_value_of_type(json, "Hurry", TYPE_DICTIONARY))
-		audio = null
-	else:
-		var full_path := get_full_path()
-		if FileAccess.file_exists(full_path):
-			audio = Global.load_audio(full_path)
-			if audio:
-				audio.resource_name = path.get_file()
-			else:
-				MessageLog.log_error("Invalid audio.", self)
-		else:
+	if path:
+		use_bgm = path.get_extension() == "bgm"
+		if use_bgm:
+			var json := Global.read_json(get_full_path())
+			bgm_blocks[0].apply_json(Global.get_value_of_type(json, "Normal", TYPE_DICTIONARY))
+			bgm_blocks[1].apply_json(Global.get_value_of_type(json, "Hurry", TYPE_DICTIONARY))
 			audio = null
-			MessageLog.log_error("Audio not found: " + path, self)
+		else:
+			var full_path := get_full_path()
+			if FileAccess.file_exists(full_path):
+				audio = Global.load_audio(full_path)
+				if audio:
+					audio.resource_name = path.get_file()
+				else:
+					MessageLog.log_error("Invalid audio.", self)
+			else:
+				audio = null
+				MessageLog.log_error("Audio not found: " + path, self)
+	else:
+		audio = null
+		use_bgm = false
 	listen_button.visible = audio != null
 	preview_bgm_button.visible = use_bgm
 
@@ -60,6 +64,7 @@ func apply_json(json: Dictionary) -> void:
 	if json.has("source"):
 		path = Global.get_value_of_type(json, "source", TYPE_STRING, self)
 	else:
+		path = ""
 		MessageLog.log_warning("No source given.", self)
 
 func get_bgm() -> Dictionary:
