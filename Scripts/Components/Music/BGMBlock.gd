@@ -17,14 +17,15 @@ func _ready() -> void:
 
 func set_path(value: String) -> void:
 	path = value
-	source_label.text = "Source: " + path
 	if path:
+		source_label.text = "Source: " + path
 		audio = Global.load_audio(Global.music_path.get_base_dir().path_join(path))
 		if audio:
 			audio.resource_name = path.get_file()
 		else:
 			MessageLog.log_error("Invalid audio.", source)
 	else:
+		source_label.text = "Source: None"
 		audio = null
 	listen_button.visible = audio != null
 

@@ -28,7 +28,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBox/Contents/VBox/Source" index="0"]
 layout_mode = 2
-text = "Source:"
+text = "Source: None"
 
 [node name="FileButton" parent="VBox/Contents/VBox/Source" index="1" instance=ExtResource("2_7y0ql")]
 layout_mode = 2

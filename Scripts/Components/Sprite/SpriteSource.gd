@@ -44,8 +44,8 @@ func _ready() -> void:
 
 func set_path(value: String) -> void:
 	path = value
-	source_label.text = "Source: " + path
 	if path:
+		source_label.text = "Source: " + path
 		var full_path := Global.sprite_path.get_base_dir().path_join(path)
 		if FileAccess.file_exists(full_path):
 			texture = ImageTexture.create_from_image(Image.load_from_file(full_path))
@@ -53,6 +53,7 @@ func set_path(value: String) -> void:
 			texture = null
 			MessageLog.log_error("Image not found: " + path, self)
 	else:
+		source_label.text = "Source: None"
 		texture = null
 
 func update_image() -> void:

@@ -36,7 +36,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="HBox/Settings/Source"]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Source:"
+text = "Source: None"
 
 [node name="FileButton" parent="HBox/Settings/Source" instance=ExtResource("2_fi56a")]
 layout_mode = 2

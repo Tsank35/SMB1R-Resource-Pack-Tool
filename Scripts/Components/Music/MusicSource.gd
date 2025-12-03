@@ -16,8 +16,8 @@ var use_bgm := false:
 
 func set_path(value: String) -> void:
 	path = value
-	label.text = "Source: " + path
 	if path:
+		label.text = "Source: " + path
 		use_bgm = path.get_extension() == "bgm"
 		if use_bgm:
 			var json := Global.read_json(get_full_path())
@@ -36,6 +36,7 @@ func set_path(value: String) -> void:
 				audio = null
 				MessageLog.log_error("Audio not found: " + path, self)
 	else:
+		label.text = "Source: None"
 		audio = null
 		use_bgm = false
 	listen_button.visible = audio != null
