@@ -1,15 +1,19 @@
 extends ScrollContainer
 
+const PAGE_OFFSET := 2
+
 var current_page: Control
 
 @export var menu: ItemList
-@export var page_container: MarginContainer
+@export var container: VBoxContainer
 @export var close_button: TextureButton
 
 func select_page(index: int) -> void:
+	if current_page:
+		current_page.hide()
 	menu.hide()
 	menu.deselect(index)
-	current_page = page_container.get_child(index)
+	current_page = container.get_child(index + PAGE_OFFSET)
 	current_page.show()
 	close_button.show()
 
@@ -20,4 +24,7 @@ func close_page() -> void:
 	menu.show()
 
 func meta_clicked(meta: Variant) -> void:
-	OS.shell_open(meta)
+	if meta.begins_with("https://"):
+		OS.shell_open(meta)
+	elif meta == "Variations":
+		select_page(2)

@@ -3,37 +3,45 @@
 [ext_resource type="Script" uid="uid://iih08mlfmcgk" path="res://Scripts/Help.gd" id="1_loy5b"]
 [ext_resource type="Texture2D" uid="uid://rs185k32m6dt" path="res://Assets/Buttons/Delete.png" id="2_kukc8"]
 
-[node name="Help" type="ScrollContainer" node_paths=PackedStringArray("menu", "page_container", "close_button")]
+[node name="Help" type="ScrollContainer" node_paths=PackedStringArray("menu", "container", "close_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_loy5b")
-menu = NodePath("Menu")
-page_container = NodePath("Pages")
-close_button = NodePath("CloseButton")
+menu = NodePath("VBox/Menu")
+container = NodePath("VBox")
+close_button = NodePath("VBox/CloseButton")
 
-[node name="Menu" type="ItemList" parent="."]
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Menu" type="ItemList" parent="VBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 auto_height = true
-item_count = 6
+item_count = 7
 item_0/text = "Pack Setup"
 item_1/text = "Editor Buttons"
 item_2/text = "Variations"
 item_3/text = "Properties"
 item_4/text = "Animations"
-item_5/text = "Config"
+item_5/text = "Music"
+item_6/text = "Config"
 
-[node name="Pages" type="MarginContainer" parent="."]
+[node name="CloseButton" type="TextureButton" parent="VBox"]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-theme_override_constants/margin_top = 16
+size_flags_horizontal = 10
+tooltip_text = "Close"
+focus_mode = 0
+texture_normal = ExtResource("2_kukc8")
 
-[node name="PackSetup" type="RichTextLabel" parent="Pages"]
+[node name="PackSetup" type="RichTextLabel" parent="VBox"]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -47,7 +55,7 @@ From there, you can modify the general properties of your pack such as name, aut
 fit_content = true
 scroll_active = false
 
-[node name="EditorButtons" type="RichTextLabel" parent="Pages"]
+[node name="EditorButtons" type="RichTextLabel" parent="VBox"]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -90,7 +98,7 @@ The three buttons on the top-right can be found in most data blocks.
 fit_content = true
 scroll_active = false
 
-[node name="Variations" type="RichTextLabel" parent="Pages"]
+[node name="Variations" type="RichTextLabel" parent="VBox"]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -106,7 +114,7 @@ With an empty block, you'll have four different components to choose from.
 Select a component to create one inside the block. To remove the component, click the Delete [img]res://Assets/Buttons/Delete.png[/img]button twice.
 
 A variation branch will create a list of variations for the game to choose from. First, use the dropdown in the top-left to set the variation category. Each variation is a single possible value in a variable, so by selecting the category, you decide which variable is judged. Then, click the Add Variation [img]res://Assets/Buttons/Add.png[/img]button to add a single variation block within your branch or click the Add All Variations [img]res://Assets/Buttons/AddAll.png[/img]button to generate blocks for all variations in the selected category. It will automatically skip over variations already defined in the branch. The dropdown menu on the top-left of each block will allow you to select the variation in use. The variation at the top will be marked with this icon. [img region=0,0,8,8]res://Assets/Icons/DefaultVariation.png[/img]This means it is the default variation and any variations not specified will fall back to this one. No need to define every single variation! These blocks will allow you to define another component just like the base block. You can add multiple variation branches inside of each other to account for different combinations of variations. You can also define a miscellaneous variation by selecting the \"Other\" variation at the bottom of most categories. This will usually never be necessary, but in case the tool doesn't get updated for future versions of SMB1R with more variations, it's there. Please note that the names of variations in the editor aren't the same as they are in the file. You can hover your mouse over the dropdown menu to see the name of the variation in the file. Not all categories will add your exact input with \"Other\" selected. It may add a keyword to the beginning to match the other variations. To know which variations are valid, check the SMB1R GitHub wiki.
-[url]https://github.com/JHDev2006/Super-Mario-Bros.-Remastered-Public/wiki/Variation-Keys[/url]
+[color=5050ff][url]https://github.com/JHDev2006/Super-Mario-Bros.-Remastered-Public/wiki/Variation-Keys[/url][/color]
 
 [center][img]res://Assets/Help/VariationBranch.png[/img][/center]
 
@@ -124,7 +132,7 @@ Finally, a random branch allows you to randomize your assets. It functions simil
 fit_content = true
 scroll_active = false
 
-[node name="Properties" type="RichTextLabel" parent="Pages"]
+[node name="Properties" type="RichTextLabel" parent="VBox"]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -145,15 +153,15 @@ Properties are normally meant to be used for the purpose of altering the way a s
 fit_content = true
 scroll_active = false
 
-[node name="Animations" type="RichTextLabel" parent="Pages"]
+[node name="Animations" type="RichTextLabel" parent="VBox"]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Animations are how you make your sprite move. To edit animations, navigate to the red block labeled \"Animations\".
+text = "To edit animations, first navigate to the red block labeled \"Animations\".
 
 [center][img]res://Assets/Help/AnimationBlock.png[/img][/center]
 
-First, make sure you have your variation source set up. See the \"Variations\" help page for more info. You'll need at least one source set up for your animations. Next, click the Add Animation [img]res://Assets/Buttons/Add.png[/img]button to add an animation. Use the text field on the top-left to name your animation. For sprites with only one animation, this would normally be set to \"default\". (Case-sensitive!) Refer to the base .json files to see which animations each sprite has. Then, click the Add Frame [img]res://Assets/Buttons/Add.png[/img]button inside the animation block to add your frames. If you're familiar with how to set up the region of an image source, the same applies here. Click the Set Rect [img]res://Assets/Buttons/SetRect.png[/img]button to draw your region over the image. Set the speed of the animation and whether or not it loops using the controls just below the animation's name, then click the Preview Animation [img]res://Assets/Buttons/PreviewAnimation.png[/img]button to see the animation in action. If your sprite doesn't loop, or you just want to reset from the start of the animation, click the \"Replay\" button in the bottom-right.
+First, make sure you have your variation source set up. See the [color=5050ff][url]Variations[/url][/color] help page for more info. You'll need at least one source set up for your animations. Next, click the Add Animation [img]res://Assets/Buttons/Add.png[/img]button to add an animation. Use the text field on the top-left to name your animation. For sprites with only one animation, this would normally be set to \"default\". (Case-sensitive!) Refer to the base .json files to see which animations each sprite has. Then, click the Add Frame [img]res://Assets/Buttons/Add.png[/img]button inside the animation block to add your frames. If you're familiar with how to set up the region of an image source, the same applies here. Click the Set Rect [img]res://Assets/Buttons/SetRect.png[/img]button to draw your region over the image. Set the speed of the animation and whether or not it loops using the controls just below the animation's name, then click the Preview Animation [img]res://Assets/Buttons/PreviewAnimation.png[/img]button to see the animation in action. If your sprite doesn't loop, or you just want to reset from the start of the animation, click the \"Replay\" button in the bottom-right.
 
 [center][img]res://Assets/Help/ReferenceSource.png[/img][/center]
 
@@ -169,7 +177,20 @@ Each line of text labeled \"Frame\" indicates a single frame on the sheet. Each 
 fit_content = true
 scroll_active = false
 
-[node name="Config" type="RichTextLabel" parent="Pages"]
+[node name="Music" type="RichTextLabel" parent="VBox"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "In order to set up music, first navigate to the \"Music\" tab. Click the New File [img]res://Assets/Buttons/NewFile.png[/img]button to create a new file or click the Import File [img]res://Assets/Buttons/File.png[/img]button to import a pre-existing one. By selecting a .json file, you'd set up a variation block just like you would with sprites. See the [color=5050ff][url]Variations[/url][/color] help page for more info. However, for music, you may also select a .bgm file.
+
+[center][img]res://Assets/Help/BGMBlocks.png[/img][/center]
+
+BGM files can store two different versions of a music track. \"Normal\" is used when the level timer is above 100 seconds (or always if not in a level), while \"Hurry\" is used when the level timer is under 100 seconds. BGM files are also used to set special looping points for your music. If you only need one version of a track that loops directly to the beginning and does not change depending on the timer, a .bgm file will not be needed, but is still recommended if it is used inside of a level. Note that there currently exists a bug that speeds up music not attached to a .bgm file when playing the All Night Nippon campaign.
+
+Inside of a variation block, only one property needs to be set when using a source. You can either select an audio file (.wav, .ogg, or .mp3) or a .bgm file. You can also click Create BGM File [img]res://Assets/Buttons/NewFile.png[/img]to create a new .bgm file if you don't already have one. When selecting a .bgm file, some more blocks will appear allowing you to edit its contents without having to change the file you're editing. Upon clicking the Save [img]res://Assets/Buttons/Save.png[/img]button, all .bgm files that have been changed will also be saved as well. You may also click the Listen [img]res://Assets/Buttons/Audio.png[/img]button to preview your music. When listening from a .bgm file, the looping point will automatically be applied."
+fit_content = true
+
+[node name="Config" type="RichTextLabel" parent="VBox"]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -189,14 +210,8 @@ Press right, and a menu will open up where you can change the config.
 fit_content = true
 scroll_active = false
 
-[node name="CloseButton" type="TextureButton" parent="."]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 10
-tooltip_text = "Close"
-focus_mode = 0
-texture_normal = ExtResource("2_kukc8")
-
-[connection signal="item_selected" from="Menu" to="." method="select_page"]
-[connection signal="meta_clicked" from="Pages/Variations" to="." method="meta_clicked"]
-[connection signal="pressed" from="CloseButton" to="." method="close_page"]
+[connection signal="item_selected" from="VBox/Menu" to="." method="select_page"]
+[connection signal="pressed" from="VBox/CloseButton" to="." method="close_page"]
+[connection signal="meta_clicked" from="VBox/Variations" to="." method="meta_clicked"]
+[connection signal="meta_clicked" from="VBox/Animations" to="." method="meta_clicked"]
+[connection signal="meta_clicked" from="VBox/Music" to="." method="meta_clicked"]
