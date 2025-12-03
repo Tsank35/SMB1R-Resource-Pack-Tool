@@ -50,17 +50,19 @@ signal reference_changed
 signal sources_changed
 
 func write_json(path: String, data: Dictionary, show_warning := true) -> void:
-	var current_text := FileAccess.get_file_as_string(path)
 	var new_text := Stringifier.stringify(data)
 	
-	if current_text == new_text:
-		if show_warning:
-			MessageLog.log_warning("Data is identical to the file's contents.")
-	else:
-		var file := FileAccess.open(path, FileAccess.WRITE)
-		if file.store_string(new_text):
-			MessageLog.log_message("Saved " + path.get_file() + ".")
-		file.close()
+	if FileAccess.file_exists(path):
+		var current_text := FileAccess.get_file_as_string(path)
+		if current_text == new_text:
+			if show_warning:
+				MessageLog.log_warning("Data is identical to the file's contents.")
+			return
+	
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if file.store_string(new_text):
+		MessageLog.log_message("Saved " + path.get_file() + ".")
+	file.close()
 
 func read_json(path: String) -> Dictionary:
 	if FileAccess.file_exists(path):
