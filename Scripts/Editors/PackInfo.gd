@@ -10,7 +10,7 @@ extends VBoxContainer
 @export var file_dialog: FileDialog
 
 func _ready() -> void:
-	version_label.text = "v" + ProjectSettings.get_setting("application/config/version") + "\n" + version_label.text
+	version_label.text = "v" + ProjectSettings.get_setting("application/config/version") + " \n" + version_label.text + " "
 	var data_dir := OS.get_data_dir()
 	var res_pack_dir := data_dir.path_join("SMB1R/resource_packs")
 	if DirAccess.dir_exists_absolute(res_pack_dir):
