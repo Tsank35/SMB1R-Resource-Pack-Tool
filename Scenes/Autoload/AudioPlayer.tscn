@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://buedx8xnr67v3"]
+[gd_scene format=3 uid="uid://buedx8xnr67v3"]
 
 [ext_resource type="Theme" uid="uid://bur662d0xy38t" path="res://Resources/StandardTheme.tres" id="1_6yqmn"]
 [ext_resource type="Script" uid="uid://b6xak3eify0hm" path="res://Scripts/Autoload/AudioPlayer.gd" id="2_goc63"]
 
-[node name="AudioPlayer" type="Window" node_paths=PackedStringArray("slider", "time", "stream_player")]
+[node name="AudioPlayer" type="Window" unique_id=1661054988 node_paths=PackedStringArray("slider", "time", "stream_player")]
 oversampling_override = 1.0
 size = Vector2i(600, 156)
 visible = false
@@ -15,7 +15,7 @@ slider = NodePath("VBox/Slider")
 time = NodePath("VBox/Time")
 stream_player = NodePath("StreamPlayer")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1250521817]
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -24,23 +24,23 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6yqmn")
 
-[node name="Slider" type="HSlider" parent="VBox"]
+[node name="Slider" type="HSlider" parent="VBox" unique_id=842975293]
 layout_mode = 2
 focus_mode = 0
 step = 0.0
 
-[node name="Time" type="Label" parent="VBox"]
+[node name="Time" type="Label" parent="VBox" unique_id=891160103]
 layout_mode = 2
 text = "0:00/0:00"
 horizontal_alignment = 1
 
-[node name="PlayButton" type="Button" parent="VBox"]
+[node name="PlayButton" type="Button" parent="VBox" unique_id=297886624]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
 text = "Play/Stop"
 
-[node name="StreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="StreamPlayer" type="AudioStreamPlayer" parent="." unique_id=494238389]
 
 [connection signal="close_requested" from="." to="." method="close"]
 [connection signal="drag_started" from="VBox/Slider" to="." method="move_slider"]

@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://qhgbpavbrsf"]
+[gd_scene format=3 uid="uid://qhgbpavbrsf"]
 
 [ext_resource type="Texture2D" uid="uid://rs185k32m6dt" path="res://Assets/Buttons/Delete.png" id="1_mdrns"]
 [ext_resource type="Script" uid="uid://dv130kwax4n3v" path="res://Scripts/Components/Buttons/DeleteButton.gd" id="2_1j2bw"]
 [ext_resource type="Texture2D" uid="uid://1fbrw83a4t6i" path="res://Assets/Buttons/DeleteConfirm.png" id="2_tpqvu"]
 
-[node name="DeleteButton" type="TextureButton" node_paths=PackedStringArray("confirm_timer")]
+[node name="DeleteButton" type="TextureButton" unique_id=186610519 node_paths=PackedStringArray("confirm_timer")]
 offset_right = 16.0
 offset_bottom = 16.0
 tooltip_text = "Delete"
@@ -15,7 +15,7 @@ texture_pressed = ExtResource("2_tpqvu")
 script = ExtResource("2_1j2bw")
 confirm_timer = NodePath("ConfirmTimer")
 
-[node name="ConfirmTimer" type="Timer" parent="."]
+[node name="ConfirmTimer" type="Timer" parent="." unique_id=775463916]
 one_shot = true
 
 [connection signal="toggled" from="." to="." method="on_toggled"]

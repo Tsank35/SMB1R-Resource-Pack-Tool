@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4uetnlm0ubxs"]
+[gd_scene format=3 uid="uid://c4uetnlm0ubxs"]
 
 [ext_resource type="Script" uid="uid://dput4llyjsa6i" path="res://Scripts/Components/Sprite/SpriteSource.gd" id="1_mfdij"]
 [ext_resource type="PackedScene" uid="uid://b5mjo87bv1veq" path="res://Scenes/Components/Buttons/FileButton.tscn" id="2_fi56a"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="9_1egxa"]
 [ext_resource type="PackedScene" uid="uid://3hacvk0x7d07" path="res://Scenes/Components/Sprite/AnimationCollection.tscn" id="10_1egxa"]
 
-[node name="SpriteSource" type="BoxContainer" node_paths=PackedStringArray("source_label", "image_button", "full_image_checkbox", "rect", "property_block", "animation_block", "animation_overrides", "new_animations") groups=["Sprite Sources"]]
+[node name="SpriteSource" type="BoxContainer" unique_id=412397514 node_paths=PackedStringArray("source_label", "image_button", "full_image_checkbox", "rect", "property_block", "animation_block", "animation_overrides", "new_animations") groups=["Sprite Sources"]]
 offset_right = 160.0
 offset_bottom = 32.0
 theme_override_constants/separation = 0
@@ -24,105 +24,105 @@ animation_block = NodePath("Animations")
 animation_overrides = NodePath("Animations/VBox/Contents/VBox/AnimationOverrides")
 new_animations = NodePath("Animations/VBox/Contents/VBox/NewAnimations")
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="HBox" type="HBoxContainer" parent="." unique_id=1802407479]
 layout_mode = 2
 
-[node name="Settings" type="VBoxContainer" parent="HBox"]
+[node name="Settings" type="VBoxContainer" parent="HBox" unique_id=983802072]
 layout_mode = 2
 
-[node name="Source" type="HBoxContainer" parent="HBox/Settings"]
+[node name="Source" type="HBoxContainer" parent="HBox/Settings" unique_id=174820896]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBox/Settings/Source"]
+[node name="Label" type="Label" parent="HBox/Settings/Source" unique_id=1627237091]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Source: None"
 
-[node name="FileButton" parent="HBox/Settings/Source" instance=ExtResource("2_fi56a")]
+[node name="FileButton" parent="HBox/Settings/Source" unique_id=1522342003 instance=ExtResource("2_fi56a")]
 layout_mode = 2
 formats = PackedStringArray("bmp", "dds", "htx", "exr", "hdr", "jpg", "jpeg", "png", "tga", "svg", "webp")
 prepend_base_dir = 2
 restrict_to_base_directory = true
 
-[node name="Rect" parent="HBox/Settings" instance=ExtResource("3_1egxa")]
+[node name="Rect" parent="HBox/Settings" unique_id=1058458461 instance=ExtResource("3_1egxa")]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBox/Settings/Rect"]
+[node name="Label" type="Label" parent="HBox/Settings/Rect" unique_id=233737473]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Rect:"
 
-[node name="UseFullImage" type="HBoxContainer" parent="HBox/Settings"]
+[node name="UseFullImage" type="HBoxContainer" parent="HBox/Settings" unique_id=1340772011]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBox/Settings/UseFullImage"]
+[node name="Label" type="Label" parent="HBox/Settings/UseFullImage" unique_id=1485357682]
 layout_mode = 2
 text = "Use Full Image?"
 
-[node name="CheckBox" type="CheckBox" parent="HBox/Settings/UseFullImage"]
+[node name="CheckBox" type="CheckBox" parent="HBox/Settings/UseFullImage" unique_id=877854066]
 layout_mode = 2
 size_flags_vertical = 0
 focus_mode = 0
 button_pressed = true
 
-[node name="ImageButton" parent="HBox" instance=ExtResource("6_bjfho")]
+[node name="ImageButton" parent="HBox" unique_id=1464557472 instance=ExtResource("6_bjfho")]
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="HBox"]
+[node name="Spacer" type="Control" parent="HBox" unique_id=2144252253]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DeleteButton" parent="HBox" instance=ExtResource("7_kbqxg")]
+[node name="DeleteButton" parent="HBox" unique_id=1639087690 instance=ExtResource("7_kbqxg")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="PropertyBlock" parent="." node_paths=PackedStringArray("source") instance=ExtResource("8_fi56a")]
+[node name="PropertyBlock" parent="." unique_id=1953114285 node_paths=PackedStringArray("source") instance=ExtResource("8_fi56a")]
 layout_mode = 2
 source = NodePath("..")
 
-[node name="Animations" parent="." instance=ExtResource("9_1egxa")]
+[node name="Animations" parent="." unique_id=502979007 instance=ExtResource("9_1egxa")]
 layout_mode = 2
 color_1 = Color(1, 0.6156863, 0.7764706, 1)
 color_2 = Color(0.96862745, 0.22352941, 0.0627451, 1)
 color_3 = Color(0.4862745, 0.11372549, 0.03137255, 1)
 
-[node name="Label" type="Label" parent="Animations/VBox/Header" index="0"]
+[node name="Label" type="Label" parent="Animations/VBox/Header" parent_id_path=PackedInt32Array(502979007, 1508639507) index="0" unique_id=1611371239]
 layout_mode = 2
 text = "Animations"
 
-[node name="Spacer" type="Control" parent="Animations/VBox/Header" index="1"]
+[node name="Spacer" type="Control" parent="Animations/VBox/Header" parent_id_path=PackedInt32Array(502979007, 1508639507) index="1" unique_id=258968600]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CopyButton" parent="Animations/VBox/Header" index="2"]
+[node name="CopyButton" parent="Animations/VBox/Header" parent_id_path=PackedInt32Array(502979007, 1508639507) index="2" unique_id=364299320]
 visible = false
 
-[node name="PasteButton" parent="Animations/VBox/Header" index="3"]
+[node name="PasteButton" parent="Animations/VBox/Header" parent_id_path=PackedInt32Array(502979007, 1508639507) index="3" unique_id=77238852]
 visible = false
 
-[node name="VBox" type="VBoxContainer" parent="Animations/VBox/Contents" index="0"]
+[node name="VBox" type="VBoxContainer" parent="Animations/VBox/Contents" parent_id_path=PackedInt32Array(502979007, 655410605) index="0" unique_id=1837160031]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="AnimationOverrides" parent="Animations/VBox/Contents/VBox" node_paths=PackedStringArray("source") instance=ExtResource("10_1egxa")]
+[node name="AnimationOverrides" parent="Animations/VBox/Contents/VBox" unique_id=1799446448 node_paths=PackedStringArray("source") instance=ExtResource("10_1egxa")]
 layout_mode = 2
 source = NodePath("../../../../..")
 is_override = true
 color_1 = Color(1, 0.54901963, 0.7411765, 1)
 color_2 = Color(0.96862745, 0.0627451, 0.5176471, 1)
 
-[node name="Label" parent="Animations/VBox/Contents/VBox/AnimationOverrides/VBox/Header" index="0"]
+[node name="Label" parent="Animations/VBox/Contents/VBox/AnimationOverrides/VBox/Header" parent_id_path=PackedInt32Array(1799446448, 1508639507) index="0" unique_id=1153412151]
 text = "Animation Overrides"
 
-[node name="NewAnimations" parent="Animations/VBox/Contents/VBox" node_paths=PackedStringArray("source") instance=ExtResource("10_1egxa")]
+[node name="NewAnimations" parent="Animations/VBox/Contents/VBox" unique_id=788502576 node_paths=PackedStringArray("source") instance=ExtResource("10_1egxa")]
 layout_mode = 2
 source = NodePath("../../../../..")
 color_1 = Color(0.70980394, 1, 0.7411765, 1)
 color_2 = Color(0.12941177, 0.6784314, 0.0627451, 1)
 color_3 = Color(0.21960784, 0.40784314, 0, 1)
 
-[node name="Label" parent="Animations/VBox/Contents/VBox/NewAnimations/VBox/Header" index="0"]
+[node name="Label" parent="Animations/VBox/Contents/VBox/NewAnimations/VBox/Header" parent_id_path=PackedInt32Array(788502576, 1508639507) index="0" unique_id=1153412151]
 text = "New Animations"
 
 [connection signal="file_selected" from="HBox/Settings/Source/FileButton" to="." method="select_file"]

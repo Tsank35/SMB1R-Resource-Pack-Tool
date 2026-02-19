@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://b1m1bmdfognce"]
+[gd_resource type="Resource" script_class="Variation" format=3 uid="uid://b1m1bmdfognce"]
 
 [ext_resource type="Texture2D" uid="uid://c5oailalf82k" path="res://Assets/Variations/Campaigns.png" id="1_gy6t6"]
 [ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="1_lg6ji"]

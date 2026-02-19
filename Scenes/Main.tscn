@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://o7105t3w1inn"]
+[gd_scene format=3 uid="uid://o7105t3w1inn"]
 
 [ext_resource type="PackedScene" uid="uid://bdbwmwvlrke4w" path="res://Scenes/Editors/PackInfo.tscn" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://dn1vpchtboytf" path="res://Scenes/Editors/SpriteEditor.tscn" id="3_kln2b"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bwfdec5xathuq" path="res://Scenes/Editors/ConfigEditor.tscn" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://ubnukqk5anyv" path="res://Scenes/Help.tscn" id="4_rgh2o"]
 
-[node name="Main" type="TabContainer"]
+[node name="Main" type="TabContainer" unique_id=134895204]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,26 +14,26 @@ grow_horizontal = 2
 grow_vertical = 2
 current_tab = 0
 
-[node name="Pack" parent="." instance=ExtResource("1_kln2b")]
+[node name="Pack" parent="." unique_id=1954992327 instance=ExtResource("1_kln2b")]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Sprites" parent="." instance=ExtResource("3_kln2b")]
+[node name="Sprites" parent="." unique_id=16189495 instance=ExtResource("3_kln2b")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Music" parent="." instance=ExtResource("3_pbw6q")]
+[node name="Music" parent="." unique_id=666527570 instance=ExtResource("3_pbw6q")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Config" parent="." instance=ExtResource("3_rgh2o")]
+[node name="Config" parent="." unique_id=1422606380 instance=ExtResource("3_rgh2o")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
-[node name="Help" parent="." instance=ExtResource("4_rgh2o")]
+[node name="Help" parent="." unique_id=1833667647 instance=ExtResource("4_rgh2o")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4

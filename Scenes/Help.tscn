@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ubnukqk5anyv"]
+[gd_scene format=3 uid="uid://ubnukqk5anyv"]
 
 [ext_resource type="Script" uid="uid://iih08mlfmcgk" path="res://Scripts/Help.gd" id="1_loy5b"]
 [ext_resource type="Texture2D" uid="uid://rs185k32m6dt" path="res://Assets/Buttons/Delete.png" id="2_kukc8"]
 
-[node name="Help" type="ScrollContainer" node_paths=PackedStringArray("menu", "container", "close_button")]
+[node name="Help" type="ScrollContainer" unique_id=1988371858 node_paths=PackedStringArray("menu", "container", "close_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,12 +14,12 @@ menu = NodePath("VBox/Menu")
 container = NodePath("VBox")
 close_button = NodePath("VBox/CloseButton")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1405618247]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Menu" type="ItemList" parent="VBox"]
+[node name="Menu" type="ItemList" parent="VBox" unique_id=475063778]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -33,7 +33,7 @@ item_4/text = "Animations"
 item_5/text = "Music"
 item_6/text = "Config"
 
-[node name="CloseButton" type="TextureButton" parent="VBox"]
+[node name="CloseButton" type="TextureButton" parent="VBox" unique_id=857911414]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 10
@@ -41,7 +41,7 @@ tooltip_text = "Close"
 focus_mode = 0
 texture_normal = ExtResource("2_kukc8")
 
-[node name="PackSetup" type="RichTextLabel" parent="VBox"]
+[node name="PackSetup" type="RichTextLabel" parent="VBox" unique_id=1538123985]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -55,7 +55,7 @@ From there, you can modify the general properties of your pack such as name, aut
 fit_content = true
 scroll_active = false
 
-[node name="EditorButtons" type="RichTextLabel" parent="VBox"]
+[node name="EditorButtons" type="RichTextLabel" parent="VBox" unique_id=2100317707]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -98,7 +98,7 @@ The three buttons on the top-right can be found in most data blocks.
 fit_content = true
 scroll_active = false
 
-[node name="Variations" type="RichTextLabel" parent="VBox"]
+[node name="Variations" type="RichTextLabel" parent="VBox" unique_id=1549536320]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -132,7 +132,7 @@ Finally, a random branch allows you to randomize your assets. It functions simil
 fit_content = true
 scroll_active = false
 
-[node name="Properties" type="RichTextLabel" parent="VBox"]
+[node name="Properties" type="RichTextLabel" parent="VBox" unique_id=1120823633]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -153,7 +153,7 @@ Properties are normally meant to be used for the purpose of altering the way a s
 fit_content = true
 scroll_active = false
 
-[node name="Animations" type="RichTextLabel" parent="VBox"]
+[node name="Animations" type="RichTextLabel" parent="VBox" unique_id=1040141439]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -177,7 +177,7 @@ Each line of text labeled \"Frame\" indicates a single frame on the sheet. Each 
 fit_content = true
 scroll_active = false
 
-[node name="Music" type="RichTextLabel" parent="VBox"]
+[node name="Music" type="RichTextLabel" parent="VBox" unique_id=1204464459]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
@@ -190,7 +190,7 @@ BGM files can store two different versions of a music track. \"Normal\" is used 
 Inside of a variation block, only one property needs to be set when using a source. You can either select an audio file (.wav, .ogg, or .mp3) or a .bgm file. You can also click Create BGM File [img]res://Assets/Buttons/NewFile.png[/img]to create a new .bgm file if you don't already have one. When selecting a .bgm file, some more blocks will appear allowing you to edit its contents without having to change the file you're editing. Upon clicking the Save [img]res://Assets/Buttons/Save.png[/img]button, all .bgm files that have been changed will also be saved as well. You may also click the Listen [img]res://Assets/Buttons/Audio.png[/img]button to preview your music. When listening from a .bgm file, the looping point will automatically be applied."
 fit_content = true
 
-[node name="Config" type="RichTextLabel" parent="VBox"]
+[node name="Config" type="RichTextLabel" parent="VBox" unique_id=1893440842]
 visible = false
 layout_mode = 2
 bbcode_enabled = true

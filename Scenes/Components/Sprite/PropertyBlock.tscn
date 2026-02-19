@@ -1,29 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://bawy2sa4mdsob"]
+[gd_scene format=3 uid="uid://bawy2sa4mdsob"]
 
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="1_m4rrk"]
 [ext_resource type="Script" uid="uid://db8qwoxqqrmgq" path="res://Scripts/Components/Sprite/PropertyBlock.gd" id="3_gn61p"]
 [ext_resource type="Texture2D" uid="uid://3tukvou8ndyv" path="res://Assets/Buttons/Add.png" id="5_6bydi"]
 
-[node name="PropertyBlock" node_paths=PackedStringArray("property_container") instance=ExtResource("1_m4rrk")]
+[node name="PropertyBlock" unique_id=237592233 node_paths=PackedStringArray("property_container") instance=ExtResource("1_m4rrk")]
 script = ExtResource("3_gn61p")
 property_container = NodePath("VBox/Contents/VBox")
 data_type = 2
 color_2 = Color(1, 0.6666667, 0.2784314, 1)
 color_3 = Color(0.7294118, 0.38039216, 0.06666667, 1)
 
-[node name="Label" type="Label" parent="VBox/Header" index="0"]
+[node name="Label" type="Label" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="0" unique_id=54839235]
 layout_mode = 2
 text = "Properties"
 
-[node name="Spacer" type="Control" parent="VBox/Header" index="1"]
+[node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=1637536507]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBox" type="VBoxContainer" parent="VBox/Contents" index="0"]
+[node name="VBox" type="VBoxContainer" parent="VBox/Contents" parent_id_path=PackedInt32Array(655410605) index="0" unique_id=1899695602]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="AddButton" type="TextureButton" parent="VBox/Contents/VBox" index="0"]
+[node name="AddButton" type="TextureButton" parent="VBox/Contents/VBox" index="0" unique_id=531064621]
 layout_mode = 2
 size_flags_horizontal = 8
 tooltip_text = "Add Property"

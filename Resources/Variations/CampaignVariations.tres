@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="VariationCategory" load_steps=8 format=3 uid="uid://bjdvxdwlp0ndy"]
+[gd_resource type="Resource" script_class="VariationCategory" format=3 uid="uid://bjdvxdwlp0ndy"]
 
 [ext_resource type="Script" uid="uid://dqnrdbi1868qg" path="res://Scripts/Resources/VariationCategory.gd" id="1_ywqej"]
 [ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_0heom"]

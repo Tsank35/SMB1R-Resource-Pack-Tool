@@ -1,4 +1,4 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b2fi5usjk1sng"]
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://b2fi5usjk1sng"]
 
 [ext_resource type="Texture2D" uid="uid://yypachqi3nh5" path="res://Assets/Panels/BlockPanel.png" id="1_emurn"]
 

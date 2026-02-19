@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://6colprh33nqj"]
+[gd_scene format=3 uid="uid://6colprh33nqj"]
 
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="1_lqo6o"]
 [ext_resource type="Script" uid="uid://bsyfj1ry6fijr" path="res://Scripts/Components/Variation/RandomChoice.gd" id="2_50h21"]
@@ -6,36 +6,36 @@
 [ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="4_qkh1t"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="5_50h21"]
 
-[node name="RandomChoice" node_paths=PackedStringArray("custom_label") instance=ExtResource("1_lqo6o")]
+[node name="RandomChoice" unique_id=661661367 node_paths=PackedStringArray("custom_label") instance=ExtResource("1_lqo6o")]
 script = ExtResource("2_50h21")
 custom_label = NodePath("VBox/Header/CustomLabel")
 data_type = 1
 
-[node name="Label" type="Label" parent="VBox/Header" index="0"]
+[node name="Label" type="Label" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="0" unique_id=301495956]
 layout_mode = 2
 text = "Choice"
 
-[node name="CustomLabel" type="LineEdit" parent="VBox/Header" index="1"]
+[node name="CustomLabel" type="LineEdit" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=561459462]
 layout_mode = 2
 expand_to_text_length = true
 
-[node name="Spacer" type="Control" parent="VBox/Header" index="2"]
+[node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="2" unique_id=1809227097]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MoveUpButton" parent="VBox/Header" index="3" node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_hus2d")]
+[node name="MoveUpButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="3" unique_id=1746116572 node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_hus2d")]
 layout_mode = 2
 node_to_move = NodePath("../../..")
 index_limit = 1
 
-[node name="MoveDownButton" parent="VBox/Header" index="4" node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_hus2d")]
+[node name="MoveDownButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="4" unique_id=182059172 node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_hus2d")]
 layout_mode = 2
 tooltip_text = "Move Down"
 texture_normal = ExtResource("4_qkh1t")
 node_to_move = NodePath("../../..")
 direction = 1
 
-[node name="DeleteButton" parent="VBox/Header" index="7" instance=ExtResource("5_50h21")]
+[node name="DeleteButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="7" unique_id=1176944302 instance=ExtResource("5_50h21")]
 layout_mode = 2
 
 [connection signal="text_changed" from="VBox/Header/CustomLabel" to="." method="custom_label_changed" unbinds=1]

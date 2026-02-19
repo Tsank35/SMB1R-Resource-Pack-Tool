@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://7tc1q1e0e8lo"]
+[gd_scene format=3 uid="uid://7tc1q1e0e8lo"]
 
 [ext_resource type="Script" uid="uid://h1d4ej5b4yg7" path="res://Scripts/Components/Variation/RandomBranch.gd" id="1_cgoew"]
 [ext_resource type="Texture2D" uid="uid://3tukvou8ndyv" path="res://Assets/Buttons/Add.png" id="2_07cdx"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d4jboj6lp36xy" path="res://Scenes/Components/Buttons/CollapseAllButton.tscn" id="3_ulf5n"]
 [ext_resource type="Texture2D" uid="uid://cd8utxr0le47f" path="res://Assets/Buttons/UncollapseAll.png" id="4_5ydet"]
 
-[node name="RandomBranch" type="BoxContainer"]
+[node name="RandomBranch" type="BoxContainer" unique_id=1525306964]
 offset_right = 16.0
 offset_bottom = 16.0
 size_flags_horizontal = 3
@@ -15,36 +15,36 @@ vertical = true
 script = ExtResource("1_cgoew")
 metadata/_custom_type_script = "uid://dmlsrv8d7btqa"
 
-[node name="Header" type="HBoxContainer" parent="."]
+[node name="Header" type="HBoxContainer" parent="." unique_id=1536725037]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Header"]
+[node name="Label" type="Label" parent="Header" unique_id=866498554]
 layout_mode = 2
 text = "Random Branch"
 
-[node name="Spacer" type="Control" parent="Header"]
+[node name="Spacer" type="Control" parent="Header" unique_id=2021437264]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AddButton" type="TextureButton" parent="Header"]
+[node name="AddButton" type="TextureButton" parent="Header" unique_id=2144173085]
 layout_mode = 2
 size_flags_horizontal = 8
 tooltip_text = "Add Choice"
 focus_mode = 0
 texture_normal = ExtResource("2_07cdx")
 
-[node name="CollapseAllButton" parent="Header" node_paths=PackedStringArray("parent") instance=ExtResource("3_ulf5n")]
+[node name="CollapseAllButton" parent="Header" unique_id=1741075003 node_paths=PackedStringArray("parent") instance=ExtResource("3_ulf5n")]
 layout_mode = 2
 parent = NodePath("../..")
 
-[node name="UncollapseAllButton" parent="Header" node_paths=PackedStringArray("parent") instance=ExtResource("3_ulf5n")]
+[node name="UncollapseAllButton" parent="Header" unique_id=1062176222 node_paths=PackedStringArray("parent") instance=ExtResource("3_ulf5n")]
 layout_mode = 2
 tooltip_text = "Uncollapse All"
 texture_normal = ExtResource("4_5ydet")
 collapse_all = false
 parent = NodePath("../..")
 
-[node name="DeleteButton" parent="Header" instance=ExtResource("3_qj0xu")]
+[node name="DeleteButton" parent="Header" unique_id=1011708093 instance=ExtResource("3_qj0xu")]
 layout_mode = 2
 
 [connection signal="pressed" from="Header/AddButton" to="." method="add_choice"]

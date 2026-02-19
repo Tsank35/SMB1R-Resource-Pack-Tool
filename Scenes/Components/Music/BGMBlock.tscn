@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsy1eplt5qs6j"]
+[gd_scene format=3 uid="uid://dsy1eplt5qs6j"]
 
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="1_bmy52"]
 [ext_resource type="PackedScene" uid="uid://b5mjo87bv1veq" path="res://Scenes/Components/Buttons/FileButton.tscn" id="2_7y0ql"]
 [ext_resource type="Script" uid="uid://26psath2y42w" path="res://Scripts/Components/Music/BGMBlock.gd" id="2_y1kwx"]
 [ext_resource type="Texture2D" uid="uid://7bnuvbk2e54c" path="res://Assets/Buttons/Audio.png" id="4_cermv"]
 
-[node name="BGMBlock" node_paths=PackedStringArray("label", "source_label", "loop_input", "listen_button") instance=ExtResource("1_bmy52")]
+[node name="BGMBlock" unique_id=972917969 node_paths=PackedStringArray("label", "source_label", "loop_input", "listen_button") instance=ExtResource("1_bmy52")]
 script = ExtResource("2_y1kwx")
 label = NodePath("VBox/Header/Label")
 source_label = NodePath("VBox/Contents/VBox/Source/Label")
@@ -13,43 +13,43 @@ loop_input = NodePath("VBox/Contents/VBox/Loop/SpinBox")
 listen_button = NodePath("VBox/Contents/VBox/Source/ListenButton")
 data_type = 1
 
-[node name="Label" type="Label" parent="VBox/Header" index="0"]
+[node name="Label" type="Label" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="0" unique_id=1280229543]
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="VBox/Header" index="1"]
+[node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=1753156341]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBox" type="VBoxContainer" parent="VBox/Contents" index="0"]
+[node name="VBox" type="VBoxContainer" parent="VBox/Contents" parent_id_path=PackedInt32Array(655410605) index="0" unique_id=181390590]
 layout_mode = 2
 
-[node name="Source" type="HBoxContainer" parent="VBox/Contents/VBox" index="0"]
+[node name="Source" type="HBoxContainer" parent="VBox/Contents/VBox" index="0" unique_id=1652328420]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBox/Contents/VBox/Source" index="0"]
+[node name="Label" type="Label" parent="VBox/Contents/VBox/Source" index="0" unique_id=24862942]
 layout_mode = 2
 text = "Source: None"
 
-[node name="FileButton" parent="VBox/Contents/VBox/Source" index="1" instance=ExtResource("2_7y0ql")]
+[node name="FileButton" parent="VBox/Contents/VBox/Source" index="1" unique_id=857765391 instance=ExtResource("2_7y0ql")]
 layout_mode = 2
 formats = PackedStringArray("wav", "ogg", "mp3")
 prepend_base_dir = 3
 restrict_to_base_directory = true
 
-[node name="ListenButton" type="TextureButton" parent="VBox/Contents/VBox/Source" index="2"]
+[node name="ListenButton" type="TextureButton" parent="VBox/Contents/VBox/Source" index="2" unique_id=2004503564]
 layout_mode = 2
 tooltip_text = "Listen"
 focus_mode = 0
 texture_normal = ExtResource("4_cermv")
 
-[node name="Loop" type="HBoxContainer" parent="VBox/Contents/VBox" index="1"]
+[node name="Loop" type="HBoxContainer" parent="VBox/Contents/VBox" index="1" unique_id=684366466]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBox/Contents/VBox/Loop" index="0"]
+[node name="Label" type="Label" parent="VBox/Contents/VBox/Loop" index="0" unique_id=917556349]
 layout_mode = 2
 text = "Loop:"
 
-[node name="SpinBox" type="SpinBox" parent="VBox/Contents/VBox/Loop" index="1"]
+[node name="SpinBox" type="SpinBox" parent="VBox/Contents/VBox/Loop" index="1" unique_id=1544916628]
 layout_mode = 2
 step = 0.001
 allow_greater = true

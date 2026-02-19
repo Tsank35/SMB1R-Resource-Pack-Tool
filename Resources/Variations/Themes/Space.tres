@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Variation" load_steps=4 format=3 uid="uid://b1gn66bclddiy"]
+[gd_resource type="Resource" script_class="Variation" format=3 uid="uid://b1gn66bclddiy"]
 
 [ext_resource type="Texture2D" uid="uid://6yfrdny8flib" path="res://Assets/Variations/Themes.png" id="1_7lm32"]
 [ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_nyld8"]

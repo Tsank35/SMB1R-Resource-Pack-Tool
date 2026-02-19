@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cni1lkactmxi0"]
+[gd_scene format=3 uid="uid://cni1lkactmxi0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eorfb"]
 bg_color = Color(0, 0, 0, 0.5019608)
 
-[node name="LogMessage" type="Label"]
+[node name="LogMessage" type="Label" unique_id=99225974]
 offset_right = 1.0
 offset_bottom = 16.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_eorfb")
 autowrap_mode = 3
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1081784359]
 wait_time = 5.0
 one_shot = true
 autostart = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlmugw0bfo4v2"]
+[gd_scene format=3 uid="uid://dlmugw0bfo4v2"]
 
 [ext_resource type="Script" uid="uid://caep7ebigeywi" path="res://Scripts/Editors/MusicEditor.gd" id="1_1o2fu"]
 [ext_resource type="PackedScene" uid="uid://50vhh6dv2dcm" path="res://Scenes/Components/Buttons/NewFileButton.tscn" id="1_eswq4"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bhb8xiop0pwco" path="res://Assets/Buttons/Save.png" id="5_11sbm"]
 [ext_resource type="PackedScene" uid="uid://dsy1eplt5qs6j" path="res://Scenes/Components/Music/BGMBlock.tscn" id="7_gsmg5"]
 
-[node name="Music" type="ScrollContainer" node_paths=PackedStringArray("path_display", "root_variation", "bgm_blocks")]
+[node name="Music" type="ScrollContainer" unique_id=72247984 node_paths=PackedStringArray("path_display", "root_variation", "bgm_blocks")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,51 +19,51 @@ path_display = NodePath("VBox/Header/Path")
 root_variation = NodePath("VBox/RootVariationBlock")
 bgm_blocks = [NodePath("VBox/Normal"), NodePath("VBox/Hurry")]
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=2060533368]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Header" type="HBoxContainer" parent="VBox"]
+[node name="Header" type="HBoxContainer" parent="VBox" unique_id=1326130355]
 layout_mode = 2
 
-[node name="Path" type="LineEdit" parent="VBox/Header"]
+[node name="Path" type="LineEdit" parent="VBox/Header" unique_id=2103895185]
 layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 
-[node name="NewFileButton" parent="VBox/Header" instance=ExtResource("1_eswq4")]
+[node name="NewFileButton" parent="VBox/Header" unique_id=198695020 instance=ExtResource("1_eswq4")]
 layout_mode = 2
 formats = PackedStringArray("json", "bgm")
 base_directory = 1
 
-[node name="FileButton" parent="VBox/Header" instance=ExtResource("2_6783r")]
+[node name="FileButton" parent="VBox/Header" unique_id=1464133053 instance=ExtResource("2_6783r")]
 layout_mode = 2
 formats = PackedStringArray("json", "bgm")
 prepend_base_dir = 1
 base_directory = "Audio/BGM"
 
-[node name="PreviewJSONButton" type="TextureButton" parent="VBox/Header"]
+[node name="PreviewJSONButton" type="TextureButton" parent="VBox/Header" unique_id=82962344]
 layout_mode = 2
 tooltip_text = "Preview JSON"
 focus_mode = 0
 texture_normal = ExtResource("4_si3ll")
 
-[node name="SaveButton" type="TextureButton" parent="VBox/Header"]
+[node name="SaveButton" type="TextureButton" parent="VBox/Header" unique_id=1191606679]
 layout_mode = 2
 tooltip_text = "Save"
 focus_mode = 0
 texture_normal = ExtResource("5_11sbm")
 
-[node name="RootVariationBlock" parent="VBox" instance=ExtResource("4_bksug")]
+[node name="RootVariationBlock" parent="VBox" unique_id=1166075857 instance=ExtResource("4_bksug")]
 layout_mode = 2
 asset_type = 1
 
-[node name="Normal" parent="VBox" instance=ExtResource("7_gsmg5")]
+[node name="Normal" parent="VBox" unique_id=1294706587 instance=ExtResource("7_gsmg5")]
 visible = false
 layout_mode = 2
 
-[node name="Hurry" parent="VBox" instance=ExtResource("7_gsmg5")]
+[node name="Hurry" parent="VBox" unique_id=237132842 instance=ExtResource("7_gsmg5")]
 visible = false
 layout_mode = 2
 

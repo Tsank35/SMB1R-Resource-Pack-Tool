@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dil0yi6elmq0j"]
+[gd_scene format=3 uid="uid://dil0yi6elmq0j"]
 
 [ext_resource type="Script" uid="uid://cyis1rwptpgoj" path="res://Scripts/Components/Sprite/SpriteProperty.gd" id="1_d3bes"]
 [ext_resource type="Script" uid="uid://crfo1a3tynisp" path="res://Scripts/Components/LinearOptionButton.gd" id="3_ckvaw"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="5_ckvaw"]
 [ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="6_81hct"]
 
-[node name="SpriteProperty" type="HBoxContainer" node_paths=PackedStringArray("name_input", "boolean_input", "number_input", "text_input", "vector_container", "vector_input", "type_dropdown")]
+[node name="SpriteProperty" type="HBoxContainer" unique_id=1880555105 node_paths=PackedStringArray("name_input", "boolean_input", "number_input", "text_input", "vector_container", "vector_input", "type_dropdown")]
 offset_right = 64.0
 offset_bottom = 16.0
 script = ExtResource("1_d3bes")
@@ -18,17 +18,17 @@ vector_container = NodePath("VectorValue")
 vector_input = [NodePath("VectorValue/X"), NodePath("VectorValue/Y")]
 type_dropdown = NodePath("Type")
 
-[node name="Name" type="LineEdit" parent="."]
+[node name="Name" type="LineEdit" parent="." unique_id=325771601]
 layout_mode = 2
 size_flags_vertical = 0
 expand_to_text_length = true
 
-[node name="BooleanValue" type="CheckBox" parent="."]
+[node name="BooleanValue" type="CheckBox" parent="." unique_id=1192699764]
 layout_mode = 2
 size_flags_vertical = 0
 focus_mode = 0
 
-[node name="NumberValue" type="SpinBox" parent="."]
+[node name="NumberValue" type="SpinBox" parent="." unique_id=1728359125]
 visible = false
 layout_mode = 2
 size_flags_vertical = 0
@@ -37,17 +37,17 @@ allow_greater = true
 allow_lesser = true
 custom_arrow_step = 1.0
 
-[node name="TextValue" type="LineEdit" parent="."]
+[node name="TextValue" type="LineEdit" parent="." unique_id=1223960422]
 visible = false
 layout_mode = 2
 size_flags_vertical = 0
 expand_to_text_length = true
 
-[node name="VectorValue" type="HBoxContainer" parent="."]
+[node name="VectorValue" type="HBoxContainer" parent="." unique_id=682212792]
 visible = false
 layout_mode = 2
 
-[node name="X" type="SpinBox" parent="VectorValue"]
+[node name="X" type="SpinBox" parent="VectorValue" unique_id=1634530798]
 layout_mode = 2
 step = 0.01
 allow_greater = true
@@ -55,7 +55,7 @@ allow_lesser = true
 prefix = "X"
 custom_arrow_step = 1.0
 
-[node name="Y" type="SpinBox" parent="VectorValue"]
+[node name="Y" type="SpinBox" parent="VectorValue" unique_id=801385063]
 layout_mode = 2
 step = 0.01
 allow_greater = true
@@ -63,11 +63,11 @@ allow_lesser = true
 prefix = "Y"
 custom_arrow_step = 1.0
 
-[node name="Spacer" type="Control" parent="."]
+[node name="Spacer" type="Control" parent="." unique_id=1215983990]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Type" type="OptionButton" parent="."]
+[node name="Type" type="OptionButton" parent="." unique_id=156317174]
 layout_mode = 2
 size_flags_vertical = 0
 focus_mode = 0
@@ -85,19 +85,19 @@ popup/item_3/id = 3
 script = ExtResource("3_ckvaw")
 metadata/_custom_type_script = "uid://crfo1a3tynisp"
 
-[node name="MoveUpButton" parent="." node_paths=PackedStringArray("node_to_move") instance=ExtResource("5_bw51l")]
+[node name="MoveUpButton" parent="." unique_id=1471321075 node_paths=PackedStringArray("node_to_move") instance=ExtResource("5_bw51l")]
 layout_mode = 2
 node_to_move = NodePath("..")
 index_limit = 1
 
-[node name="MoveDownButton" parent="." node_paths=PackedStringArray("node_to_move") instance=ExtResource("5_bw51l")]
+[node name="MoveDownButton" parent="." unique_id=1145185970 node_paths=PackedStringArray("node_to_move") instance=ExtResource("5_bw51l")]
 layout_mode = 2
 tooltip_text = "Move Down"
 texture_normal = ExtResource("6_81hct")
 node_to_move = NodePath("..")
 direction = 1
 
-[node name="DeleteButton" parent="." instance=ExtResource("5_ckvaw")]
+[node name="DeleteButton" parent="." unique_id=1097225330 instance=ExtResource("5_ckvaw")]
 layout_mode = 2
 
 [connection signal="item_selected" from="Type" to="." method="select_type"]

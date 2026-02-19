@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://miqn20i6iknf"]
+[gd_scene format=3 uid="uid://miqn20i6iknf"]
 
 [ext_resource type="Texture2D" uid="uid://gpmi6rf4y5yj" path="res://Assets/Panels/ImagePanel.png" id="1_5roy5"]
 [ext_resource type="Script" uid="uid://dcg8uo1sl65by" path="res://Scripts/Components/Buttons/ImageButton.gd" id="2_nk3u5"]
@@ -16,7 +16,7 @@ texture_margin_bottom = 8.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="ImageButton" type="Button" node_paths=PackedStringArray("image")]
+[node name="ImageButton" type="Button" unique_id=1058552194 node_paths=PackedStringArray("image")]
 offset_right = 32.0
 offset_bottom = 32.0
 tooltip_text = "View Image"
@@ -28,7 +28,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_k175e")
 script = ExtResource("2_nk3u5")
 image = NodePath("Margin/Image")
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="." unique_id=1657660159]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,7 @@ theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 1
 
-[node name="Image" type="TextureRect" parent="Margin"]
+[node name="Image" type="TextureRect" parent="Margin" unique_id=70211096]
 layout_mode = 2
 mouse_filter = 2
 expand_mode = 1

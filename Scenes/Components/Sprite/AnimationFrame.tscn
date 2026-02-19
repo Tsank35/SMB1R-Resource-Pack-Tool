@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvkwmx0u03mfr"]
+[gd_scene format=3 uid="uid://dvkwmx0u03mfr"]
 
 [ext_resource type="Script" uid="uid://yrp40mh80588" path="res://Scripts/Components/Sprite/AnimationFrame.gd" id="1_3c3tv"]
 [ext_resource type="PackedScene" uid="uid://miqn20i6iknf" path="res://Scenes/Components/Buttons/ImageButton.tscn" id="1_rdunq"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://vv0m1lqfcy1s" path="res://Assets/Buttons/Paste.png" id="5_vcwqh"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="6_kamsd"]
 
-[node name="AnimationFrame" type="VBoxContainer" node_paths=PackedStringArray("image", "spin_boxes")]
+[node name="AnimationFrame" type="VBoxContainer" unique_id=1497695875 node_paths=PackedStringArray("image", "spin_boxes")]
 offset_right = 364.0
 offset_bottom = 48.0
 theme_override_constants/separation = 0
@@ -17,77 +17,77 @@ script = ExtResource("1_3c3tv")
 image = NodePath("HBox/ImageButton")
 spin_boxes = [NodePath("HBox/SpinBoxes/X"), NodePath("HBox/SpinBoxes/Y"), NodePath("HBox/SpinBoxes/W"), NodePath("HBox/SpinBoxes/H")]
 
-[node name="Separator" type="HSeparator" parent="."]
+[node name="Separator" type="HSeparator" parent="." unique_id=1438857144]
 layout_mode = 2
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="HBox" type="HBoxContainer" parent="." unique_id=1052867017]
 layout_mode = 2
 
-[node name="ImageButton" parent="HBox" instance=ExtResource("1_rdunq")]
+[node name="ImageButton" parent="HBox" unique_id=1112994898 instance=ExtResource("1_rdunq")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="SpinBoxes" type="GridContainer" parent="HBox"]
+[node name="SpinBoxes" type="GridContainer" parent="HBox" unique_id=2017697555]
 layout_mode = 2
 columns = 2
 
-[node name="X" type="SpinBox" parent="HBox/SpinBoxes"]
+[node name="X" type="SpinBox" parent="HBox/SpinBoxes" unique_id=1158298856]
 layout_mode = 2
 allow_greater = true
 update_on_text_changed = true
 prefix = "X"
 
-[node name="Y" type="SpinBox" parent="HBox/SpinBoxes"]
+[node name="Y" type="SpinBox" parent="HBox/SpinBoxes" unique_id=1525797614]
 layout_mode = 2
 allow_greater = true
 update_on_text_changed = true
 prefix = "Y"
 
-[node name="W" type="SpinBox" parent="HBox/SpinBoxes"]
+[node name="W" type="SpinBox" parent="HBox/SpinBoxes" unique_id=1069823639]
 layout_mode = 2
 allow_greater = true
 update_on_text_changed = true
 prefix = "W"
 
-[node name="H" type="SpinBox" parent="HBox/SpinBoxes"]
+[node name="H" type="SpinBox" parent="HBox/SpinBoxes" unique_id=1685902939]
 layout_mode = 2
 allow_greater = true
 update_on_text_changed = true
 prefix = "H"
 
-[node name="SetRect" type="TextureButton" parent="HBox"]
+[node name="SetRect" type="TextureButton" parent="HBox" unique_id=1087439361]
 layout_mode = 2
 size_flags_vertical = 0
 tooltip_text = "Set Rect"
 focus_mode = 0
 texture_normal = ExtResource("3_kamsd")
 
-[node name="Copy" type="TextureButton" parent="HBox"]
+[node name="Copy" type="TextureButton" parent="HBox" unique_id=1018671717]
 layout_mode = 2
 size_flags_vertical = 0
 tooltip_text = "Copy"
 focus_mode = 0
 texture_normal = ExtResource("4_0f22q")
 
-[node name="Paste" type="TextureButton" parent="HBox"]
+[node name="Paste" type="TextureButton" parent="HBox" unique_id=46033637]
 layout_mode = 2
 size_flags_vertical = 0
 tooltip_text = "Paste"
 focus_mode = 0
 texture_normal = ExtResource("5_vcwqh")
 
-[node name="Spacer" type="Control" parent="HBox"]
+[node name="Spacer" type="Control" parent="HBox" unique_id=1329192830]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MoveUpButton" parent="HBox" node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_y6sug")]
+[node name="MoveUpButton" parent="HBox" unique_id=1608774889 node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_y6sug")]
 layout_mode = 2
 size_flags_vertical = 0
 node_to_move = NodePath("../..")
 index_limit = 1
 
-[node name="MoveDownButton" parent="HBox" node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_y6sug")]
+[node name="MoveDownButton" parent="HBox" unique_id=1127780658 node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_y6sug")]
 layout_mode = 2
 size_flags_vertical = 0
 tooltip_text = "Move Down"
@@ -95,7 +95,7 @@ texture_normal = ExtResource("5_3ogt5")
 node_to_move = NodePath("../..")
 direction = 1
 
-[node name="DeleteButton" parent="HBox" instance=ExtResource("6_kamsd")]
+[node name="DeleteButton" parent="HBox" unique_id=478711178 instance=ExtResource("6_kamsd")]
 layout_mode = 2
 size_flags_vertical = 0
 

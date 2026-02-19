@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://buxyikjrdfje0"]
+[gd_scene format=3 uid="uid://buxyikjrdfje0"]
 
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="1_qveq5"]
 [ext_resource type="Script" uid="uid://bbevb1jph06u1" path="res://Scripts/Components/Config/ConfigBlock.gd" id="2_1r3hc"]
@@ -7,40 +7,40 @@
 [ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="4_ne3cd"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="5_yqbil"]
 
-[node name="ConfigBlock" node_paths=PackedStringArray("name_input", "value_container") instance=ExtResource("1_qveq5")]
+[node name="ConfigBlock" unique_id=741294058 node_paths=PackedStringArray("name_input", "value_container") instance=ExtResource("1_qveq5")]
 script = ExtResource("2_1r3hc")
 name_input = NodePath("VBox/Header/Name")
 value_container = NodePath("VBox/Contents/VBox")
 data_type = 5
 
-[node name="Name" type="LineEdit" parent="VBox/Header" index="0"]
+[node name="Name" type="LineEdit" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="0" unique_id=179526971]
 layout_mode = 2
 expand_to_text_length = true
 
-[node name="Spacer" type="Control" parent="VBox/Header" index="1"]
+[node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=1486211536]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MoveUpButton" parent="VBox/Header" index="2" node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_10jj4")]
+[node name="MoveUpButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="2" unique_id=114756501 node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_10jj4")]
 layout_mode = 2
 node_to_move = NodePath("../../..")
 index_limit = 1
 
-[node name="MoveDownButton" parent="VBox/Header" index="3" node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_10jj4")]
+[node name="MoveDownButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="3" unique_id=1619478614 node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_10jj4")]
 layout_mode = 2
 tooltip_text = "Move Down"
 texture_normal = ExtResource("4_ne3cd")
 node_to_move = NodePath("../../..")
 direction = 1
 
-[node name="DeleteButton" parent="VBox/Header" index="6" instance=ExtResource("5_yqbil")]
+[node name="DeleteButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="6" unique_id=1016226103 instance=ExtResource("5_yqbil")]
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="VBox/Contents" index="0"]
+[node name="VBox" type="VBoxContainer" parent="VBox/Contents" parent_id_path=PackedInt32Array(655410605) index="0" unique_id=427620728]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="AddButton" type="TextureButton" parent="VBox/Contents/VBox" index="0"]
+[node name="AddButton" type="TextureButton" parent="VBox/Contents/VBox" index="0" unique_id=1816268697]
 layout_mode = 2
 size_flags_horizontal = 8
 tooltip_text = "Add Value"

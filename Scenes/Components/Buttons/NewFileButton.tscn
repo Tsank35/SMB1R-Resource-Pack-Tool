@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://50vhh6dv2dcm"]
+[gd_scene format=3 uid="uid://50vhh6dv2dcm"]
 
 [ext_resource type="Texture2D" uid="uid://ccda4diw2xioc" path="res://Assets/Buttons/NewFile.png" id="1_3uss6"]
 [ext_resource type="Script" uid="uid://bfki3tk4m2eb" path="res://Scripts/Components/Buttons/NewFileButton.gd" id="2_ja56v"]
 
-[node name="NewFileButton" type="TextureButton"]
+[node name="NewFileButton" type="TextureButton" unique_id=2143299542]
 tooltip_text = "Create New File"
 focus_mode = 0
 texture_normal = ExtResource("1_3uss6")

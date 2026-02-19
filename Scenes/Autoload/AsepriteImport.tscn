@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b135o1m10elta"]
+[gd_scene format=3 uid="uid://b135o1m10elta"]
 
 [ext_resource type="Theme" uid="uid://bur662d0xy38t" path="res://Resources/StandardTheme.tres" id="1_c8x6y"]
 [ext_resource type="Script" uid="uid://cne1af3io0tyx" path="res://Scripts/Autoload/AsepriteImport.gd" id="2_vyy4t"]
 [ext_resource type="Theme" uid="uid://bq5g28lvby5wq" path="res://Resources/SMB1RTheme.tres" id="3_oqjgo"]
 [ext_resource type="PackedScene" uid="uid://dm0mvbc43mm2g" path="res://Scenes/Components/AsepriteTag.tscn" id="4_0gv2n"]
 
-[node name="AsepriteImport" type="Window" node_paths=PackedStringArray("root_block", "scroll_container")]
+[node name="AsepriteImport" type="Window" unique_id=615265693 node_paths=PackedStringArray("root_block", "scroll_container")]
 canvas_item_default_texture_filter = 0
 oversampling_override = 1.0
 title = "Configure Aseprite Import"
@@ -19,7 +19,7 @@ script = ExtResource("2_vyy4t")
 root_block = NodePath("ScrollContainer/AsepriteTag")
 scroll_container = NodePath("ScrollContainer")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=737500409]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_oqjgo")
 
-[node name="AsepriteTag" parent="ScrollContainer" instance=ExtResource("4_0gv2n")]
+[node name="AsepriteTag" parent="ScrollContainer" unique_id=385597822 instance=ExtResource("4_0gv2n")]
 layout_mode = 2
 size_flags_horizontal = 3
 is_root = true
@@ -35,9 +35,9 @@ color_1 = Color(0.627451, 0.91764706, 1, 1)
 color_2 = Color(0.3137255, 0.3137255, 1, 1)
 color_3 = Color(0.039215688, 0.105882354, 0.5411765, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1414347690]
 
-[node name="ImportButton" type="Button" parent="CanvasLayer"]
+[node name="ImportButton" type="Button" parent="CanvasLayer" unique_id=1655551863]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

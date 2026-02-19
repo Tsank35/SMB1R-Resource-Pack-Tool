@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb2oq5f45xd5c"]
+[gd_scene format=3 uid="uid://cb2oq5f45xd5c"]
 
 [ext_resource type="Script" uid="uid://dqth1brid6t18" path="res://Scripts/Autoload/MessageLog.gd" id="1_1jy4l"]
 
-[node name="ConsoleLog" type="VBoxContainer"]
+[node name="ConsoleLog" type="VBoxContainer" unique_id=932365821]
 z_index = 101
 anchors_preset = 15
 anchor_right = 1.0

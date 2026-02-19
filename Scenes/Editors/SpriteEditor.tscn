@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn1vpchtboytf"]
+[gd_scene format=3 uid="uid://dn1vpchtboytf"]
 
 [ext_resource type="Script" uid="uid://dd8vd04d1tc3t" path="res://Scripts/Editors/SpriteEditor.gd" id="1_iv2hh"]
 [ext_resource type="PackedScene" uid="uid://50vhh6dv2dcm" path="res://Scenes/Components/Buttons/NewFileButton.tscn" id="2_6a63b"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://crfo1a3tynisp" path="res://Scripts/Components/LinearOptionButton.gd" id="5_p56fl"]
 [ext_resource type="PackedScene" uid="uid://3hacvk0x7d07" path="res://Scenes/Components/Sprite/AnimationCollection.tscn" id="7_p56fl"]
 
-[node name="Sprites" type="ScrollContainer" node_paths=PackedStringArray("path_display", "reference_dropdown", "property_block", "animation_collection", "root_variation")]
+[node name="Sprites" type="ScrollContainer" unique_id=1175838816 node_paths=PackedStringArray("path_display", "reference_dropdown", "property_block", "animation_collection", "root_variation")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,63 +23,62 @@ property_block = NodePath("VBox/PropertyBlock")
 animation_collection = NodePath("VBox/AnimationCollection")
 root_variation = NodePath("VBox/RootVariationBlock")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=507638871]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Header" type="HBoxContainer" parent="VBox"]
+[node name="Header" type="HBoxContainer" parent="VBox" unique_id=764938714]
 layout_mode = 2
 
-[node name="Path" type="LineEdit" parent="VBox/Header"]
+[node name="Path" type="LineEdit" parent="VBox/Header" unique_id=1364596127]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 editable = false
 
-[node name="NewFileButton" parent="VBox/Header" instance=ExtResource("2_6a63b")]
+[node name="NewFileButton" parent="VBox/Header" unique_id=1401913222 instance=ExtResource("2_6a63b")]
 layout_mode = 2
 formats = PackedStringArray("json")
 
-[node name="FileButton" parent="VBox/Header" instance=ExtResource("2_p56fl")]
+[node name="FileButton" parent="VBox/Header" unique_id=258017867 instance=ExtResource("2_p56fl")]
 layout_mode = 2
 formats = PackedStringArray("json")
 prepend_base_dir = 1
 base_directory = "Sprites"
 
-[node name="PreviewJSON" type="TextureButton" parent="VBox/Header"]
+[node name="PreviewJSON" type="TextureButton" parent="VBox/Header" unique_id=1237923299]
 layout_mode = 2
 tooltip_text = "Preview JSON"
 texture_normal = ExtResource("3_5uaws")
 
-[node name="SaveButton" type="TextureButton" parent="VBox/Header"]
+[node name="SaveButton" type="TextureButton" parent="VBox/Header" unique_id=947372870]
 layout_mode = 2
 tooltip_text = "Save"
 texture_normal = ExtResource("4_fkl04")
 
-[node name="Reference" type="HBoxContainer" parent="VBox"]
+[node name="Reference" type="HBoxContainer" parent="VBox" unique_id=1578773404]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBox/Reference"]
+[node name="Label" type="Label" parent="VBox/Reference" unique_id=1010626347]
 layout_mode = 2
 text = "Reference Source:"
 
-[node name="Dropdown" type="OptionButton" parent="VBox/Reference"]
+[node name="Dropdown" type="OptionButton" parent="VBox/Reference" unique_id=1644247656]
 layout_mode = 2
 focus_mode = 0
 fit_to_longest_item = false
 script = ExtResource("5_p56fl")
 metadata/_custom_type_script = "uid://crfo1a3tynisp"
 
-[node name="PropertyBlock" parent="VBox" instance=ExtResource("5_dcfkv")]
+[node name="PropertyBlock" parent="VBox" unique_id=2090257116 instance=ExtResource("5_dcfkv")]
 layout_mode = 2
 
-[node name="AnimationCollection" parent="VBox" instance=ExtResource("7_p56fl")]
+[node name="AnimationCollection" parent="VBox" unique_id=1635315445 instance=ExtResource("7_p56fl")]
 layout_mode = 2
 
-[node name="RootVariationBlock" parent="VBox" instance=ExtResource("2_6m2h7")]
+[node name="RootVariationBlock" parent="VBox" unique_id=594354026 instance=ExtResource("2_6m2h7")]
 layout_mode = 2
-asset_type = 0
 
 [connection signal="file_created" from="VBox/Header/NewFileButton" to="." method="select_file" binds= [false]]
 [connection signal="file_selected" from="VBox/Header/FileButton" to="." method="select_file"]

@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7wkrdkmhb6e"]
+[gd_scene format=3 uid="uid://c7wkrdkmhb6e"]
 
 [ext_resource type="Texture2D" uid="uid://b0n21to7fldat" path="res://Assets/Buttons/Collapse.png" id="1_5718n"]
 [ext_resource type="Texture2D" uid="uid://boff0jiumd7e3" path="res://Assets/Buttons/Uncollapse.png" id="2_s6i85"]
 [ext_resource type="Script" uid="uid://wsyta5fvwru" path="res://Scripts/Components/Buttons/CollapseButton.gd" id="3_f5lyn"]
 
-[node name="CollapseButton" type="TextureButton"]
+[node name="CollapseButton" type="TextureButton" unique_id=2008022840]
 tooltip_text = "Collapse"
 focus_mode = 0
 toggle_mode = true

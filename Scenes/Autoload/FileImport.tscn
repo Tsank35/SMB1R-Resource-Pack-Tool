@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbqwat6ricc47"]
+[gd_scene format=3 uid="uid://cbqwat6ricc47"]
 
 [ext_resource type="Script" uid="uid://buhvgpvquk3jf" path="res://Scripts/Autoload/FileImport.gd" id="1_6jyv6"]
 [ext_resource type="Theme" uid="uid://bur662d0xy38t" path="res://Resources/StandardTheme.tres" id="2_60a3w"]
 [ext_resource type="PackedScene" uid="uid://b135o1m10elta" path="res://Scenes/Autoload/AsepriteImport.tscn" id="3_twdx5"]
 
-[node name="FileImport" type="ColorRect" node_paths=PackedStringArray("selected_file_label", "format_label", "warning", "import_button", "copy_button", "file_dialog", "aseprite_import")]
+[node name="FileImport" type="ColorRect" unique_id=575052424 node_paths=PackedStringArray("selected_file_label", "format_label", "warning", "import_button", "copy_button", "file_dialog", "aseprite_import")]
 visible = false
 z_index = 100
 anchors_preset = 15
@@ -23,7 +23,7 @@ copy_button = NodePath("VBox/Buttons/CopyButton")
 file_dialog = NodePath("FileDialog")
 aseprite_import = NodePath("AsepriteImport")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=2118950390]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -34,26 +34,26 @@ offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SelectedFile" type="Label" parent="VBox"]
+[node name="SelectedFile" type="Label" parent="VBox" unique_id=595478891]
 visible = false
 layout_mode = 2
 text = "Selected: "
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="VBox"]
+[node name="Description" type="Label" parent="VBox" unique_id=1732618362]
 layout_mode = 2
 text = "Drag a file onto the window to import it
 or click \"Browse\" to search for a file."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Formats" type="Label" parent="VBox"]
+[node name="Formats" type="Label" parent="VBox" unique_id=738150999]
 layout_mode = 2
 text = "Valid formats:"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Warning" type="Label" parent="VBox"]
+[node name="Warning" type="Label" parent="VBox" unique_id=1863010171]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -61,34 +61,34 @@ text = "This file is not located in the base folder.
 Click \"Copy to Folder\" to copy the file to the proper folder."
 horizontal_alignment = 1
 
-[node name="BrowseButton" type="Button" parent="VBox"]
+[node name="BrowseButton" type="Button" parent="VBox" unique_id=1273881263]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
 text = "Browse..."
 
-[node name="Buttons" type="HBoxContainer" parent="VBox"]
+[node name="Buttons" type="HBoxContainer" parent="VBox" unique_id=790417075]
 layout_mode = 2
 alignment = 1
 
-[node name="ImportButton" type="Button" parent="VBox/Buttons"]
+[node name="ImportButton" type="Button" parent="VBox/Buttons" unique_id=2131447236]
 layout_mode = 2
 focus_mode = 0
 disabled = true
 text = "Import"
 
-[node name="CancelButton" type="Button" parent="VBox/Buttons"]
+[node name="CancelButton" type="Button" parent="VBox/Buttons" unique_id=77351477]
 layout_mode = 2
 focus_mode = 0
 text = "Cancel"
 
-[node name="CopyButton" type="Button" parent="VBox/Buttons"]
+[node name="CopyButton" type="Button" parent="VBox/Buttons" unique_id=1818323254]
 layout_mode = 2
 focus_mode = 0
 disabled = true
 text = "Copy to Folder"
 
-[node name="FileDialog" type="FileDialog" parent="."]
+[node name="FileDialog" type="FileDialog" parent="." unique_id=48559234]
 oversampling_override = 1.0
 title = "Open a File"
 size = Vector2i(800, 600)
@@ -98,7 +98,7 @@ file_mode = 0
 display_mode = 1
 access = 2
 
-[node name="AsepriteImport" parent="." instance=ExtResource("3_twdx5")]
+[node name="AsepriteImport" parent="." unique_id=283403983 instance=ExtResource("3_twdx5")]
 
 [connection signal="pressed" from="VBox/BrowseButton" to="." method="browse"]
 [connection signal="pressed" from="VBox/Buttons/ImportButton" to="." method="import"]

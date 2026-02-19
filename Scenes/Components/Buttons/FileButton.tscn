@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5mjo87bv1veq"]
+[gd_scene format=3 uid="uid://b5mjo87bv1veq"]
 
 [ext_resource type="Texture2D" uid="uid://cqw0gxl5h5rjb" path="res://Assets/Buttons/File.png" id="1_gc3gy"]
 [ext_resource type="Script" uid="uid://dbqujwuxjrt3v" path="res://Scripts/Components/Buttons/FileButton.gd" id="2_x0wtj"]
 
-[node name="FileButton" type="TextureButton"]
+[node name="FileButton" type="TextureButton" unique_id=1578540435]
 offset_right = 16.0
 offset_bottom = 16.0
 tooltip_text = "Import File"

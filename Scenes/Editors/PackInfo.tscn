@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdbwmwvlrke4w"]
+[gd_scene format=3 uid="uid://bdbwmwvlrke4w"]
 
 [ext_resource type="Script" uid="uid://bph8xj1kk1lub" path="res://Scripts/Editors/PackInfo.gd" id="1_gfnla"]
 [ext_resource type="Texture2D" uid="uid://bbs0umv1kw0wq" path="res://Assets/Buttons/Folder.png" id="1_yqage"]
@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://bur662d0xy38t" path="res://Resources/StandardTheme.tres" id="3_7ge3a"]
 [ext_resource type="Texture2D" uid="uid://bhb8xiop0pwco" path="res://Assets/Buttons/Save.png" id="3_fbwte"]
 
-[node name="Pack" type="VBoxContainer" node_paths=PackedStringArray("directory_display", "name_input", "author_input", "description_input", "version_input", "version_label", "file_dialog")]
+[node name="Pack" type="VBoxContainer" unique_id=2110940402 node_paths=PackedStringArray("directory_display", "name_input", "author_input", "description_input", "version_input", "version_label", "file_dialog")]
 offset_right = 152.0
 offset_bottom = 152.0
 theme_override_constants/separation = 0
@@ -19,96 +19,96 @@ version_input = NodePath("Panel/VBox/Version/LineEdit")
 version_label = NodePath("Version")
 file_dialog = NodePath("FileDialog")
 
-[node name="Folder" type="HBoxContainer" parent="."]
+[node name="Folder" type="HBoxContainer" parent="." unique_id=1723129919]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Folder"]
+[node name="Label" type="Label" parent="Folder" unique_id=2066758187]
 layout_mode = 2
 text = "Directory:"
 
-[node name="Directory" type="LineEdit" parent="Folder"]
+[node name="Directory" type="LineEdit" parent="Folder" unique_id=725708903]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 editable = false
 
-[node name="FolderButton" type="TextureButton" parent="Folder"]
+[node name="FolderButton" type="TextureButton" parent="Folder" unique_id=17994913]
 layout_mode = 2
 tooltip_text = "Set Pack Folder"
 focus_mode = 0
 texture_normal = ExtResource("1_yqage")
 
-[node name="SaveButton" type="TextureButton" parent="Folder"]
+[node name="SaveButton" type="TextureButton" parent="Folder" unique_id=93884490]
 layout_mode = 2
 tooltip_text = "Save"
 focus_mode = 0
 texture_normal = ExtResource("3_fbwte")
 
-[node name="Panel" type="PanelContainer" parent="."]
+[node name="Panel" type="PanelContainer" parent="." unique_id=2048301630]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_853f1")
 
-[node name="VBox" type="VBoxContainer" parent="Panel"]
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=2047169066]
 layout_mode = 2
 
-[node name="Name" type="HBoxContainer" parent="Panel/VBox"]
+[node name="Name" type="HBoxContainer" parent="Panel/VBox" unique_id=1377377820]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/VBox/Name"]
+[node name="Label" type="Label" parent="Panel/VBox/Name" unique_id=109117305]
 layout_mode = 2
 text = "Name:"
 
-[node name="LineEdit" type="LineEdit" parent="Panel/VBox/Name"]
+[node name="LineEdit" type="LineEdit" parent="Panel/VBox/Name" unique_id=1296907113]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "New Pack"
 
-[node name="Author" type="HBoxContainer" parent="Panel/VBox"]
+[node name="Author" type="HBoxContainer" parent="Panel/VBox" unique_id=1534293590]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/VBox/Author"]
+[node name="Label" type="Label" parent="Panel/VBox/Author" unique_id=1306396636]
 layout_mode = 2
 text = "Author:"
 
-[node name="LineEdit" type="LineEdit" parent="Panel/VBox/Author"]
+[node name="LineEdit" type="LineEdit" parent="Panel/VBox/Author" unique_id=51023012]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Me, until you change it"
 
-[node name="DescriptionLabel" type="Label" parent="Panel/VBox"]
+[node name="DescriptionLabel" type="Label" parent="Panel/VBox" unique_id=108482311]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Description:"
 
-[node name="Description" type="TextEdit" parent="Panel/VBox"]
+[node name="Description" type="TextEdit" parent="Panel/VBox" unique_id=1557249783]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Template, give me a description!"
 wrap_mode = 1
 
-[node name="Version" type="HBoxContainer" parent="Panel/VBox"]
+[node name="Version" type="HBoxContainer" parent="Panel/VBox" unique_id=1600353046]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/VBox/Version"]
+[node name="Label" type="Label" parent="Panel/VBox/Version" unique_id=1744061371]
 layout_mode = 2
 text = "Version:"
 
-[node name="LineEdit" type="LineEdit" parent="Panel/VBox/Version"]
+[node name="LineEdit" type="LineEdit" parent="Panel/VBox/Version" unique_id=1996376950]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1.0"
 
-[node name="Spacer" type="Control" parent="."]
+[node name="Spacer" type="Control" parent="." unique_id=1986841593]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Version" type="Label" parent="."]
+[node name="Version" type="Label" parent="." unique_id=1718648201]
 layout_mode = 2
 text = "SMB1R 1.0.2"
 horizontal_alignment = 2
 
-[node name="FileDialog" type="FileDialog" parent="."]
+[node name="FileDialog" type="FileDialog" parent="." unique_id=228091701]
 oversampling_override = 1.0
 title = "Open a Directory"
 size = Vector2i(800, 600)

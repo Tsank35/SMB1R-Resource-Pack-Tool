@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dk4ylnny2ppv8"]
+[gd_scene format=3 uid="uid://dk4ylnny2ppv8"]
 
 [ext_resource type="Script" uid="uid://dpj4kbt2cmckp" path="res://Scripts/Components/Variation/VariationBlock.gd" id="1_0r8q3"]
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="1_203jy"]
@@ -8,19 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="6_8pshb"]
 [ext_resource type="StyleBox" uid="uid://carddjnmd6blo" path="res://Resources/Style Boxes/StyleBoxEmpty.tres" id="9_33c7r"]
 
-[node name="VariationBlock" node_paths=PackedStringArray("icon", "variation_dropdown", "custom_variation_input", "component_menu") instance=ExtResource("1_203jy")]
+[node name="VariationBlock" unique_id=535946870 node_paths=PackedStringArray("icon", "variation_dropdown", "custom_variation_input", "component_menu") instance=ExtResource("1_203jy")]
 script = ExtResource("1_0r8q3")
 is_root = false
+asset_type = 0
 icon = NodePath("VBox/Header/Icon")
 variation_dropdown = NodePath("VBox/Header/Variations")
 custom_variation_input = NodePath("VBox/Header/CustomVariation")
 component_menu = NodePath("VBox/Contents/ComponentMenu")
 
-[node name="Icon" type="TextureRect" parent="VBox/Header" index="0"]
+[node name="Icon" type="TextureRect" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="0" unique_id=1262364350]
 layout_mode = 2
 stretch_mode = 2
 
-[node name="Variations" type="OptionButton" parent="VBox/Header" index="1"]
+[node name="Variations" type="OptionButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=325954697]
 layout_mode = 2
 size_flags_vertical = 0
 focus_mode = 0
@@ -29,23 +30,23 @@ fit_to_longest_item = false
 script = ExtResource("4_cykvh")
 metadata/_custom_type_script = "uid://crfo1a3tynisp"
 
-[node name="CustomVariation" type="LineEdit" parent="VBox/Header" index="2"]
+[node name="CustomVariation" type="LineEdit" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="2" unique_id=1584345800]
 visible = false
 layout_mode = 2
 size_flags_vertical = 0
 expand_to_text_length = true
 
-[node name="Spacer" type="Control" parent="VBox/Header" index="3"]
+[node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="3" unique_id=266641065]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MoveUpButton" parent="VBox/Header" index="4" node_paths=PackedStringArray("node_to_move") instance=ExtResource("5_keehy")]
+[node name="MoveUpButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="4" unique_id=1165062462 node_paths=PackedStringArray("node_to_move") instance=ExtResource("5_keehy")]
 layout_mode = 2
 size_flags_vertical = 0
 node_to_move = NodePath("../../..")
 index_limit = 1
 
-[node name="MoveDownButton" parent="VBox/Header" index="5" node_paths=PackedStringArray("node_to_move") instance=ExtResource("5_keehy")]
+[node name="MoveDownButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="5" unique_id=1019790036 node_paths=PackedStringArray("node_to_move") instance=ExtResource("5_keehy")]
 layout_mode = 2
 size_flags_vertical = 0
 tooltip_text = "Move Down"
@@ -53,14 +54,14 @@ texture_normal = ExtResource("6_8pshb")
 node_to_move = NodePath("../../..")
 direction = 1
 
-[node name="DeleteButton" parent="VBox/Header" index="8" instance=ExtResource("5_nfbih")]
+[node name="DeleteButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="8" unique_id=871502649 instance=ExtResource("5_nfbih")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="CollapseButton" parent="VBox/Header" index="9" node_paths=PackedStringArray("nodes_to_hide")]
+[node name="CollapseButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="9" unique_id=1078374674 node_paths=PackedStringArray("nodes_to_hide")]
 nodes_to_hide = [NodePath("../../Contents"), NodePath("../Icon")]
 
-[node name="ComponentMenu" type="ItemList" parent="VBox/Contents" index="0"]
+[node name="ComponentMenu" type="ItemList" parent="VBox/Contents" parent_id_path=PackedInt32Array(655410605) index="0" unique_id=46598971]
 layout_mode = 2
 focus_mode = 0
 theme_override_styles/panel = ExtResource("9_33c7r")

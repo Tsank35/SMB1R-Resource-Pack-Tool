@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b42j4o7s0n523"]
+[gd_scene format=3 uid="uid://b42j4o7s0n523"]
 
 [ext_resource type="Texture2D" uid="uid://ho3ehrkv1gj0" path="res://Assets/Panels/SelectionRect.png" id="1_00nxe"]
 [ext_resource type="Script" uid="uid://biuswmvct4mhl" path="res://Scripts/Components/Image/SelectionRect.gd" id="2_5hgx4"]
@@ -17,7 +17,7 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 draw_center = false
 
-[node name="SelectionRect" type="Panel"]
+[node name="SelectionRect" type="Panel" unique_id=173124441]
 self_modulate = Color(1, 1, 1, 0.5019608)
 offset_right = 32.0
 offset_bottom = 32.0

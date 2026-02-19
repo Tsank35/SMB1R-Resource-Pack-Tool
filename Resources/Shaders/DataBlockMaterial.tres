@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bmcl8wgs3jn6v"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bmcl8wgs3jn6v"]
 
 [ext_resource type="Shader" uid="uid://cnfghx52865jy" path="res://Resources/Shaders/DataBlockShader.gdshader" id="1_cusnq"]
 

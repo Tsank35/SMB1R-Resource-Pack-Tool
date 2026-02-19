@@ -1,37 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://clcgtaji025ph"]
+[gd_scene format=3 uid="uid://clcgtaji025ph"]
 
 [ext_resource type="Script" uid="uid://djcpmmpj1dq8c" path="res://Scripts/Components/Config/ConfigValue.gd" id="1_26r32"]
 [ext_resource type="PackedScene" uid="uid://coa5jjimu3uqn" path="res://Scenes/Components/Buttons/MoveButton.tscn" id="1_q1uvs"]
 [ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="2_26r32"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="3_ry28x"]
 
-[node name="ConfigValue" type="HBoxContainer" node_paths=PackedStringArray("input")]
+[node name="ConfigValue" type="HBoxContainer" unique_id=1383586849 node_paths=PackedStringArray("input")]
 offset_right = 64.0
 offset_bottom = 16.0
 script = ExtResource("1_26r32")
 input = NodePath("Value")
 
-[node name="Value" type="LineEdit" parent="."]
+[node name="Value" type="LineEdit" parent="." unique_id=212072063]
 layout_mode = 2
 expand_to_text_length = true
 
-[node name="Spacer" type="Control" parent="."]
+[node name="Spacer" type="Control" parent="." unique_id=2096689656]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MoveUpButton" parent="." node_paths=PackedStringArray("node_to_move") instance=ExtResource("1_q1uvs")]
+[node name="MoveUpButton" parent="." unique_id=237790680 node_paths=PackedStringArray("node_to_move") instance=ExtResource("1_q1uvs")]
 layout_mode = 2
 node_to_move = NodePath("..")
 index_limit = 1
 
-[node name="MoveDownButton" parent="." node_paths=PackedStringArray("node_to_move") instance=ExtResource("1_q1uvs")]
+[node name="MoveDownButton" parent="." unique_id=1455134513 node_paths=PackedStringArray("node_to_move") instance=ExtResource("1_q1uvs")]
 layout_mode = 2
 tooltip_text = "Move Down"
 texture_normal = ExtResource("2_26r32")
 node_to_move = NodePath("..")
 direction = 1
 
-[node name="DeleteButton" parent="." instance=ExtResource("3_ry28x")]
+[node name="DeleteButton" parent="." unique_id=1565270862 instance=ExtResource("3_ry28x")]
 layout_mode = 2
 
 [connection signal="deletion_confirmed" from="DeleteButton" to="." method="queue_free"]

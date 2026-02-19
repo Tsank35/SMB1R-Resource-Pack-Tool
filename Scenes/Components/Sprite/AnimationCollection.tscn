@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://3hacvk0x7d07"]
+[gd_scene format=3 uid="uid://3hacvk0x7d07"]
 
 [ext_resource type="PackedScene" uid="uid://bt1rm762l3yt7" path="res://Scenes/Components/DataBlock.tscn" id="1_fqi2n"]
 [ext_resource type="Script" uid="uid://utrqeonndrh4" path="res://Scripts/Components/Sprite/AnimationCollection.gd" id="3_h0fha"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bpasawh1chxo8" path="res://Assets/Buttons/Aseprite.png" id="4_senqa"]
 [ext_resource type="Texture2D" uid="uid://cd8utxr0le47f" path="res://Assets/Buttons/UncollapseAll.png" id="5_nchm3"]
 
-[node name="AnimationCollection" node_paths=PackedStringArray("animation_container") instance=ExtResource("1_fqi2n")]
+[node name="AnimationCollection" unique_id=1805202223 node_paths=PackedStringArray("animation_container") instance=ExtResource("1_fqi2n")]
 script = ExtResource("3_h0fha")
 is_override = false
 animation_container = NodePath("VBox/Contents/VBox")
@@ -17,41 +17,41 @@ color_1 = Color(1, 0.6156863, 0.7764706, 1)
 color_2 = Color(0.96862745, 0.22352941, 0.0627451, 1)
 color_3 = Color(0.4862745, 0.11372549, 0.03137255, 1)
 
-[node name="Label" type="Label" parent="VBox/Header" index="0"]
+[node name="Label" type="Label" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="0" unique_id=1153412151]
 layout_mode = 2
 text = "Animations"
 
-[node name="Spacer" type="Control" parent="VBox/Header" index="1"]
+[node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=179340670]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AsepriteButton" parent="VBox/Header" index="2" instance=ExtResource("3_nchm3")]
+[node name="AsepriteButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="2" unique_id=1217979066 instance=ExtResource("3_nchm3")]
 layout_mode = 2
 tooltip_text = "Import Aseprite Data"
 texture_normal = ExtResource("4_senqa")
 formats = PackedStringArray("json")
 aseprite = true
 
-[node name="VBox" type="VBoxContainer" parent="VBox/Contents" index="0"]
+[node name="VBox" type="VBoxContainer" parent="VBox/Contents" parent_id_path=PackedInt32Array(655410605) index="0" unique_id=441651683]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Header" type="HBoxContainer" parent="VBox/Contents/VBox" index="0"]
+[node name="Header" type="HBoxContainer" parent="VBox/Contents/VBox" index="0" unique_id=2032897714]
 layout_mode = 2
 alignment = 2
 
-[node name="AddButton" type="TextureButton" parent="VBox/Contents/VBox/Header" index="0"]
+[node name="AddButton" type="TextureButton" parent="VBox/Contents/VBox/Header" index="0" unique_id=336360244]
 layout_mode = 2
 size_flags_horizontal = 8
 tooltip_text = "Add Animation"
 focus_mode = 0
 texture_normal = ExtResource("3_ontlr")
 
-[node name="CollapseAllButton" parent="VBox/Contents/VBox/Header" index="1" node_paths=PackedStringArray("parent") instance=ExtResource("4_iy3ym")]
+[node name="CollapseAllButton" parent="VBox/Contents/VBox/Header" index="1" unique_id=568837096 node_paths=PackedStringArray("parent") instance=ExtResource("4_iy3ym")]
 layout_mode = 2
 parent = NodePath("../..")
 
-[node name="UncollapseAllButton" parent="VBox/Contents/VBox/Header" index="2" node_paths=PackedStringArray("parent") instance=ExtResource("4_iy3ym")]
+[node name="UncollapseAllButton" parent="VBox/Contents/VBox/Header" index="2" unique_id=1226481953 node_paths=PackedStringArray("parent") instance=ExtResource("4_iy3ym")]
 layout_mode = 2
 tooltip_text = "Uncollapse All"
 texture_normal = ExtResource("5_nchm3")

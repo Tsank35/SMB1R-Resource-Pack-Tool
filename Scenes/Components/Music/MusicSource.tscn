@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4h1yvxqiqrxl"]
+[gd_scene format=3 uid="uid://b4h1yvxqiqrxl"]
 
 [ext_resource type="Script" uid="uid://btj0up3ecidm6" path="res://Scripts/Components/Music/MusicSource.gd" id="1_1ep5u"]
 [ext_resource type="PackedScene" uid="uid://b5mjo87bv1veq" path="res://Scenes/Components/Buttons/FileButton.tscn" id="1_hnatm"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dsy1eplt5qs6j" path="res://Scenes/Components/Music/BGMBlock.tscn" id="5_x06si"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="6_141u8"]
 
-[node name="MusicSource" type="VBoxContainer" node_paths=PackedStringArray("label", "listen_button", "preview_bgm_button", "bgm_blocks") groups=["Music Sources"]]
+[node name="MusicSource" type="VBoxContainer" unique_id=1496597270 node_paths=PackedStringArray("label", "listen_button", "preview_bgm_button", "bgm_blocks") groups=["Music Sources"]]
 offset_right = 112.0
 offset_bottom = 16.0
 theme_override_constants/separation = 0
@@ -18,52 +18,52 @@ listen_button = NodePath("Source/ListenButton")
 preview_bgm_button = NodePath("Source/PreviewBGMButton")
 bgm_blocks = [NodePath("Normal"), NodePath("Hurry")]
 
-[node name="Source" type="HBoxContainer" parent="."]
+[node name="Source" type="HBoxContainer" parent="." unique_id=1086922615]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Source"]
+[node name="Label" type="Label" parent="Source" unique_id=1287502808]
 layout_mode = 2
 text = "Source: None"
 
-[node name="NewFileButton" parent="Source" instance=ExtResource("1_rllca")]
+[node name="NewFileButton" parent="Source" unique_id=1121215246 instance=ExtResource("1_rllca")]
 layout_mode = 2
 tooltip_text = "Create BGM File"
 formats = PackedStringArray("bgm")
 base_directory = 1
 
-[node name="FileButton" parent="Source" instance=ExtResource("1_hnatm")]
+[node name="FileButton" parent="Source" unique_id=1448293131 instance=ExtResource("1_hnatm")]
 layout_mode = 2
 formats = PackedStringArray("wav", "ogg", "mp3", "bgm")
 prepend_base_dir = 3
 restrict_to_base_directory = true
 
-[node name="ListenButton" type="TextureButton" parent="Source"]
+[node name="ListenButton" type="TextureButton" parent="Source" unique_id=417726360]
 visible = false
 layout_mode = 2
 tooltip_text = "Listen"
 focus_mode = 0
 texture_normal = ExtResource("4_4l86o")
 
-[node name="PreviewBGMButton" type="TextureButton" parent="Source"]
+[node name="PreviewBGMButton" type="TextureButton" parent="Source" unique_id=1086888207]
 visible = false
 layout_mode = 2
 tooltip_text = "Preview BGM"
 focus_mode = 0
 texture_normal = ExtResource("5_mfr6o")
 
-[node name="Spacer" type="Control" parent="Source"]
+[node name="Spacer" type="Control" parent="Source" unique_id=1208231742]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DeleteButton" parent="Source" instance=ExtResource("6_141u8")]
+[node name="DeleteButton" parent="Source" unique_id=85076307 instance=ExtResource("6_141u8")]
 layout_mode = 2
 
-[node name="Normal" parent="." node_paths=PackedStringArray("source") instance=ExtResource("5_x06si")]
+[node name="Normal" parent="." unique_id=1902514502 node_paths=PackedStringArray("source") instance=ExtResource("5_x06si")]
 visible = false
 layout_mode = 2
 source = NodePath("..")
 
-[node name="Hurry" parent="." node_paths=PackedStringArray("source") instance=ExtResource("5_x06si")]
+[node name="Hurry" parent="." unique_id=1461702103 node_paths=PackedStringArray("source") instance=ExtResource("5_x06si")]
 visible = false
 layout_mode = 2
 source = NodePath("..")
