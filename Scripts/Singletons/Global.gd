@@ -6,6 +6,7 @@ const VARIATION_CATEGORIES := [
 	"res://Resources/Variations/CampaignVariations.tres",
 	"res://Resources/Variations/WorldVariations.tres",
 	"res://Resources/Variations/LevelVariations.tres",
+	"res://Resources/Variations/QuestVariations.tres",
 	"res://Resources/Variations/RoomVariations.tres",
 	"res://Resources/Variations/GameModeVariations.tres",
 	"res://Resources/Variations/CharacterVariations.tres",

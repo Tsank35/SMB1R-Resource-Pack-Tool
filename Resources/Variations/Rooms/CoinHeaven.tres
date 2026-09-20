@@ -5,12 +5,12 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvva0"]
 atlas = ExtResource("1_mvva0")
-region = Rect2(64, 0, 32, 32)
+region = Rect2(96, 0, 32, 32)
 
 [resource]
 resource_name = "Coin Heaven"
 script = ExtResource("2_hvdas")
-key = "CoinHeaven"
+key = "RoomType:CoinHeaven"
 icon = SubResource("AtlasTexture_mvva0")
 color_2 = Color(0.16078432, 0.80784315, 1, 1)
 color_3 = Color(0.25882354, 0.25882354, 1, 1)

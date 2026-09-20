@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Variation" format=3 uid="uid://do506bl4afmaf"]
+
+[ext_resource type="Texture2D" uid="uid://frucsi83ykay" path="res://Assets/Variations/Rooms.png" id="1_4ximc"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_ytd51"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jm4y"]
+atlas = ExtResource("1_4ximc")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+resource_name = "Default"
+script = ExtResource("2_ytd51")
+key = "RoomType:Default"
+icon = SubResource("AtlasTexture_8jm4y")
+color_1 = Color(0.88235295, 0.88235295, 0.95686275, 1)
+color_2 = Color(0.2901961, 0.2901961, 0.31764707, 1)
+color_3 = Color(0.14509805, 0.14509805, 0.1764706, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

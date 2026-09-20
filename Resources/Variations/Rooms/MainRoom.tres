@@ -5,12 +5,12 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_abxqv"]
 atlas = ExtResource("1_5abra")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(32, 0, 32, 32)
 
 [resource]
 resource_name = "Main Room"
 script = ExtResource("1_hmrnf")
-key = "MainRoom"
+key = "RoomType:MainRoom"
 icon = SubResource("AtlasTexture_abxqv")
 color_1 = Color(1, 0.8509804, 0.69803923, 1)
 color_2 = Color(0.7294118, 0.38039216, 0.06666667, 1)

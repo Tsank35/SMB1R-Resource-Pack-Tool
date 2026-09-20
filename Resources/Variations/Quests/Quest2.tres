@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Variation" format=3 uid="uid://d0bdxafspga5h"]
+
+[ext_resource type="Texture2D" uid="uid://cpdpbhom5xx4s" path="res://Assets/Variations/Quests.png" id="1_ehm6q"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_n8l4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehm6q"]
+atlas = ExtResource("1_ehm6q")
+region = Rect2(48, 0, 48, 48)
+
+[resource]
+resource_name = "Second Quest"
+script = ExtResource("2_n8l4g")
+key = "Quest:2"
+icon = SubResource("AtlasTexture_ehm6q")
+color_1 = Color(1, 0.8509804, 0.69803923, 1)
+color_2 = Color(0.12156863, 0.12156863, 0.12156863, 1)
+color_3 = Color(0.7294118, 0.38039216, 0.06666667, 1)
+metadata/_custom_type_script = "uid://bjsxgqkd5h717"

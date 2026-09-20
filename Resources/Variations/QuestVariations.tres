@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VariationCategory" format=3 uid="uid://dnwpjrcd40g3r"]
+
+[ext_resource type="Script" uid="uid://dqnrdbi1868qg" path="res://Scripts/Resources/VariationCategory.gd" id="1_aljoo"]
+[ext_resource type="Script" uid="uid://bjsxgqkd5h717" path="res://Scripts/Resources/Variation.gd" id="2_ojamc"]
+[ext_resource type="Resource" uid="uid://dj3m1dbbax7a4" path="res://Resources/Variations/Quests/Quest1.tres" id="3_yfjfs"]
+[ext_resource type="Resource" uid="uid://d0bdxafspga5h" path="res://Resources/Variations/Quests/Quest2.tres" id="4_r0s2v"]
+
+[resource]
+resource_name = "Quest"
+script = ExtResource("1_aljoo")
+variations = Array[ExtResource("2_ojamc")]([ExtResource("3_yfjfs"), ExtResource("4_r0s2v")])
+metadata/_custom_type_script = "uid://dqnrdbi1868qg"
