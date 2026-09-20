@@ -13,8 +13,12 @@ func update() -> void:
 	if FileAccess.file_exists(path):
 		var json := Global.read_json(path)
 		var value_keys: Dictionary = Global.get_value_of_type(json, "value_keys", TYPE_DICTIONARY)
+		var option_descs: Dictionary = Global.get_value_of_type(json, "option_descs", TYPE_DICTIONARY)
 		for key in value_keys.keys():
-			add_option({key: value_keys.get(key)})
+			var data := {key: value_keys.get(key)}
+			if option_descs.has(key):
+				data._desc = option_descs[key]
+			add_option(data)
 		update_config()
 	else:
 		Global.config.clear()
@@ -24,11 +28,7 @@ func add_option(json := {}) -> void:
 	option_container.add_child(option)
 	if json:
 		option.apply_json(json)
-		var key = json.keys()[0]
-		if key is String:
-			option.set_option_name(key)
-		else:
-			MessageLog.type_error(TYPE_STRING, typeof(key))
+		option.set_option_name(json.keys()[0])
 
 func get_options() -> Array[ConfigBlock]:
 	var options: Array[ConfigBlock] = []
@@ -46,15 +46,25 @@ func clear() -> void:
 func get_json() -> Dictionary:
 	var options := {}
 	var value_keys := {}
+	var option_descs := {}
 	for option: ConfigBlock in get_options():
-		var json := option.get_json()
-		if json:
-			options.merge({json.keys()[0]: json.values()[0][0]})
-			value_keys.merge(json)
-	return {
+		var option_json := option.get_json()
+		var option_name: String = option_json.keys()[0]
+		var desc = option_json._desc
+		option_json.erase("_desc")
+		if option_json:
+			options.merge({option_name: option_json.values()[0][0]})
+			value_keys.merge(option_json)
+			if not (desc is String and desc == ""):
+				option_descs.merge({option_name: desc})
+	
+	var json := {
 		"options": options,
 		"value_keys": value_keys
 	}
+	if option_descs:
+		json.option_descs = option_descs
+	return json
 
 func preview_json() -> void:
 	JSONPreview.open(get_json())

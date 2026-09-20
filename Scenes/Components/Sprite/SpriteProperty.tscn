@@ -21,6 +21,7 @@ type_dropdown = NodePath("Type")
 [node name="Name" type="LineEdit" parent="." unique_id=325771601]
 layout_mode = 2
 size_flags_vertical = 0
+placeholder_text = "Name"
 expand_to_text_length = true
 
 [node name="BooleanValue" type="CheckBox" parent="." unique_id=1192699764]

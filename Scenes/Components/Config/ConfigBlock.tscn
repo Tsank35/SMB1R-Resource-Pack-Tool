@@ -6,35 +6,56 @@
 [ext_resource type="PackedScene" uid="uid://coa5jjimu3uqn" path="res://Scenes/Components/Buttons/MoveButton.tscn" id="3_10jj4"]
 [ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="4_ne3cd"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="5_yqbil"]
+[ext_resource type="Texture2D" uid="uid://cq5e67shvthl6" path="res://Assets/Buttons/CheckboxOff.png" id="6_yqbil"]
+[ext_resource type="Texture2D" uid="uid://kstmgtse2qu8" path="res://Assets/Buttons/CheckboxOn.png" id="7_afgvo"]
 
-[node name="ConfigBlock" unique_id=741294058 node_paths=PackedStringArray("name_input", "value_container") instance=ExtResource("1_qveq5")]
+[node name="ConfigBlock" unique_id=741294058 node_paths=PackedStringArray("name_input", "description_input", "one_description_checkbox", "value_container") instance=ExtResource("1_qveq5")]
 script = ExtResource("2_1r3hc")
 name_input = NodePath("VBox/Header/Name")
+description_input = NodePath("VBox/DescriptionInput")
+one_description_checkbox = NodePath("VBox/Header/OneDescription")
 value_container = NodePath("VBox/Contents/VBox")
 data_type = 5
 
 [node name="Name" type="LineEdit" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="0" unique_id=179526971]
 layout_mode = 2
+placeholder_text = "Name"
 expand_to_text_length = true
 
-[node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=1486211536]
+[node name="OneDescLabel" type="Label" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=1776542004]
+layout_mode = 2
+text = "One Description?"
+
+[node name="OneDescription" type="TextureButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="2" unique_id=1151189355]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("6_yqbil")
+texture_pressed = ExtResource("7_afgvo")
+
+[node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="3" unique_id=1486211536]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MoveUpButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="2" unique_id=114756501 node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_10jj4")]
+[node name="MoveUpButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="4" unique_id=114756501 node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_10jj4")]
 layout_mode = 2
 node_to_move = NodePath("../../..")
 index_limit = 1
 
-[node name="MoveDownButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="3" unique_id=1619478614 node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_10jj4")]
+[node name="MoveDownButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="5" unique_id=1619478614 node_paths=PackedStringArray("node_to_move") instance=ExtResource("3_10jj4")]
 layout_mode = 2
 tooltip_text = "Move Down"
 texture_normal = ExtResource("4_ne3cd")
 node_to_move = NodePath("../../..")
 direction = 1
 
-[node name="DeleteButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="6" unique_id=1016226103 instance=ExtResource("5_yqbil")]
+[node name="DeleteButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="8" unique_id=1016226103 instance=ExtResource("5_yqbil")]
 layout_mode = 2
+
+[node name="DescriptionInput" type="LineEdit" parent="VBox" parent_id_path=PackedInt32Array(382781179) index="1" unique_id=661657535]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Description"
 
 [node name="VBox" type="VBoxContainer" parent="VBox/Contents" parent_id_path=PackedInt32Array(655410605) index="0" unique_id=427620728]
 layout_mode = 2
@@ -47,5 +68,6 @@ tooltip_text = "Add Value"
 focus_mode = 0
 texture_normal = ExtResource("3_2fgio")
 
+[connection signal="toggled" from="VBox/Header/OneDescription" to="." method="set_one_description"]
 [connection signal="deletion_confirmed" from="VBox/Header/DeleteButton" to="." method="queue_free"]
 [connection signal="pressed" from="VBox/Contents/VBox/AddButton" to="." method="add_value"]

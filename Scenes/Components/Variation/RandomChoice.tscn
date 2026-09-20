@@ -17,6 +17,7 @@ text = "Choice"
 
 [node name="CustomLabel" type="LineEdit" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=561459462]
 layout_mode = 2
+placeholder_text = "Keyword"
 expand_to_text_length = true
 
 [node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="2" unique_id=1809227097]

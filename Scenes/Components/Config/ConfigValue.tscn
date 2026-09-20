@@ -5,17 +5,26 @@
 [ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="2_26r32"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="3_ry28x"]
 
-[node name="ConfigValue" type="HBoxContainer" unique_id=1383586849 node_paths=PackedStringArray("input")]
+[node name="ConfigValue" type="HBoxContainer" unique_id=1383586849 node_paths=PackedStringArray("value_input", "description_input", "spacer")]
 offset_right = 64.0
 offset_bottom = 16.0
 script = ExtResource("1_26r32")
-input = NodePath("Value")
+value_input = NodePath("Value")
+description_input = NodePath("Description")
+spacer = NodePath("Spacer")
 
 [node name="Value" type="LineEdit" parent="." unique_id=212072063]
 layout_mode = 2
+placeholder_text = "Value"
 expand_to_text_length = true
 
-[node name="Spacer" type="Control" parent="." unique_id=2096689656]
+[node name="Description" type="LineEdit" parent="." unique_id=1796392601]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Description"
+
+[node name="Spacer" type="Control" parent="." unique_id=1828979029]
 layout_mode = 2
 size_flags_horizontal = 3
 
