@@ -27,7 +27,7 @@ func get_values() -> Array[ConfigValue]:
 
 func clear() -> void:
 	for value: ConfigValue in get_values():
-		queue_free()
+		value.queue_free()
 
 func set_option_name(value: String) -> void:
 	name_input.text = value
