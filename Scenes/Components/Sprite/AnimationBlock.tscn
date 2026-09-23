@@ -7,13 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://coa5jjimu3uqn" path="res://Scenes/Components/Buttons/MoveButton.tscn" id="4_3egul"]
 [ext_resource type="Texture2D" uid="uid://dv3gbpl2qy2md" path="res://Assets/Buttons/Down.png" id="5_4bglg"]
 [ext_resource type="PackedScene" uid="uid://qhgbpavbrsf" path="res://Scenes/Components/Buttons/DeleteButton.tscn" id="6_4bglg"]
+[ext_resource type="Script" uid="uid://crfo1a3tynisp" path="res://Scripts/Components/LinearOptionButton.gd" id="8_3egul"]
 
-[node name="AnimationBlock" unique_id=1489132816 node_paths=PackedStringArray("name_input", "speed_input", "loop_checkbox", "frame_container") instance=ExtResource("1_8r8uv")]
+[node name="AnimationBlock" unique_id=1489132816 node_paths=PackedStringArray("name_input", "speed_input", "loop_checkbox", "link_checkbox", "preview_button", "link_dropdown", "property_container", "frame_container", "link_container") instance=ExtResource("1_8r8uv")]
 script = ExtResource("3_qeelm")
 name_input = NodePath("VBox/Header/Name")
 speed_input = NodePath("VBox/Properties/SpeedInput")
-loop_checkbox = NodePath("VBox/Properties/LoopButton")
-frame_container = NodePath("VBox/Contents/VBox")
+loop_checkbox = NodePath("VBox/Properties/LoopCheckBox")
+link_checkbox = NodePath("VBox/Header/LinkCheckBox")
+preview_button = NodePath("VBox/Header/PreviewAnimationButton")
+link_dropdown = NodePath("VBox/Contents/Link/Dropdown")
+property_container = NodePath("VBox/Properties")
+frame_container = NodePath("VBox/Contents/Frames")
+link_container = NodePath("VBox/Contents/Link")
 data_type = 3
 
 [node name="Name" type="LineEdit" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="0" unique_id=913376181]
@@ -21,29 +27,36 @@ layout_mode = 2
 placeholder_text = "Name"
 expand_to_text_length = true
 
-[node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=1220874406]
+[node name="LinkLabel" type="Label" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="1" unique_id=1022312651]
+layout_mode = 2
+text = "Link?"
+
+[node name="LinkCheckBox" type="CheckBox" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="2" unique_id=451772385]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="3" unique_id=1220874406]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PreviewAnimationButton" type="TextureButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="2" unique_id=921045960]
+[node name="PreviewAnimationButton" type="TextureButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="4" unique_id=921045960]
 layout_mode = 2
 tooltip_text = "Preview Animation"
 focus_mode = 0
 texture_normal = ExtResource("3_4bglg")
 
-[node name="MoveUpButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="3" unique_id=1564395016 node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_3egul")]
+[node name="MoveUpButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="5" unique_id=1564395016 node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_3egul")]
 layout_mode = 2
 node_to_move = NodePath("../../..")
 index_limit = 1
 
-[node name="MoveDownButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="4" unique_id=241311083 node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_3egul")]
+[node name="MoveDownButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="6" unique_id=241311083 node_paths=PackedStringArray("node_to_move") instance=ExtResource("4_3egul")]
 layout_mode = 2
 tooltip_text = "Move Down"
 texture_normal = ExtResource("5_4bglg")
 node_to_move = NodePath("../../..")
 direction = 1
 
-[node name="DeleteButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="7" unique_id=1743712626 instance=ExtResource("6_4bglg")]
+[node name="DeleteButton" parent="VBox/Header" parent_id_path=PackedInt32Array(1508639507) index="9" unique_id=1743712626 instance=ExtResource("6_4bglg")]
 layout_mode = 2
 
 [node name="Properties" type="HBoxContainer" parent="VBox" parent_id_path=PackedInt32Array(382781179) index="1" unique_id=1697430877]
@@ -54,6 +67,7 @@ layout_mode = 2
 text = "Speed:"
 
 [node name="SpeedInput" type="SpinBox" parent="VBox/Properties" index="1" unique_id=688776382]
+custom_minimum_size = Vector2(98, 0)
 layout_mode = 2
 step = 0.01
 value = 5.0
@@ -64,22 +78,36 @@ suffix = "FPS"
 layout_mode = 2
 text = "Loop?"
 
-[node name="LoopButton" type="CheckBox" parent="VBox/Properties" index="3" unique_id=1954709365]
+[node name="LoopCheckBox" type="CheckBox" parent="VBox/Properties" index="3" unique_id=1954709365]
 layout_mode = 2
 focus_mode = 0
 button_pressed = true
 
-[node name="VBox" type="VBoxContainer" parent="VBox/Contents" parent_id_path=PackedInt32Array(655410605) index="0" unique_id=2080858677]
+[node name="Frames" type="VBoxContainer" parent="VBox/Contents" parent_id_path=PackedInt32Array(655410605) index="0" unique_id=2080858677]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="AddButton" type="TextureButton" parent="VBox/Contents/VBox" index="0" unique_id=624772738]
+[node name="AddButton" type="TextureButton" parent="VBox/Contents/Frames" index="0" unique_id=624772738]
 layout_mode = 2
 size_flags_horizontal = 8
 tooltip_text = "Add Frame"
 focus_mode = 0
 texture_normal = ExtResource("4_1ly3x")
 
+[node name="Link" type="HBoxContainer" parent="VBox/Contents" parent_id_path=PackedInt32Array(655410605) index="1" unique_id=971345561]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBox/Contents/Link" index="0" unique_id=1157670727]
+layout_mode = 2
+text = "Link:"
+
+[node name="Dropdown" type="OptionButton" parent="VBox/Contents/Link" index="1" unique_id=2085085880]
+layout_mode = 2
+script = ExtResource("8_3egul")
+metadata/_custom_type_script = "uid://crfo1a3tynisp"
+
+[connection signal="toggled" from="VBox/Header/LinkCheckBox" to="." method="set_is_link"]
 [connection signal="pressed" from="VBox/Header/PreviewAnimationButton" to="." method="preview_animation"]
 [connection signal="deletion_confirmed" from="VBox/Header/DeleteButton" to="." method="queue_free"]
-[connection signal="pressed" from="VBox/Contents/VBox/AddButton" to="." method="add_frame"]
+[connection signal="pressed" from="VBox/Contents/Frames/AddButton" to="." method="add_frame"]

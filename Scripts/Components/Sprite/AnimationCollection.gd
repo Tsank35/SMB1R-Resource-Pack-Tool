@@ -8,6 +8,8 @@ const ANIMATION_BLOCK := "res://Scenes/Components/Sprite/AnimationBlock.tscn"
 @export_group("Nodes")
 @export var animation_container: VBoxContainer
 
+signal children_changed
+
 func _ready() -> void:
 	super()
 	if is_empty():
@@ -21,6 +23,8 @@ func add_animation(anim_name := "", json := {}) -> void:
 		animation.set_animation_name(anim_name)
 	if json:
 		animation.apply_json(json)
+	children_changed.emit()
+	animation.tree_exited.connect(children_changed.emit)
 
 func clear() -> void:
 	for animation: AnimationBlock in get_animations():
