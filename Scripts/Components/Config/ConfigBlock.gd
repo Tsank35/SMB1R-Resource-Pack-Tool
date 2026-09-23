@@ -6,7 +6,7 @@ var one_description := true: set = set_one_description
 
 @export var name_input: LineEdit
 @export var description_input: LineEdit
-@export var one_description_checkbox: TextureButton
+@export var one_description_checkbox: CheckBox
 @export var value_container: VBoxContainer
 
 signal one_description_changed
