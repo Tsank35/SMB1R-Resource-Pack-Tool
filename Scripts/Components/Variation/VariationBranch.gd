@@ -70,7 +70,7 @@ func add_all_variations() -> void:
 func get_variation_blocks() -> Array[VariationBlock]:
 	var blocks: Array[VariationBlock] = []
 	for child: Node in get_children():
-		if child is VariationBlock:
+		if child is VariationBlock and not child.is_queued_for_deletion():
 			blocks.append(child)
 	return blocks
 

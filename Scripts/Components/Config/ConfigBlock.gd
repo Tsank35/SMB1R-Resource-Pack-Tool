@@ -21,7 +21,7 @@ func add_value(value := "") -> void:
 func get_values() -> Array[ConfigValue]:
 	var values: Array[ConfigValue] = []
 	for child: Node in value_container.get_children():
-		if child is ConfigValue:
+		if child is ConfigValue and not child.is_queued_for_deletion():
 			values.append(child)
 	return values
 
@@ -32,15 +32,16 @@ func clear() -> void:
 func set_option_name(value: String) -> void:
 	name_input.text = value
 
-func set_descriptions(value: Variant) -> void:
-	if value is String:
-		description_input.text = value
+func set_descriptions(descs: Variant) -> void:
+	if descs is String:
+		description_input.text = descs
 		one_description = true
-	elif value is Array:
+	elif descs is Array:
+		description_input.clear()
 		var i := 0
-		for config_value in get_values():
-			if i < value.size():
-				config_value.set_description(value[i])
+		for value in get_values():
+			if i < descs.size():
+				value.set_description(descs[i])
 				i += 1
 			else:
 				break
@@ -52,25 +53,25 @@ func set_one_description(value: bool) -> void:
 	description_input.visible = one_description
 	one_description_changed.emit()
 
+func get_description() -> Variant:
+	if one_description:
+		return description_input.text
+	else:
+		var descriptions := []
+		for value: ConfigValue in get_values():
+			descriptions.append(value.get_description())
+		return descriptions
+
 func get_json(_remove_redundant := true) -> Dictionary:
 	var values := []
-	var description = null
 	for value: ConfigValue in get_values():
 		values.append(value.get_value())
-		if not one_description:
-			if description == null:
-				description = []
-			description.append(value.get_description())
-	
 	if not values:
 		return {}
 	
-	if one_description:
-		description = description_input.text
-	
 	return {
 		name_input.text: values,
-		"_desc": description
+		"_desc": get_description()
 	}
 
 func apply_json(json: Dictionary) -> void:

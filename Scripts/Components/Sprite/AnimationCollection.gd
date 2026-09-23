@@ -33,7 +33,7 @@ func clear() -> void:
 func get_animations() -> Array[AnimationBlock]:
 	var animations: Array[AnimationBlock] = []
 	for child: Node in animation_container.get_children():
-		if child is AnimationBlock:
+		if child is AnimationBlock and not child.is_queued_for_deletion():
 			animations.append(child)
 	return animations
 

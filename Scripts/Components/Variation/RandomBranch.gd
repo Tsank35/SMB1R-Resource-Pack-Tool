@@ -19,7 +19,7 @@ func add_choice(json := {}) -> void:
 func get_choices() -> Array[RandomChoice]:
 	var choices: Array[RandomChoice] = []
 	for child: Node in get_children():
-		if child is RandomChoice:
+		if child is RandomChoice and not child.is_queued_for_deletion():
 			choices.append(child)
 	return choices
 

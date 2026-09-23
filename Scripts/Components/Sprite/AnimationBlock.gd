@@ -33,7 +33,7 @@ func clear_frames() -> void:
 func get_frames() -> Array[AnimationFrame]:
 	var frames: Array[AnimationFrame] = []
 	for child: Node in frame_container.get_children():
-		if child is AnimationFrame:
+		if child is AnimationFrame and not child.is_queued_for_deletion():
 			frames.append(child)
 	return frames
 

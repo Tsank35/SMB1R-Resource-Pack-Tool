@@ -25,7 +25,7 @@ func clear() -> void:
 func get_properties() -> Array[SpriteProperty]:
 	var properties: Array[SpriteProperty] = []
 	for child: Node in property_container.get_children():
-		if child is SpriteProperty:
+		if child is SpriteProperty and not child.is_queued_for_deletion():
 			properties.append(child)
 	return properties
 
